@@ -3,6 +3,20 @@ Ethermint Denial-of-Service experiment
  
 A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
 
+## How to use
+
+`scripts/launch.py num-of-nodes` is a useful script for rapidly set up a Ethermint/Tendermint network.
+
+Usage:
+
+    python3 scripts/launch.py 4
+    
+However, it uses system commands such as `gnome-terminal`, so there are high chances that your platform cannot support it. Sorry. 
+
+I'll update the script to allow one node to call `bin/tendermint_evil`: that node will be our byzantine client.
+
+There will be also some scripts for benchmarking (in terms of e.g. transactions/block throughput) between zero byzantine and one byzantine.
+
 ## What is Tendermint
 Ethermint is built upon Tendermint... But [what is Tendermint](https://tendermint.readthedocs.io/en/master/introduction.html)?
 
