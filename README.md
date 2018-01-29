@@ -3,7 +3,7 @@ Ethermint Denial-of-Service experiment
  
 A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
 
-### What is Tendermint
+## What is Tendermint
 Ethermint is built upon Tendermint... But [what is Tendermint](https://tendermint.readthedocs.io/en/master/introduction.html) what is Tendermint?
 
 [Tendermint](https://tendermint.com/) is a software for Byzantine fault-tolerant (BFT) state machines replication, powered by blockchain-based consensus. It is **secure**, since allow to 1/3 of nodes to fail, and **consistent**, since every correct node agree on the same state of the application.
@@ -13,7 +13,7 @@ The two main component of Tendermint are:
 2. **Application BlockChain Interface** (ABCI): enables the transactions to be processes in any programming language
 
 
-#### How ABCI works: message types
+### How ABCI works: message types
 Tendermint Core interacts with the application via a socket protocol that satisfies ABCI. [Here](https://tendermint.readthedocs.io/en/master/introduction.html#intro-to-abci) you might find an enlighting example with the Bitcoin system.
 
 The message types exchanged by nodes are many. The more important are 3:
@@ -28,9 +28,6 @@ Tendermint Core creates three ABCI connections to the application:
 2. for run block proposals for the consensus engine;
 3. for querying the app state
 
-#### Consensus overview
-see [this image](https://tendermint.readthedocs.io/en/master/_images/consensus_logic.png) and [this](https://tendermint.readthedocs.io/en/master/introduction.html#consensus-overview)
-
 
 #### other message types:
 see [here](https://github.com/tendermint/abci#message-types)
@@ -39,6 +36,8 @@ TendermintCore sends the requests, and the ABCI application sends the responses.
 - Echo
 - Flush
 - Info
+> **LastBlockHeight** (int64): Latest block for which the app has called Commit
+>**LastBlockAppHash** ([]byte): Latest result of Commit
 - SetOption
 - InitChain
 - Query
@@ -47,3 +46,94 @@ TendermintCore sends the requests, and the ABCI application sends the responses.
 - DeliverTx
 - EndBlock
 - Commit
+
+### Blocks
+[Blocks](https://godoc.org/github.com/tendermint/tendermint/types#Block) are made of:
+
+- Header
+- Data
+- Last Commit
+
+The **[Header](https://godoc.org/github.com/tendermint/tendermint/types#Header)** contains :
+> - last block info
+> - prev block info 
+> - hashes of block data
+> - hashes from the app output from the prev block
+> - consensus info: the evidence
+
+The [Commit](https://godoc.org/github.com/tendermint/tendermint/types#Commit)
+> Set of [Votes](https://godoc.org/github.com/tendermint/tendermint/types#Vote)
+> 	mainly containing the **signature**, the **address** of the validator and other infos about block
+
+The [BlockID](https://godoc.org/github.com/tendermint/tendermint/types#BlockID):
+> **BlockHash**: hash of the block header
+> **[PartSetHeader](https://tendermint.readthedocs.io/en/master/specification/block-structure.html#partset)**: 
+>	- total number of pieces in a PartSet 
+> 	- the Merkle root hash of those pieces
+> see LibSwift
+> PartSet is used to split a byteslice of data into parts (pieces) for transmission. By splitting data into smaller parts and computing a Merkle root hash on the list, you can verify that a part is legitimately part of the complete data, and the part can be forwarded to other peers before all the parts are known. In short, it’s a fast way to securely propagate a large chunk of data (like a block) over a gossip network.
+
+
+### Consensus
+
+
+#### overview
+see [this image](https://tendermint.readthedocs.io/en/master/_images/consensus_logic.png) and [this](https://tendermint.readthedocs.io/en/master/introduction.html#consensus-overview)
+
+also this [schema](https://tendermint.readthedocs.io/en/master/_images/tm-transaction-flow.png) is helpful
+
+#### State machine
+At each height of the blockchain, a **round-based protocol** is run to determine the next block
+
+Steps: **NewHeight**, **Propose**, **Prevote**, **Precommit**, and **Commit**
+
+DEF **Round**: 
+> (Propose -> Prevote -> Precommit)
+
+Optimal scenario: 
+> NewHeight -> (Propose -> Prevote -> Precommit)+ -> Commit 
+
+Why things might go wrong?
+Examples:
+
+    - The designated proposer was not online.
+    - The block proposed by the designated proposer was not valid.
+    - The block proposed by the designated proposer did not propagate in time.
+    - The block proposed was valid, but +2/3 of prevotes for the proposed block were not received in time for enough validator nodes by the time they reached the Precommit step. Even though +2/3 of prevotes are necessary to progress to the next step, at least one validator may have voted <nil> or maliciously voted for something else.
+    - The block proposed was valid, and +2/3 of prevotes were received for enough nodes, but +2/3 of precommits for the proposed block were not received for enough validator nodes.
+
+#### Gossip
+[here](https://tendermint.readthedocs.io/en/master/specification/byzantine-consensus-algorithm.html#background-gossip) 
+
+- A node **MAY NOT HAVE** a corresponding validator private key, but it nevertheless **plays an active role in the consensus process** by relaying relevant meta-data, proposals, blocks, and votes to its peers.
+- **validator-node**:
+> - has the private keys of an active validator
+> -  is engaged in signing votes
+
+- **All nodes** (not just validator-nodes) have an **associated state** (the current height, round, and step) and work to make progress.
+
+`Connection` and `Channel`
+ **epidemic gossip protocol**
+ 
+#### Proposals
+- The **proposer** is chosen by a deterministic and non-choking round robin selection algorithm that selects proposers **in proportion to their voting power**. (see implementation)
+- A proposal is signed and published by the designated proposer at each round. 
+
+DEF **Proposal**:
+>  a block 
+> an optional latest `PoLC-Round < R` (proof-of-lock-change) which is included iff the proposer knows of one. This hints the network to allow nodes to unlock (when safe) to ensure the liveness property 
+
+
+
+
+## DoS
+Question: How a (byzantine) node can affect the consensus phase?
+Let's assume in the first istance the failure is **fail-silent**. This means that it sends no message in the network.
+Some important informations about the node are:
+
+- It is a validator node or not? If yes, which is its voting power?
+- How it is connected with other nodes?
+- Which are its peers? How many validators?
+
+
+
