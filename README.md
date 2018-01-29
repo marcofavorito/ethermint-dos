@@ -1,10 +1,10 @@
 # ethermint-dos
 Ethermint Denial-of-Service experiment
  
-A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
+A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
 
 ## What is Tendermint
-Ethermint is built upon Tendermint... But [what is Tendermint](https://tendermint.readthedocs.io/en/master/introduction.html) what is Tendermint?
+Ethermint is built upon Tendermint... But [what is Tendermint](https://tendermint.readthedocs.io/en/master/introduction.html)?
 
 [Tendermint](https://tendermint.com/) is a software for Byzantine fault-tolerant (BFT) state machines replication, powered by blockchain-based consensus. It is **secure**, since allow to 1/3 of nodes to fail, and **consistent**, since every correct node agree on the same state of the application.
 
@@ -75,9 +75,13 @@ The [BlockID](https://godoc.org/github.com/tendermint/tendermint/types#BlockID):
 
 
 ### Consensus
+[paper on Tendermint](https://tendermint.com/static/docs/tendermint.pdf) 
+- Description of the working assumptions for the consensus algorithm, in the light of [FLP impossbiility](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+> - Partial-synchrony
+> - all non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved
+>
 
-
-#### overview
+#### Overview
 see [this image](https://tendermint.readthedocs.io/en/master/_images/consensus_logic.png) and [this](https://tendermint.readthedocs.io/en/master/introduction.html#consensus-overview)
 
 also this [schema](https://tendermint.readthedocs.io/en/master/_images/tm-transaction-flow.png) is helpful
@@ -115,16 +119,39 @@ Examples:
 `Connection` and `Channel`
  **epidemic gossip protocol**
  
-#### Proposals
-- The **proposer** is chosen by a deterministic and non-choking round robin selection algorithm that selects proposers **in proportion to their voting power**. (see implementation)
+### Consensus Phases
+
+- Propose
+- Prevote
+- Precommit
+- Commit
+- NewHeight
+
+#### Propose
+- The **proposer** is chosen by a deterministic and non-choking round robin selection algorithm that selects proposers **in proportion to their voting power**. (see [implementation](https://github.com/tendermint/tendermint/blob/develop/types/validator_set.go))
 - A proposal is signed and published by the designated proposer at each round. 
 
+
 DEF **Proposal**:
->  a block 
-> an optional latest `PoLC-Round < R` (proof-of-lock-change) which is included iff the proposer knows of one. This hints the network to allow nodes to unlock (when safe) to ensure the liveness property 
+> - a block 
+> - an optional latest `PoLC-Round < R` (proof-of-lock-change) which is included iff the proposer knows of one. This hints the network to allow nodes to unlock (when safe) to ensure the **liveness property** 
 
+#### Prevote
+TODO
+#### Precommit
+TODO
+#### Commit
+TODO
+#### NewHeight
+TODO
 
+## What is Ethermint
+In short, it is an app that:
 
+- implements the logic of Ethereum
+- is ABCI-compliant
+
+All consensus stuff are managed by Tendermint Core. 
 
 ## DoS
 Question: How a (byzantine) node can affect the consensus phase?
@@ -135,5 +162,13 @@ Some important informations about the node are:
 - How it is connected with other nodes?
 - Which are its peers? How many validators?
 
+Some important informations (to keep in mind when considering a silent node):
+
+- Each round is longer than the previous round by a small fixed increment of time. This allows the network to eventually achieve consensus in a partially synchronous network.
+- Each round has a designated proposer chosen in round-robin fashion such that validators are chosen with frequency in proportion to their voting power
+- Propose phase:
+> - In the beginning of the Propose step the designated proposer for that round broadcasts a proposal to its peers via gossip.
+> - If the proposer is locked on a block from some prior round it proposes the locked block and includes a proof-of-lock in the proposal (more on that later).
+> - During the Propose step all nodes gossip the proposal to their neighboring peers.
 
 
