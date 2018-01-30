@@ -16,6 +16,9 @@ TESTNET_FOLDER = "mytestnet"
 ETHERMINT_FOLDER = ".ethermint"
 ETHERMINT_FLAGS = "--rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --rpcapi eth,net,web3,personal,admin"
 
+TENDERMINT_PATH="./bin/tendermint"
+TENDERMINT_EVIL_PATH="./bin/tendermint_evil"
+
 
 def new_tab(tab_name, delay, command):
     return "--tab --name '{tab_name}' -e 'bash -c \"echo Loading...; echo {command}; {command}; exec $SHELL\"'".format(
@@ -23,7 +26,7 @@ def new_tab(tab_name, delay, command):
 
 
 def tendermint_command(node_name, home, flags, address_flags):
-    return "tendermint node --home {home} {flags} {address_flags}".format(**locals())
+    return TENDERMINT_PATH + " node --home {home} {flags} {address_flags}".format(**locals())
 
 
 def tendermint_address_flags(rpc, p2p, seeds, proxy):
@@ -31,7 +34,7 @@ def tendermint_address_flags(rpc, p2p, seeds, proxy):
 
 
 def ethermint_init_command(home):
-    return "ethermint --datadir {home} init".format(**locals())
+    return "ethermint --datadir {home} unsafe_reset_all && ethermint --datadir {home} init".format(**locals())
 
 
 def ethermint_command(home, flags, address_flags):
@@ -99,10 +102,12 @@ def main():
 
     os.system("rm -rf %s" % TESTNET_FOLDER)
     os.system("rm -rf %s*" % ETHERMINT_FOLDER)
-    os.system("tendermint testnet --dir %s --n %d" % (TESTNET_FOLDER, N))
+    os.system(TENDERMINT_PATH + " testnet --dir %s --n %d" % (TESTNET_FOLDER, N))
     os.system("gnome-terminal " + TENDERMINT_TABS_COMMAND)
     os.system("gnome-terminal " + ETHERMINT_TABS_COMMAND)
 
+    os.system("sleep 10")
+    os.system("gnome-terminal -e './scripts/geth-script-loader.sh http://localhost:%s" % BASE_RCP_PORT_ETH + " ./scripts/geth-transactions.js'")
 
 if __name__ == '__main__':
     main()
