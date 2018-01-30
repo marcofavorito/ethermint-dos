@@ -3,6 +3,11 @@ Ethermint Denial-of-Service experiment
  
 A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
 
+- [How to use](https://github.com/MarcoFavorito/ethermint-dos#how-to-use)
+- [What is Tendermint](https://github.com/MarcoFavorito/ethermint-dos#what-is-tendermint)
+- [What is Ethermint](https://github.com/MarcoFavorito/ethermint-dos#what-is-ethermint)
+- [DoS](https://github.com/MarcoFavorito/ethermint-dos#how-to-use#dos)
+
 ## How to use
 
 `scripts/launch.py num-of-nodes` is a useful script for rapidly set up a Ethermint/Tendermint network.
@@ -165,7 +170,7 @@ In short, it is an app that:
 - implements the logic of Ethereum
 - is ABCI-compliant
 
-All consensus stuff are managed by Tendermint Core. 
+All consensus stuff is managed by Tendermint Core. 
 
 ## DoS
 Question: How a (byzantine) node can affect the consensus phase?
