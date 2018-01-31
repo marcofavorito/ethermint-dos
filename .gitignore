@@ -4,8 +4,8 @@ mytestnet/
 .tendermint
 .idea/
 *.xcf
-*.png
-
+*.svg
+*.old
 ### Python
 
 # Byte-compiled / optimized / DLL files

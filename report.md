@@ -36,7 +36,7 @@ Hence, consistency is preserved while availability is given up. Tendermint can b
 
 Summarizing the message passing schema:
 
-![](tendermint-messages.svg)
+![](tendermint-messages.png)
 
 Follows some logs of `tendermint` execution to prove the depitched behavior.
 
