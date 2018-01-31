@@ -11,6 +11,8 @@ BASE_APP_PORT = 46608
 BASE_RCP_PORT_ETH = 8505
 BASE_WS_PORT_ETH = 8506
 FLAGS = "--consensus.create_empty_blocks=false --log_level state:info,*:error"
+# FLAGS = "--consensus.create_empty_blocks=false --log_level state:info,*:error"
+
 TESTNET_FOLDER = "mytestnet"
 
 ETHERMINT_FOLDER = ".ethermint"
@@ -58,6 +60,7 @@ def ethermint_address_flags(abci_addr, tendermint_addr, rpc_port, ws_port):
 
 def main():
     N = int(sys.argv[1])
+
 
     RPC_PORTS = [BASE_RPC_PORT + i * 10 for i in range(N)]
     P2P_PORTS = [BASE_P2P_PORT + i * 10 for i in range(N)]

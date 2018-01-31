@@ -3,6 +3,8 @@ mytestnet/
 .ethermint*
 .tendermint
 .idea/
+*.xcf
+*.png
 
 ### Python
 
