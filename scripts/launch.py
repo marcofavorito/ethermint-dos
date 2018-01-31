@@ -14,7 +14,7 @@ FLAGS = "--consensus.create_empty_blocks=false --log_level state:info,*:error"
 TESTNET_FOLDER = "mytestnet"
 
 ETHERMINT_FOLDER = ".ethermint"
-ETHERMINT_FLAGS = "--rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --rpcapi eth,net,web3,personal,admin"
+ETHERMINT_FLAGS = "--rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --rpcapi eth,net,web3,personal,admin --gasprice \"1\""
 
 TENDERMINT_PATH="./bin/tendermint"
 TENDERMINT_EVIL_PATH="./bin/tendermint_evil"
@@ -106,8 +106,8 @@ def main():
     os.system("gnome-terminal " + TENDERMINT_TABS_COMMAND)
     os.system("gnome-terminal " + ETHERMINT_TABS_COMMAND)
 
-    os.system("sleep 10")
-    os.system("gnome-terminal -e './scripts/geth-script-loader.sh http://localhost:%s" % BASE_RCP_PORT_ETH + " ./scripts/geth-transactions.js'")
+    os.system("sleep 12")
+    os.system("gnome-terminal -e 'bash -c \"./scripts/geth-script-loader.sh http://localhost:%s" % BASE_RCP_PORT_ETH + " ./scripts/geth-transactions.js; exec $SHELL\"'")
 
 if __name__ == '__main__':
     main()
