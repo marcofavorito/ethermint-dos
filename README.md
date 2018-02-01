@@ -200,5 +200,5 @@ Some important informations (to keep in mind when considering a silent node):
 > - In the beginning of the Propose step the designated proposer for that round broadcasts a proposal to its peers via gossip.
 > - If the proposer is locked on a block from some prior round it proposes the locked block and includes a proof-of-lock in the proposal (more on that later).
 > - During the Propose step all nodes gossip the proposal to their neighboring peers.
-
+- [PartSet](https://tendermint.readthedocs.io/en/master/specification/block-structure.html#partset)
 
