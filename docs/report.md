@@ -6,7 +6,7 @@ Here I try to make the same analysis described [here](https://eprints.soton.ac.u
 4. DoS client
 
 
-## CAP Theorem and Tendermint
+## 1) Tendermint and the CAP theorem
 
 Now we briefly sumarize what the CAP properties (namely, Consistency, Availability and Partition Tolerance) mean in blockchain applications:
 
@@ -36,9 +36,9 @@ Hence, consistency is preserved while availability is given up. Tendermint can b
 
 Summarizing the message passing schema:
 
-![](tendermint-messages.png)
+![](../tendermint-messages.png)
 
-Follows some logs of `tendermint` execution to prove the depitched behavior.
+[Here](./logs.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 
 ## Tendermint consensus algorithm
 

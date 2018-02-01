@@ -1,6 +1,7 @@
 var addr_1;
 var addr_2;
-var NUM_TX = 10E+10;
+// var NUM_TX = 10E+10;
+var NUM_TX = 0;
 
 var main = function() {
     addr_1 = eth.accounts[0];

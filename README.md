@@ -3,24 +3,35 @@ Ethermint Denial-of-Service experiment
  
 A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
 
-- [How to use](https://github.com/MarcoFavorito/ethermint-dos#how-to-use)
-- [What is Tendermint](https://github.com/MarcoFavorito/ethermint-dos#what-is-tendermint)
-- [What is Ethermint](https://github.com/MarcoFavorito/ethermint-dos#what-is-ethermint)
-- [DoS](https://github.com/MarcoFavorito/ethermint-dos#how-to-use#dos)
+[Here](docs/report.md) you will find the report.
+
+- [How to use](#how-to-use)
+- [What is Tendermint](#what-is-tendermint)
+- [What is Ethermint](#what-is-ethermint)
+- [DoS](#dos)
+
+
 
 ## How to use
 
-`scripts/launch.py num-of-nodes` is a useful script for rapidly set up a Ethermint/Tendermint network.
+`ethermint-dos.py` is a useful script for rapidly set up a Ethermint/Tendermint network.
 
 Usage:
 
-    python3 scripts/launch.py 4
+    python3 ethermint-dos.py -h
     
 However, it uses system commands such as `gnome-terminal`, so there are high chances that your platform cannot support it. Sorry. 
 
 I'll update the script to allow one node to call `bin/tendermint_evil`: that node will be our byzantine client.
 
 There will be also some scripts for benchmarking (in terms of e.g. transactions/block throughput) between zero byzantine and one byzantine.
+
+**Notice**: when playing with the script, you might find the following commands quite useful:
+
+    for pid in $(ps -ef | grep "tendermint" | awk '{print $2}'); do sudo kill -9 $pid; done
+    for pid in $(ps -ef | grep "ethermint" | awk '{print $2}'); do sudo kill -9 $pid; done
+
+ 
 
 ## What is Tendermint
 Ethermint is built upon Tendermint... But [what is Tendermint](https://tendermint.readthedocs.io/en/master/introduction.html)?

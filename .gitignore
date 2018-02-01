@@ -6,6 +6,8 @@ mytestnet/
 *.xcf
 *.svg
 *.old
+logs/
+
 ### Python
 
 # Byte-compiled / optimized / DLL files
