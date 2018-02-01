@@ -6,7 +6,7 @@ mytestnet/
 *.xcf
 *.svg
 *.old
-logs/
+*.log
 
 ### Python
 

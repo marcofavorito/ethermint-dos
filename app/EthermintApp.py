@@ -26,10 +26,10 @@ class EthermintApp(object):
 
 
     def get_init_command(self):
-        return "ethermint --datadir {datadir} unsafe_reset_all && ethermint --datadir {datadir} init".format(**self.__dict__)
+        return ETHERMINT_PATH + " --datadir {datadir} unsafe_reset_all && ethermint --datadir {datadir} init".format(**self.__dict__)
 
     def get_app_command(self):
-        return "ethermint --datadir %s %s %s %s" % \
+        return ETHERMINT_PATH + " --datadir %s %s %s %s" % \
                (self.datadir, self.get_flags(), self.get_address_flags(), "2>&1 | tee %s/log-ethermint-node%s.log" % (LOGS_FOLDER, self.id) if self.save_logs else "")
 
     def get_flags(self):

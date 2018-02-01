@@ -1,17 +1,33 @@
 # ethermint-dos
 Ethermint Denial-of-Service experiment
  
-A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of ethermint](https://github.com/MarcoFavorito/ethermint) for the modified source code.
+A university project in which I test how a byzantine client in a Ethermint network affects the consensus phases. Please refer to [my version of tendermint](https://github.com/MarcoFavorito/tendermint) for the modified source code.
 
 [Here](docs/report.md) you will find the report.
 
+- [Repo structure](#repo-structure)
 - [How to use](#how-to-use)
 - [What is Tendermint](#what-is-tendermint)
 - [What is Ethermint](#what-is-ethermint)
 - [DoS](#dos)
 
 
+## Repo structure
 
+- `app/`: Python code for the experiment execution. Its entry point is `ethermint-dos.py`;
+- `bin/`: Binaries for the experiment, namely:
+    - `tendermint` (v0.14.0): Tendermint Core binary.
+    - `tendermint_evil`: [my fork](https://github.com/MarcoFavorito/tendermint) of `tendermint` v0.14.0;
+    - `ethermint` (v0.5.3): the Ethermint ABCI app, which interacts with Tendermint for the consensus and implements the logic of Ethereum.
+    
+- `docs/`: contains:
+    - `report.md`: description of the project purposes;
+    - `logs.md`: step-by-step report of a Tendermint network activity;
+- `res/`: some files referenced from the docs;
+- `scripts/` contains useful scripts to install the dependencies. 
+    - `clean.sh`: remove working folders after the execution of `ethermint-dos.py`;
+    - `get_binaries.sh` allows you to update the `bin/` content;
+    - `geth-script-loader.sh` is an utility script for inject commands into the JavaScript console;
 ## How to use
 
 `ethermint-dos.py` is a useful script for rapidly set up a Ethermint/Tendermint network.

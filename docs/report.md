@@ -36,7 +36,7 @@ Hence, consistency is preserved while availability is given up. Tendermint can b
 
 Summarizing the message passing schema:
 
-![](../tendermint-messages.png)
+![](../res/tendermint-messages.png)
 
 [Here](./logs.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 

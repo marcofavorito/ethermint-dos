@@ -13,6 +13,7 @@ parser.add_argument('num_of_nodes', type=int, help='The number of nodes in the n
 parser.add_argument('num_of_evils', type=int, nargs='?', default=0, help='The number of evil nodes in the network (default: 0)')
 parser.add_argument('--verbose', dest='verbose', action='store_const', const=True, default=False, help="enable the maximum log volume.")
 parser.add_argument('--save_logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
+parser.add_argument('--stress_test', type=int,  nargs='?', metavar='TX_NUM', default=0, dest='stress_test', help="After the network setup, send TX_NUM transactions to stress the network (default: TX_NUM=1)")
 
 args = parser.parse_args()
 
@@ -76,8 +77,12 @@ def main():
     os.system("gnome-terminal " + TENDERMINT_TABS_COMMAND)
     os.system("gnome-terminal " + ETHERMINT_TABS_COMMAND)
 
-    os.system("sleep 12")
-    os.system("gnome-terminal -e 'bash -c \"./scripts/geth-script-loader.sh http://localhost:%s" % BASE_RCP_PORT_ETH + " ./scripts/geth-transactions.js; exec $SHELL\"'")
+    if args.stress_test > 0:
+        os.system("echo 'Wait for the network setup'")
+        os.system("sleep 12")
+        os.system("echo 'Start sending transactions...'")
+        os.system("gnome-terminal -e 'bash -c \"./scripts/geth-script-loader.sh " + '.ethermint0' + " " + "./scripts/geth-transactions.js " + str(args.stress_test) + "; exec $SHELL\"'")
+
 
 if __name__ == '__main__':
     main()
