@@ -11,7 +11,8 @@ class EthermintApp(object):
                  ws_port,
                  rpcapi="eth,net,web3,personal,admin",
                  verbose=False,
-                 save_logs=False
+                 save_logs=False,
+                 path=ETHERMINT_PATH
                  ):
 
         self.id = id
@@ -23,13 +24,14 @@ class EthermintApp(object):
         self.verbosity = 6 if verbose else 3
         self.datadir=ETHERMINT_FOLDER + str(id)
         self.save_logs=save_logs
+        self.path=path
 
 
     def get_init_command(self):
-        return ETHERMINT_PATH + " --datadir {datadir} unsafe_reset_all && ethermint --datadir {datadir} init".format(**self.__dict__)
+        return self.path + " --datadir {datadir} unsafe_reset_all && ethermint --datadir {datadir} init".format(**self.__dict__)
 
     def get_app_command(self):
-        return ETHERMINT_PATH + " --datadir %s %s %s %s" % \
+        return self.path + " --datadir %s %s %s %s" % \
                (self.datadir, self.get_flags(), self.get_address_flags(), "2>&1 | tee %s/log-ethermint-node%s.log" % (LOGS_FOLDER, self.id) if self.save_logs else "")
 
     def get_flags(self):

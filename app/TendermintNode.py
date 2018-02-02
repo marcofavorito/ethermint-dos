@@ -13,7 +13,7 @@ class TendermintNode(object):
                  path=TENDERMINT_PATH,
                  testnet_folder=TESTNET_FOLDER,
                  save_logs=False,
-                 verbose=False
+                 verbose=False,
                  ):
 
         self.id = id

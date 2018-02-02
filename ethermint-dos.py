@@ -3,6 +3,7 @@ import sys
 
 import argparse
 
+from app.ABCIExampleApp import ABCIExampleApp
 from app.EthermintApp import EthermintApp
 from app.TendermintNode import TendermintNode
 from app.constants import *
@@ -11,6 +12,7 @@ from app.utils import *
 parser = argparse.ArgumentParser(description='Run a local private Tendermint/Ethermint network with some byzantine client.')
 parser.add_argument('num_of_nodes', type=int, help='The number of nodes in the network')
 parser.add_argument('num_of_evils', type=int, nargs='?', default=0, help='The number of evil nodes in the network (default: 0)')
+parser.add_argument('--dummy', dest='dummy', action='store_const', const=True, default=False, help="Use the 'dummy' ABCI application")
 parser.add_argument('--verbose', dest='verbose', action='store_const', const=True, default=False, help="enable the maximum log volume.")
 parser.add_argument('--save_logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
 parser.add_argument('--stress_test', type=int,  nargs='?', metavar='TX_NUM', default=0, dest='stress_test', help="After the network setup, send TX_NUM transactions to stress the network (default: TX_NUM=1)")
@@ -46,13 +48,18 @@ def main():
                                        TCP_ALL_IPS + ":" + str(RPC_PORTS[i]),
                                        TCP_ALL_IPS + ":" + str(P2P_PORTS[i]),
                                        SEEDS,
-                                       TCP_LOCALHOST + ":" + str(APP_PORTS[i]),
+                                       TCP_LOCALHOST + ":" + str(APP_PORTS[i]) if not args.dummy else "dummy",
                                        verbose=args.verbose,
-                                       save_logs=args.save_logs
+                                       save_logs=args.save_logs,
                                        )
                         for i in range(N)]
+    TENDERMINT_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
+                                                tendermint_nodes[i].get_node_command())
+                                        for i in range(N)])
+    print(TENDERMINT_TABS_COMMAND)
 
-    ethermint_apps = [EthermintApp(i,
+    if not args.dummy:
+        ethermint_apps = [EthermintApp(i,
                                    TCP_ALL_IPS + ":" + str(APP_PORTS[i]),
                                    TCP_LOCALHOST + ":" + str(RPC_PORTS[i]),
                                    ETH_RCP_PORTS[i],
@@ -62,20 +69,16 @@ def main():
                                    )
                       for i in range(N)]
 
-    TENDERMINT_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
-                                                tendermint_nodes[i].get_node_command())
-                                        for i in range(N)])
-
-    ETHERMINT_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
+        ABCI_APP_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
                                                ethermint_apps[i].get_init_command() + ";" + ethermint_apps[i].get_app_command())
                                        for i in range(N)])
-    print(TENDERMINT_TABS_COMMAND)
-    print(ETHERMINT_TABS_COMMAND)
 
+
+        print(ABCI_APP_TABS_COMMAND)
+        os.system("gnome-terminal " + ABCI_APP_TABS_COMMAND)
 
     os.system(TENDERMINT_PATH + " testnet --dir %s --n %d" % (TESTNET_FOLDER, N))
     os.system("gnome-terminal " + TENDERMINT_TABS_COMMAND)
-    os.system("gnome-terminal " + ETHERMINT_TABS_COMMAND)
 
     if args.stress_test > 0:
         os.system("echo 'Wait for the network setup'")
