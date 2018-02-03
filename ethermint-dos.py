@@ -61,6 +61,7 @@ def main():
     TENDERMINT_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
                                                 tendermint_nodes[i].get_node_command())
                                         for i in range(N)])
+
     print("\n".join(TENDERMINT_TABS_COMMAND.split("--tab")))
 
     if not args.dummy:

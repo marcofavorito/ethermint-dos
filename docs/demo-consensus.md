@@ -1,13 +1,13 @@
 The experiment has been executed by using:
 
-    python3 ethermint-dos.py 4 --verbose
+    python3 ethermint-dos.py 4 --verbosity 1
     
-Notice the `--verbose` flag, which allows to audit in very detail all the activities under-the-hood.
+Notice the `--verbosity` flag, which allows to audit in very detail all the activities under-the-hood.
 
 The network started to validate empty blocks.
 Then I simulate an Ethereum transaction through the Ethermint service, using `geth`. After the commit of that tx, I manually stopped the network. 
 
-Files named as `docs/log-nodeX` contains the Tendermint logs for node `X`.
+All the log files are in `res/demo-consensus-logs`, which contains the Tendermint logs for every node.
 
 ## Experiment report step-by-step
 
@@ -40,18 +40,18 @@ Notice: the log lines reported in the following subsection are taken from `./log
 ### 1) Empty block
 
 #### New Height
-- [Node 0](../res/log-tendermint-node0#L56)
-- [Node 1](../res/log-tendermint-node1#L51)
-- [Node 2](../res/log-tendermint-node2#L54)
-- [Node 3](../res/log-tendermint-node3#L63)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L56)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L51)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L54)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L63)
 
 Nodes started the algorithm to validate a new block (at new height).
 
 #### Propose
-- [Node 0](../res/log-tendermint-node0#L57)
-- [Node 1](../res/log-tendermint-node1#L52)
-- [Node 2](../res/log-tendermint-node2#L55)
-- [Node 3](../res/log-tendermint-node3#L64)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L57)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L52)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L55)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L64)
 
 All nodes enters in the `Propose` phase.
 
@@ -74,10 +74,10 @@ Upon a node receive the block, they enter into the next phase:
 
 ### Prevote
 
-- [Node 0](../res/log-tendermint-node0#L61)
-- [Node 1](../res/log-tendermint-node1#L55)
-- [Node 2](../res/log-tendermint-node2#L64)
-- [Node 3](../res/log-tendermint-node3#L67)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L61)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L55)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L64)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L67)
 
 Just after the block is received, every node enters into `Prevote` phase:
 
@@ -106,18 +106,19 @@ Two observations:
     
     I[02-01|10:16:01.124] enterPrecommit(1/0). Current: 1/0/RoundStepPrevote module=consensus 
 
+
 Notice that 
 
-![](https://latex.codecogs.com/gif.download?%5C%23prevotes%20%3D%203%20%3E%20%5Cfrac%7B2%7D%7B3%7D%20%5Ccdot%20%5C%23number%5C_of%5C_nodes%20%3D%20%5Cfrac%7B2%7D%7B3%7D%20%5Ccdot%204)
-
+    #prevotes = 3 > 2/3 * #nodes = 2/3 * 4
+    
 Since in our example every node has the same voting power.
 
 ### Precommit
 
-- [Node 0](../res/log-tendermint-node0#L67)
-- [Node 1](../res/log-tendermint-node1#L71)
-- [Node 2](../res/log-tendermint-node2#L70)
-- [Node 3](../res/log-tendermint-node3#L75)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L67)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L71)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L70)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L75)
 
 Here you might observe the interesting Tendermint locking mechanism:  
 
@@ -140,10 +141,10 @@ As soon as more than ![](https://latex.codecogs.com/gif.latex?%5Cfrac%7B2%7D%7B3
     I[02-01|10:16:02.115] enterCommit(1/0). Current: 1/0/RoundStepPrecommit module=consensus 
 
 ### Commit
-- [Node 0](../res/log-tendermint-node0#L84)
-- [Node 1](../res/log-tendermint-node1#L84)
-- [Node 2](../res/log-tendermint-node2#L85)
-- [Node 3](../res/log-tendermint-node3#L86)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L84)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L84)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L85)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L86)
 
 The commit of the block is finalized:
 
@@ -238,10 +239,10 @@ Go to `Propose(H,0)`:
 
 ## 2) Block with one transaction
 The consensus phases for this block start at the following lines:
-- [Node 0](../res/log-tendermint-node0#L210)
-- [Node 1](../res/log-tendermint-node1#L208)
-- [Node 2](../res/log-tendermint-node2#L209)
-- [Node 3](../res/log-tendermint-node3#L209)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L210)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L208)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L209)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L209)
 
 
 After some block, after block at height 3 is committed, the system receives a new transaction.
@@ -276,13 +277,13 @@ and detected by the other nodes:
     I[02-01|10:16:09.004] Added good transaction module=mempool tx="\ufffdh\ufffd\ufffd\u00040\ufffd4\u0000\ufffd\u0001_\ufffd\ufffd\u0015\ufffdX\ufffdd\ufffd\ufffd\ufffd\ufffdrg\r\u0013\ufffd\ufffd\ufffd\ufffd\ufffdꚃ\u000fB@\ufffdA\ufffd\ufffd\ufffdjx\ufffdv\ufffd85x\ufffd\ufffdu\ufffd\ufffd\ufffdKJ\ufffd\ufffd%,t\ufffdMAn\ufffd.\ufffd\ufffd\u001a\ufffdx\ufffd\ufffd]\\E\t\u0004d\ufffd\ufffdrf\ufffd#~\u001bR\ufffd*\ufffd@\ufffd$\ufffd\ufffdýQ3\\m" res="&{CheckTx:Error code (0): }"
 
 Follow the links to the lines:
-- [Node 0](../res/log-tendermint-node0#L162)
-- [Node 1](../res/log-tendermint-node1#L163)
-- [Node 2](../res/log-tendermint-node2#L167)
-- [Node 3](../res/log-tendermint-node3#L169)
+- [Node 0](../res/demo-consensus/log-tendermint-node0#L162)
+- [Node 1](../res/demo-consensus/log-tendermint-node1#L163)
+- [Node 2](../res/demo-consensus/log-tendermint-node2#L167)
+- [Node 3](../res/demo-consensus/log-tendermint-node3#L169)
 
 
-The main differences are about [the block data](../res/log-tendermint-node0#L228):
+The main differences are about [the block data](../res/demo-consensus/log-tendermint-node0#L228):
 
     I[02-01|10:16:14.679] Finalizing commit of block with 1 txs        module=consensus height=4 hash=8E361D1FBB827F4EDBD2C7D9F4B0E0FAF7514001 root=4B839CE019F4D1165EB57F7BF08A2299CBC7318E4342DF6FEA10A7DFED2FAA99
     I[02-01|10:16:14.680] Block{

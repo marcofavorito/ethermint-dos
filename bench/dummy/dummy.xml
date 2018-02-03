@@ -8,10 +8,13 @@
 
   <servers>
     <server host="localhost" port="46607" type="tcp"/>
-    <server host="localhost" port="466176" type="tcp"/>
+    <server host="localhost" port="46617" type="tcp"/>
     <server host="localhost" port="46627" type="tcp"/>
-    <!--NOTICE: This node is byzantine when you run the evil network-->
-    <server host="localhost" port="46637" type="tcp"/>
+    <!--
+    NOTICE: This node is byzantine when you run the evil network
+      Depending on the version of Tendermint Evil, it might make no sense to send request to it
+    -->
+    <!--<server host="localhost" port="46637" type="tcp"/>-->
   </servers>
 
   <load>
