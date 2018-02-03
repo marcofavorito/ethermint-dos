@@ -16,8 +16,9 @@ var main = function(test_tx_num) {
 
     for (var i = 0; i<test_tx_num; i++){
         console.log("tx id: " + i);
-        curTime = Date.now();
+            curTime = Date.now();
         hash = transaction(addr_1, addr_2, 0.0000000001);
+        console.log(hash);
         transactions[i]={"submit_time": curTime, "hash":hash};
     }
 
@@ -29,7 +30,7 @@ var main = function(test_tx_num) {
 
 
 var transaction = function(sender, receiver, amount){
-    console.log( sender + " => " + receiver + ", " + amount + " ether");
+    // console.log( sender + " => " + receiver + ", " + amount + " ether");
     return eth.sendTransaction({from:sender, to:receiver, value: web3.toWei(amount, "ether")})
 }
 

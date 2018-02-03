@@ -40,7 +40,7 @@ Summarizing the message passing schema:
 
 [Here](./logs.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 
-## Tendermint consensus algorithm
+### Tendermint consensus algorithm
 
 [paper on Tendermint](https://tendermint.com/static/docs/tendermint.pdf) 
 - Description of the working assumptions for the consensus algorithm, in the light of [FLP impossbiility](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
@@ -63,13 +63,46 @@ A _Round_ is:
 Optimal scenario: 
 > NewHeight -> (Propose -> Prevote -> Precommit)+ -> Commit 
 
-
-
-
 some references:
 [2] (4.2.2 Votes), in which says that:
 > ... after the proposal, a node is
 waiting for votes (or a local timeout) to progress. 
+
+
+##2) Performance analysis
+
+### How to
+The following instructions require `tsung` to be installed.
+- [Official website](http://tsung.erlang-projects.org/)
+- [useful post on Tsung](https://engineering.helpshift.com/2014/tsung/)
+   
+In one terminal, run:
+
+    python3 ethermint-dos.py 4 --dummy
+    
+In another terminal, run:
+
+    tsung -f bench/dummy.xml start
+
+It prompts you a `ssh-askpass`. The session is associated to a log directory number (something like `20180202-2241`)
+
+If you want to see progresses, run:
+
+     tail -f $HOME.tsung/log/LOG_DIRECTORY/tsung.log 
+
+where `$LOG_DIRECTORY` is the number shown before.
+
+Once the execution ends, type:
+
+    rm output -Rf
+    mkdir output && cd output
+    /usr/lib/tsung/bin/tsung_stats.pl --stats $HOME/.tsung/log/$LOG_DIRECTORY/tsung.log
+    firefox graph.html
+    
+Replace `firefox` with your favorite browser.
+    
+### Results
+
 
 
 ## References

@@ -14,6 +14,7 @@ parser.add_argument('num_of_nodes', type=int, help='The number of nodes in the n
 parser.add_argument('num_of_evils', type=int, nargs='?', default=0, help='The number of evil nodes in the network (default: 0)')
 parser.add_argument('--dummy', dest='dummy', action='store_const', const=True, default=False, help="Use the 'dummy' ABCI application")
 parser.add_argument('--verbose', dest='verbose', action='store_const', const=True, default=False, help="enable the maximum log volume.")
+parser.add_argument('--create_empty_blocks', dest='create_empty_blocks', action='store_const', const=True, default=False, help="Enable creation of empty blocks (works only for --dummy app).")
 parser.add_argument('--save_logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
 parser.add_argument('--stress_test', type=int,  nargs='?', metavar='TX_NUM', default=0, dest='stress_test', help="After the network setup, send TX_NUM transactions to stress the network (default: TX_NUM=1)")
 
@@ -51,8 +52,10 @@ def main():
                                        TCP_LOCALHOST + ":" + str(APP_PORTS[i]) if not args.dummy else "dummy",
                                        verbose=args.verbose,
                                        save_logs=args.save_logs,
+                                       is_evil=True if i>= N-args.num_of_evils else False
                                        )
                         for i in range(N)]
+
     TENDERMINT_TABS_COMMAND = " ".join([new_tab("node_%d" % i, "Loading node %d..." % i,
                                                 tendermint_nodes[i].get_node_command())
                                         for i in range(N)])

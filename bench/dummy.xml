@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tsung SYSTEM "/usr/share/tsung/tsung-1.0.dtd" []>
+<tsung loglevel="warning">
+
+  <clients>
+    <client host="localhost" cpu="2" maxusers="30000000"/>
+  </clients>
+
+  <servers>
+    <server host="localhost" port="46606" type="tcp"/>
+  </servers>
+
+  <load>
+    <arrivalphase phase="1" duration="1" unit="minute">
+      <users arrivalrate="100" unit="second"/>
+    </arrivalphase>
+  </load>
+
+  <sessions>
+  <session name="app_event" weight="9" type="ts_http">
+    <setdynvars sourcetype="random_string" length="20">
+        <var name="randstring"/>
+    </setdynvars>
+    <request subst="true">
+      <http url='/broadcast_tx_commit?tx="%%_randstring%%"'
+         method="GET"
+        />
+    </request>
+  </session>
+</sessions>
+
+</tsung>
