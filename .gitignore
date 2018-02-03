@@ -7,6 +7,10 @@ mytestnet/
 *.svg
 *.old
 *.log
+*.temp
+bench/dummy/evil/*
+bench/dummy/graphs/*
+bench/dummy/normal/*
 
 ### Python
 

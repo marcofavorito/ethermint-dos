@@ -15,11 +15,11 @@ A university project in which I test how a byzantine client in a Ethermint netwo
 ## Repo structure
 
 - `app/`: Python code for the experiment execution. Its entry point is `ethermint-dos.py`;
+- `bench/`: scripts for benchmarking various network configurations (i.e. with and without byzantine nodes);
 - `bin/`: Binaries for the experiment, namely:
-    - `tendermint` (v0.14.0): Tendermint Core binary.
-    - `tendermint_evil`: [my fork](https://github.com/MarcoFavorito/tendermint) of `tendermint` v0.14.0;
+    - `tendermint` (v0.12.1): Tendermint Core binary.
+    - `tendermint_evil`: [my fork](https://github.com/MarcoFavorito/tendermint) of `tendermint` (v0.12.1);
     - `ethermint` (v0.5.3): the Ethermint ABCI app, which interacts with Tendermint for the consensus and implements the logic of Ethereum.
-    
 - `docs/`: contains:
     - `report.md`: description of the project purposes;
     - `logs.md`: step-by-step report of a Tendermint network activity;

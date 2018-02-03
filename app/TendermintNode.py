@@ -13,7 +13,7 @@ class TendermintNode(object):
                  path=TENDERMINT_PATH,
                  testnet_folder=TESTNET_FOLDER,
                  save_logs=False,
-                 verbose=False,
+                 verbosity=0,
                  is_evil=False
                  ):
 
@@ -23,7 +23,7 @@ class TendermintNode(object):
         self.p2p_seeds = p2p_seeds
         self.proxy = proxy
         self.create_empty_blocks = 'true' if create_empty_blocks else 'false'
-        self.log_level = '*:debug' if verbose else 'state:info,*:error'
+        self.log_level = '*:debug' if verbosity==2 else '*:info' if verbosity==1 else 'state:info,*:error'
         self.path = path
         self.testnet_folder = testnet_folder
         self.save_logs=save_logs

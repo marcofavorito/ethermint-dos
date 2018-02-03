@@ -10,7 +10,7 @@ class EthermintApp(object):
                  rpc_port,
                  ws_port,
                  rpcapi="eth,net,web3,personal,admin",
-                 verbose=False,
+                 verbosity=False,
                  save_logs=False,
                  path=ETHERMINT_PATH
                  ):
@@ -21,7 +21,7 @@ class EthermintApp(object):
         self.rpc_port = rpc_port
         self.ws_port = ws_port
         self.rpcapi = rpcapi
-        self.verbosity = 6 if verbose else 3
+        self.verbosity = 6 if verbosity==2 else 6 if verbosity==1 else 3
         self.datadir=ETHERMINT_FOLDER + str(id)
         self.save_logs=save_logs
         self.path=path

@@ -75,14 +75,14 @@ waiting for votes (or a local timeout) to progress.
 The following instructions require `tsung` to be installed.
 - [Official website](http://tsung.erlang-projects.org/)
 - [useful post on Tsung](https://engineering.helpshift.com/2014/tsung/)
-   
+
 In one terminal, run:
 
     python3 ethermint-dos.py 4 --dummy
     
 In another terminal, run:
 
-    tsung -f bench/dummy.xml start
+    tsung -f bench/dummy/dummy.xml start
 
 It prompts you a `ssh-askpass`. The session is associated to a log directory number (something like `20180202-2241`)
 
