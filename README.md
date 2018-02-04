@@ -11,6 +11,7 @@ A university project in which I test how a byzantine client in a Ethermint netwo
 - [What is Ethermint](#what-is-ethermint)
 - [DoS](#dos)
 
+The platform used is `Ubuntu 16.04.3 LTS`.
 
 ## Repo structure
 

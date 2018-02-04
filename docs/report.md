@@ -41,6 +41,35 @@ Summarizing the message passing schema:
 [Here](demo-consensus.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 
 
+### Tendermint consensus algorithm
+Here some more information about the Tendermint consensus algorithm.
+ 
+[paper on Tendermint](https://tendermint.com/static/docs/tendermint.pdf)
+- Description of the working assumptions for the consensus algorithm, in the light of [FLP impossbiility](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+> - Partial-synchrony
+> - all non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved
+>
+
+#### Consensus Phases
+There are 3 phases + 2 special phases (Commit and NewHeight):
+
+- Propose
+- Prevote
+- Precommit
+- Commit
+- NewHeight
+
+A _Round_ is:
+> (Propose -> Prevote -> Precommit)
+
+Optimal scenario:
+> NewHeight -> (Propose -> Prevote -> Precommit)+ -> Commit
+
+some references:
+[2] (4.2.2 Votes), in which says that:
+> ... after the proposal, a node is
+waiting for votes (or a local timeout) to progress.
+
 ## 2) Performance analysis
 
 ### How to
