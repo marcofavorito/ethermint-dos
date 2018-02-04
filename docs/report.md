@@ -41,7 +41,7 @@ Summarizing the message passing schema:
 [Here](demo-consensus.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 
 
-##2) Performance analysis
+## 2) Performance analysis
 
 ### How to
 The following instructions require `tsung` to be installed.
