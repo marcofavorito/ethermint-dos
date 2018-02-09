@@ -1,0 +1,232 @@
+I[02-03|21:43:37.614] Starting multiAppConn                        module=proxy impl=multiAppConn
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=query impl=localClient
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=mempool impl=localClient
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=consensus impl=localClient
+I[02-03|21:43:37.614] ABCI Handshake                               module=consensus appHeight=0 appHash=
+I[02-03|21:43:37.615] ABCI Replay Blocks                           module=consensus appHeight=0 storeHeight=0 stateHeight=0
+I[02-03|21:43:37.615] Completed ABCI Handshake - Tendermint and App are synced module=consensus appHeight=0 appHash=
+I[02-03|21:43:37.775] Starting EventSwitch                         module=types impl=EventSwitch
+I[02-03|21:43:37.775] This node is a validator                     module=consensus 
+I[02-03|21:43:37.779] Starting Node                                module=main impl=Node
+I[02-03|21:43:37.779] Starting RPC HTTP server on tcp socket 0.0.0.0:46607 module=rpc-server 
+I[02-03|21:43:37.779] Local listener                               module=p2p ip=:: port=46606
+I[02-03|21:43:37.779] Getting UPNP external address                module=p2p 
+I[02-03|21:43:37.910] Could not add UPNP port mapping              module=p2p err="Error 500 for AddPortMapping"
+I[02-03|21:43:37.910] Starting DefaultListener                     module=p2p impl=Listener(@192.168.178.50:46606)
+I[02-03|21:43:37.910] Starting P2P Switch                          module=p2p impl="P2P Switch"
+I[02-03|21:43:37.910] Starting MempoolReactor                      module=mempool impl=MempoolReactor
+I[02-03|21:43:37.910] Starting BlockchainReactor                   module=blockchain impl=BlockchainReactor
+I[02-03|21:43:37.910] Starting BlockPool                           module=blockchain impl=BlockPool
+I[02-03|21:43:37.910] Starting ConsensusReactor                    module=consensus impl=ConsensusReactor
+I[02-03|21:43:37.910] ConsensusReactor                             module=consensus fastSync=true
+I[02-03|21:43:37.910] Started node                                 module=main nodeInfo="NodeInfo{pk: PubKeyEd25519{3B32FC9C0B9529A05776AEDA670D1E25EBA437248F0E3EC3831403F9AC99F4C1}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46606], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46607])}"
+I[02-03|21:43:38.267] Dialing peer                                 module=p2p address=0.0.0.0:46606
+I[02-03|21:43:38.273] Peer handshake                               module=p2p peer=0.0.0.0:46606 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3B32FC9C0B9529A05776AEDA670D1E25EBA437248F0E3EC3831403F9AC99F4C1}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46606], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46607])}"
+I[02-03|21:43:38.274] Peer handshake                               module=p2p peer=127.0.0.1:36312 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3B32FC9C0B9529A05776AEDA670D1E25EBA437248F0E3EC3831403F9AC99F4C1}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46606], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46607])}"
+E[02-03|21:43:38.274] Failed to add peer                           module=p2p address=0.0.0.0:46606 err="Ignoring connection from self"
+E[02-03|21:43:38.275] Error dialing seed                           module=p2p err="Ignoring connection from self"
+I[02-03|21:43:38.275] Ignoring inbound connection: error while adding peer module=p2p address=127.0.0.1:36312 err="Ignoring connection from self"
+I[02-03|21:43:38.634] Peer handshake                               module=p2p peer=127.0.0.1:36320 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3C65666EC4A71F01C1643D403AF12F48080ABAA97693A7DAA5A8C8F89FF3BE79}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46636], version: 0.12.1-2de0ebea ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46637])}"
+I[02-03|21:43:38.634] Starting Peer                                module=p2p peer=127.0.0.1:36320 impl="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+I[02-03|21:43:38.634] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+I[02-03|21:43:39.005] Dialing peer                                 module=p2p address=0.0.0.0:46626
+I[02-03|21:43:39.009] Peer handshake                               module=p2p peer=0.0.0.0:46626 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{75B9AC15CE0E4BE024B6D8B08F00CF34662A6D8CFA6281687B31F7722FF1FC49}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46626], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46627])}"
+I[02-03|21:43:39.009] Starting Peer                                module=p2p peer=0.0.0.0:46626 impl="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:43:39.010] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:43:39.010] Dialed and added peer                        module=p2p address=0.0.0.0:46626 peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:43:39.010] Connected to seed                            module=p2p peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:43:39.238] Dialing peer                                 module=p2p address=0.0.0.0:46636
+I[02-03|21:43:39.242] Peer handshake                               module=p2p peer=0.0.0.0:46636 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3C65666EC4A71F01C1643D403AF12F48080ABAA97693A7DAA5A8C8F89FF3BE79}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46636], version: 0.12.1-2de0ebea ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46637])}"
+E[02-03|21:43:39.242] Failed to add peer                           module=p2p address=0.0.0.0:46636 err="Duplicate peer"
+E[02-03|21:43:39.242] Error dialing seed                           module=p2p err="Duplicate peer"
+I[02-03|21:43:39.911] Time to switch to consensus reactor!         module=blockchain height=1
+I[02-03|21:43:39.911] Stopping BlockPool                           module=blockchain impl=BlockPool
+I[02-03|21:43:39.911] SwitchToConsensus                            module=consensus 
+I[02-03|21:43:39.911] Ignoring updateToState()                     module=consensus newHeight=1 oldHeight=1
+I[02-03|21:43:39.911] Starting ConsensusState                      module=consensus impl=ConsensusState
+I[02-03|21:43:39.911] Starting WAL                                 module=consensus wal=mytestnet/mach0/data/cs.wal/wal impl=WAL
+I[02-03|21:43:39.948] Starting TimeoutTicker                       module=consensus impl=TimeoutTicker
+I[02-03|21:43:39.948] Catchup by replaying consensus messages      module=consensus height=1
+I[02-03|21:43:39.948] Replay: Done                                 module=consensus 
+I[02-03|21:43:39.948] Timed out                                    module=consensus dur=-1.169214582s height=1 round=0 step=RoundStepNewHeight
+I[02-03|21:43:39.960] Peer handshake                               module=p2p peer=127.0.0.1:36332 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{08B4EB489462F347F3C5D017F1E6BF41EA76343D9A3927F2B2F038079186FB2B}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46616], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46617])}"
+I[02-03|21:43:39.960] Starting Peer                                module=p2p peer=127.0.0.1:36332 impl="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"
+I[02-03|21:43:39.961] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"
+I[02-03|21:43:39.981] enterNewRound(1/0). Current: 1/0/RoundStepNewHeight module=consensus 
+I[02-03|21:43:39.981] enterPropose(1/0). Current: 1/0/RoundStepNewRound module=consensus 
+I[02-03|21:43:39.981] enterPropose: Not our turn to propose        module=consensus proposer=38ED6FB32377ED45E9AFE21E53D54263BFAECBC0 privValidator="PrivValidator{E005CD853432C1B7FB6A33E7834D351A1E6202BF LH:0, LR:0, LS:0}"
+I[02-03|21:43:40.333] Added to prevote                             module=consensus vote="Vote{2:ABBC1F3D3A90 1/00/1(Prevote) 90FE1130B5A7 {/222F96F1A4D6.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:<nil> BA{4:__X_} map[]}"
+I[02-03|21:43:40.366] Received complete proposal block             module=consensus height=1 hash=90FE1130B5A72E466486CF404A5451F85665BCB1
+I[02-03|21:43:40.366] enterPrevote(1/0). Current: 1/0/RoundStepPropose module=consensus 
+I[02-03|21:43:40.366] enterPrevote: ProposalBlock is valid         module=consensus height=1 round=0
+I[02-03|21:43:40.386] Dialing peer                                 module=p2p address=0.0.0.0:46616
+I[02-03|21:43:40.390] Peer handshake                               module=p2p peer=0.0.0.0:46616 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{08B4EB489462F347F3C5D017F1E6BF41EA76343D9A3927F2B2F038079186FB2B}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46616], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46617])}"
+E[02-03|21:43:40.390] Failed to add peer                           module=p2p address=0.0.0.0:46616 err="Duplicate peer"
+E[02-03|21:43:40.390] Error dialing seed                           module=p2p err="Duplicate peer"
+I[02-03|21:43:40.400] Signed and pushed vote                       module=consensus height=1 round=0 vote="Vote{3:E005CD853432 1/00/1(Prevote) 90FE1130B5A7 {/516A0D59A44C.../}}" err=null
+I[02-03|21:43:40.411] Peer handshake                               module=p2p peer=127.0.0.1:36338 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{75B9AC15CE0E4BE024B6D8B08F00CF34662A6D8CFA6281687B31F7722FF1FC49}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46626], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46627])}"
+I[02-03|21:43:40.411] Ignoring inbound connection: error while adding peer module=p2p address=127.0.0.1:36338 err="Duplicate peer"
+I[02-03|21:43:40.468] Added to prevote                             module=consensus vote="Vote{3:E005CD853432 1/00/1(Prevote) 90FE1130B5A7 {/516A0D59A44C.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:<nil> BA{4:__XX} map[]}"
+I[02-03|21:43:40.510] Added to prevote                             module=consensus vote="Vote{0:38ED6FB32377 1/00/1(Prevote) 90FE1130B5A7 {/B120002CEF57.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:90FE1130B5A72E466486CF404A5451F85665BCB1:1:7482B4715E64 BA{4:X_XX} map[]}"
+I[02-03|21:43:40.510] enterPrecommit(1/0). Current: 1/0/RoundStepPrevote module=consensus 
+I[02-03|21:43:40.510] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=90FE1130B5A72E466486CF404A5451F85665BCB1
+I[02-03|21:43:40.551] Signed and pushed vote                       module=consensus height=1 round=0 vote="Vote{3:E005CD853432 1/00/2(Precommit) 90FE1130B5A7 {/02968002FAC1.../}}" err=null
+I[02-03|21:43:40.627] Added to precommit                           module=consensus vote="Vote{3:E005CD853432 1/00/2(Precommit) 90FE1130B5A7 {/02968002FAC1.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:43:41.179] Added to precommit                           module=consensus vote="Vote{0:38ED6FB32377 1/00/2(Precommit) 90FE1130B5A7 {/3CC481F87FF5.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-03|21:43:41.278] Added to precommit                           module=consensus vote="Vote{2:ABBC1F3D3A90 1/00/2(Precommit) 90FE1130B5A7 {/C6C294743D70.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3:90FE1130B5A72E466486CF404A5451F85665BCB1:1:7482B4715E64 BA{4:X_XX} map[]}"
+I[02-03|21:43:41.278] enterCommit(1/0). Current: 1/0/RoundStepPrecommit module=consensus 
+I[02-03|21:43:41.410] Finalizing commit of block with 0 txs        module=consensus height=1 hash=90FE1130B5A72E466486CF404A5451F85665BCB1 root=
+I[02-03|21:43:41.410] Block{
+  Header{
+    ChainID:        chain-gZr42b
+    Height:         1
+    Time:           2018-02-03 22:43:39.094 +0100 CET
+    NumTxs:         0
+    LastBlockID:    :0:000000000000
+    LastCommit:     
+    Data:           
+    Validators:     9A9697E455C2175B9DD78BA349AD947E99D3287A
+    App:            
+  }#90FE1130B5A72E466486CF404A5451F85665BCB1
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    :0:000000000000
+    Precommits: 
+  }#
+}#90FE1130B5A72E466486CF404A5451F85665BCB1 module=consensus 
+I[02-03|21:43:41.635] Executed block                               module=state height=1 validTxs=0 invalidTxs=0
+I[02-03|21:43:41.719] Committed state                              module=state height=1 txs=0 hash=
+I[02-03|21:43:41.719] Recheck txs                                  module=mempool numtxs=0 height=1
+I[02-03|21:43:42.278] Timed out                                    module=consensus dur=342.230778ms height=2 round=0 step=RoundStepNewHeight
+I[02-03|21:43:42.494] enterNewRound(2/0). Current: 2/0/RoundStepNewHeight module=consensus 
+I[02-03|21:45:30.104] Added good transaction                       module=mempool tx=myFirstTransaction res=&{CheckTx:}
+I[02-03|21:45:30.104] enterPropose(2/0). Current: 2/0/RoundStepNewRound module=consensus 
+I[02-03|21:45:30.104] enterPropose: Not our turn to propose        module=consensus proposer=A0E4B196A58237F97EF472F3E7D6E6E04EF0F243 privValidator="PrivValidator{E005CD853432C1B7FB6A33E7834D351A1E6202BF LH:1, LR:0, LS:3}"
+I[02-03|21:45:33.104] Timed out                                    module=consensus dur=3s height=2 round=0 step=RoundStepPropose
+I[02-03|21:45:33.138] enterPrevote(2/0). Current: 2/0/RoundStepPropose module=consensus 
+I[02-03|21:45:33.138] enterPrevote: ProposalBlock is nil           module=consensus height=2 round=0
+I[02-03|21:45:33.180] Signed and pushed vote                       module=consensus height=2 round=0 vote="Vote{3:E005CD853432 2/00/1(Prevote) 000000000000 {/A3AA46D328B2.../}}" err=null
+I[02-03|21:45:33.315] Added to prevote                             module=consensus vote="Vote{3:E005CD853432 2/00/1(Prevote) 000000000000 {/A3AA46D328B2.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:33.642] Added to prevote                             module=consensus vote="Vote{0:38ED6FB32377 2/00/1(Prevote) 000000000000 {/19DE99ABE9EB.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-03|21:45:33.757] Added to prevote                             module=consensus vote="Vote{2:ABBC1F3D3A90 2/00/1(Prevote) 000000000000 {/89B5E598BC63.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3::0:000000000000 BA{4:X_XX} map[]}"
+I[02-03|21:45:33.757] enterPrecommit(2/0). Current: 2/0/RoundStepPrevote module=consensus 
+I[02-03|21:45:33.757] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-03|21:45:33.840] Signed and pushed vote                       module=consensus height=2 round=0 vote="Vote{3:E005CD853432 2/00/2(Precommit) 000000000000 {/C1CED16AB940.../}}" err=null
+I[02-03|21:45:34.019] Added to precommit                           module=consensus vote="Vote{3:E005CD853432 2/00/2(Precommit) 000000000000 {/C1CED16AB940.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:34.137] Added to precommit                           module=consensus vote="Vote{2:ABBC1F3D3A90 2/00/2(Precommit) 000000000000 {/249AF324A04D.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3:<nil> BA{4:__XX} map[]}"
+I[02-03|21:45:34.232] Added to precommit                           module=consensus vote="Vote{0:38ED6FB32377 2/00/2(Precommit) 000000000000 {/F3B43D3FB742.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3::0:000000000000 BA{4:X_XX} map[]}"
+I[02-03|21:45:34.232] enterNewRound(2/1). Current: 2/0/RoundStepPrecommit module=consensus 
+I[02-03|21:45:34.232] enterPropose(2/1). Current: 2/1/RoundStepNewRound module=consensus 
+I[02-03|21:45:34.232] enterPropose: Not our turn to propose        module=consensus proposer=ABBC1F3D3A9006DFFD063DF2AC8EC4A62E7E8574 privValidator="PrivValidator{E005CD853432C1B7FB6A33E7834D351A1E6202BF LH:2, LR:0, LS:3}"
+I[02-03|21:45:34.690] Received complete proposal block             module=consensus height=2 hash=59A3FE0E1813DB69F3285F115B7919F3E892C326
+I[02-03|21:45:34.690] enterPrevote(2/1). Current: 2/1/RoundStepPropose module=consensus 
+I[02-03|21:45:34.693] enterPrevote: ProposalBlock is valid         module=consensus height=2 round=1
+I[02-03|21:45:34.731] Signed and pushed vote                       module=consensus height=2 round=1 vote="Vote{3:E005CD853432 2/01/1(Prevote) 59A3FE0E1813 {/3BF9B2493248.../}}" err=null
+I[02-03|21:45:34.865] Added to prevote                             module=consensus vote="Vote{3:E005CD853432 2/01/1(Prevote) 59A3FE0E1813 {/3BF9B2493248.../}}" prevotes="VoteSet{H:2 R:1 T:1 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:34.932] Added to prevote                             module=consensus vote="Vote{2:ABBC1F3D3A90 2/01/1(Prevote) 59A3FE0E1813 {/E2879FB9E24D.../}}" prevotes="VoteSet{H:2 R:1 T:1 +2/3:<nil> BA{4:__XX} map[]}"
+I[02-03|21:45:35.248] Added to prevote                             module=consensus vote="Vote{0:38ED6FB32377 2/01/1(Prevote) 59A3FE0E1813 {/33CEE0039389.../}}" prevotes="VoteSet{H:2 R:1 T:1 +2/3:59A3FE0E1813DB69F3285F115B7919F3E892C326:1:7A74FEB073EA BA{4:X_XX} map[]}"
+I[02-03|21:45:35.248] enterPrecommit(2/1). Current: 2/1/RoundStepPrevote module=consensus 
+I[02-03|21:45:35.249] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=59A3FE0E1813DB69F3285F115B7919F3E892C326
+I[02-03|21:45:35.326] Signed and pushed vote                       module=consensus height=2 round=1 vote="Vote{3:E005CD853432 2/01/2(Precommit) 59A3FE0E1813 {/B1A7092CD00A.../}}" err=null
+I[02-03|21:45:35.419] Added to precommit                           module=consensus vote="Vote{3:E005CD853432 2/01/2(Precommit) 59A3FE0E1813 {/B1A7092CD00A.../}}" precommits="VoteSet{H:2 R:1 T:2 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:35.553] Added to precommit                           module=consensus vote="Vote{0:38ED6FB32377 2/01/2(Precommit) 59A3FE0E1813 {/5B95F2368AAB.../}}" precommits="VoteSet{H:2 R:1 T:2 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-03|21:45:35.586] Added to precommit                           module=consensus vote="Vote{2:ABBC1F3D3A90 2/01/2(Precommit) 59A3FE0E1813 {/69E21899A308.../}}" precommits="VoteSet{H:2 R:1 T:2 +2/3:59A3FE0E1813DB69F3285F115B7919F3E892C326:1:7A74FEB073EA BA{4:X_XX} map[]}"
+I[02-03|21:45:35.586] enterCommit(2/1). Current: 2/1/RoundStepPrecommit module=consensus 
+I[02-03|21:45:35.687] Finalizing commit of block with 1 txs        module=consensus height=2 hash=59A3FE0E1813DB69F3285F115B7919F3E892C326 root=
+I[02-03|21:45:35.688] Block{
+  Header{
+    ChainID:        chain-gZr42b
+    Height:         2
+    Time:           2018-02-03 22:45:34.198 +0100 CET
+    NumTxs:         1
+    LastBlockID:    90FE1130B5A72E466486CF404A5451F85665BCB1:1:7482B4715E64
+    LastCommit:     6DF9ED7B268985509797E9614CAEFFD74D8C0E3E
+    Data:           E496BE9B1905735B64D184DAFA34D10757FD37DB
+    Validators:     9A9697E455C2175B9DD78BA349AD947E99D3287A
+    App:            
+  }#59A3FE0E1813DB69F3285F115B7919F3E892C326
+  Data{
+    Tx:Tx{6D7946697273745472616E73616374696F6E}
+  }#E496BE9B1905735B64D184DAFA34D10757FD37DB
+  Commit{
+    BlockID:    90FE1130B5A72E466486CF404A5451F85665BCB1:1:7482B4715E64
+    Precommits: Vote{0:38ED6FB32377 1/00/2(Precommit) 90FE1130B5A7 {/3CC481F87FF5.../}}
+    nil-Vote
+    Vote{2:ABBC1F3D3A90 1/00/2(Precommit) 90FE1130B5A7 {/C6C294743D70.../}}
+    Vote{3:E005CD853432 1/00/2(Precommit) 90FE1130B5A7 {/02968002FAC1.../}}
+  }#6DF9ED7B268985509797E9614CAEFFD74D8C0E3E
+}#59A3FE0E1813DB69F3285F115B7919F3E892C326 module=consensus 
+I[02-03|21:45:35.937] Executed block                               module=state height=2 validTxs=1 invalidTxs=0
+I[02-03|21:45:36.009] Committed state                              module=state height=2 txs=1 hash=BDCBCA5ACD2E0E5CE12F0B7F2D53DB803F81048E
+I[02-03|21:45:36.009] Recheck txs                                  module=mempool numtxs=0 height=2
+I[02-03|21:45:36.159] DeliverTx passed                             module=rpc tx=6D7946697273745472616E73616374696F6E response=
+I[02-03|21:45:36.159] HTTPRestRPC                                  module=rpc-server method=/broadcast_tx_commit args="[<[]uint8 Value>]" returns="[<*core_types.ResultBroadcastTxCommit Value> <error Value>]"
+I[02-03|21:45:36.160] Served RPC HTTP response                     module=rpc-server method=GET url="/broadcast_tx_commit?tx=\"myFirstTransaction\"" status=200 duration=6055 remoteAddr=127.0.0.1:57376
+I[02-03|21:45:36.587] Timed out                                    module=consensus dur=351.542665ms height=3 round=0 step=RoundStepNewHeight
+I[02-03|21:45:36.696] enterNewRound(3/0). Current: 3/0/RoundStepNewHeight module=consensus 
+I[02-03|21:45:36.696] enterPropose(3/0). Current: 3/0/RoundStepNewRound module=consensus 
+I[02-03|21:45:36.696] enterPropose: Not our turn to propose        module=consensus proposer=ABBC1F3D3A9006DFFD063DF2AC8EC4A62E7E8574 privValidator="PrivValidator{E005CD853432C1B7FB6A33E7834D351A1E6202BF LH:2, LR:1, LS:3}"
+I[02-03|21:45:37.519] Received complete proposal block             module=consensus height=3 hash=912EE3CC6CC979190DC91E379EE708D8F9974D20
+I[02-03|21:45:37.519] enterPrevote(3/0). Current: 3/0/RoundStepPropose module=consensus 
+I[02-03|21:45:37.521] enterPrevote: ProposalBlock is valid         module=consensus height=3 round=0
+I[02-03|21:45:37.569] Signed and pushed vote                       module=consensus height=3 round=0 vote="Vote{3:E005CD853432 3/00/1(Prevote) 912EE3CC6CC9 {/80939522D3B9.../}}" err=null
+I[02-03|21:45:37.661] Added to prevote                             module=consensus vote="Vote{3:E005CD853432 3/00/1(Prevote) 912EE3CC6CC9 {/80939522D3B9.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:37.703] Added to prevote                             module=consensus vote="Vote{2:ABBC1F3D3A90 3/00/1(Prevote) 912EE3CC6CC9 {/7D79808DC255.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:<nil> BA{4:__XX} map[]}"
+I[02-03|21:45:37.969] Added to prevote                             module=consensus vote="Vote{0:38ED6FB32377 3/00/1(Prevote) 912EE3CC6CC9 {/4832A977EBDD.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:912EE3CC6CC979190DC91E379EE708D8F9974D20:1:B9C4E6E47599 BA{4:X_XX} map[]}"
+I[02-03|21:45:37.969] enterPrecommit(3/0). Current: 3/0/RoundStepPrevote module=consensus 
+I[02-03|21:45:37.969] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=912EE3CC6CC979190DC91E379EE708D8F9974D20
+I[02-03|21:45:38.047] Signed and pushed vote                       module=consensus height=3 round=0 vote="Vote{3:E005CD853432 3/00/2(Precommit) 912EE3CC6CC9 {/790D4D670F3D.../}}" err=null
+I[02-03|21:45:38.219] Added to precommit                           module=consensus vote="Vote{3:E005CD853432 3/00/2(Precommit) 912EE3CC6CC9 {/790D4D670F3D.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:<nil> BA{4:___X} map[]}"
+I[02-03|21:45:38.342] Added to precommit                           module=consensus vote="Vote{2:ABBC1F3D3A90 3/00/2(Precommit) 912EE3CC6CC9 {/DAACC3BCDFD1.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:<nil> BA{4:__XX} map[]}"
+I[02-03|21:45:38.447] Added to precommit                           module=consensus vote="Vote{0:38ED6FB32377 3/00/2(Precommit) 912EE3CC6CC9 {/0EF4F3D8AB3B.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:912EE3CC6CC979190DC91E379EE708D8F9974D20:1:B9C4E6E47599 BA{4:X_XX} map[]}"
+I[02-03|21:45:38.448] enterCommit(3/0). Current: 3/0/RoundStepPrecommit module=consensus 
+I[02-03|21:45:38.524] Finalizing commit of block with 0 txs        module=consensus height=3 hash=912EE3CC6CC979190DC91E379EE708D8F9974D20 root=BDCBCA5ACD2E0E5CE12F0B7F2D53DB803F81048E
+I[02-03|21:45:38.525] Block{
+  Header{
+    ChainID:        chain-gZr42b
+    Height:         3
+    Time:           2018-02-03 22:45:37.01 +0100 CET
+    NumTxs:         0
+    LastBlockID:    59A3FE0E1813DB69F3285F115B7919F3E892C326:1:7A74FEB073EA
+    LastCommit:     A8AB3C7128FC0BE3233DD6FD5756DC6D35788EC6
+    Data:           
+    Validators:     9A9697E455C2175B9DD78BA349AD947E99D3287A
+    App:            BDCBCA5ACD2E0E5CE12F0B7F2D53DB803F81048E
+  }#912EE3CC6CC979190DC91E379EE708D8F9974D20
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    59A3FE0E1813DB69F3285F115B7919F3E892C326:1:7A74FEB073EA
+    Precommits: Vote{0:38ED6FB32377 2/01/2(Precommit) 59A3FE0E1813 {/5B95F2368AAB.../}}
+    nil-Vote
+    Vote{2:ABBC1F3D3A90 2/01/2(Precommit) 59A3FE0E1813 {/69E21899A308.../}}
+    Vote{3:E005CD853432 2/01/2(Precommit) 59A3FE0E1813 {/B1A7092CD00A.../}}
+  }#A8AB3C7128FC0BE3233DD6FD5756DC6D35788EC6
+}#912EE3CC6CC979190DC91E379EE708D8F9974D20 module=consensus 
+I[02-03|21:45:38.903] Executed block                               module=state height=3 validTxs=0 invalidTxs=0
+I[02-03|21:45:38.983] Committed state                              module=state height=3 txs=0 hash=BDCBCA5ACD2E0E5CE12F0B7F2D53DB803F81048E
+I[02-03|21:45:38.983] Recheck txs                                  module=mempool numtxs=0 height=3
+I[02-03|21:45:39.448] Timed out                                    module=consensus dur=203.621777ms height=4 round=0 step=RoundStepNewHeight
+I[02-03|21:45:39.495] enterNewRound(4/0). Current: 4/0/RoundStepNewHeight module=consensus 
+E[02-03|21:46:21.336] Stopping peer for error                      module=p2p peer="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}" err=EOF
+I[02-03|21:46:21.336] Stopping Peer                                module=p2p peer=127.0.0.1:36320 impl="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+I[02-03|21:46:21.359] Stopping gossipDataRoutine for peer          module=consensus peer="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+I[02-03|21:46:21.359] Stopping gossipVotesRoutine for peer         module=consensus peer="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+E[02-03|21:46:23.228] Stopping peer for error                      module=p2p peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}" err=EOF
+I[02-03|21:46:23.228] Stopping Peer                                module=p2p peer=0.0.0.0:46626 impl="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:46:23.229] Reconnecting to peer                         module=p2p peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:46:23.229] Dialing peer                                 module=p2p address=127.0.0.1:46626
+E[02-03|21:46:23.229] Failed to dial peer                          module=p2p address=127.0.0.1:46626 err="Error creating peer: dial tcp 127.0.0.1:46626: getsockopt: connection refused"
+I[02-03|21:46:23.229] Error reconnecting to peer. Trying again     module=p2p tries=1 err="Error creating peer: dial tcp 127.0.0.1:46626: getsockopt: connection refused"
+I[02-03|21:46:23.249] Stopping queryMaj23Routine for peer          module=consensus peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:46:23.249] Stopping queryMaj23Routine for peer          module=consensus peer="Peer{MConn{127.0.0.1:36320} 3C65666EC4A7 in}"
+I[02-03|21:46:23.263] Stopping gossipVotesRoutine for peer         module=consensus peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+I[02-03|21:46:23.263] Stopping gossipDataRoutine for peer          module=consensus peer="Peer{MConn{127.0.0.1:46626} 75B9AC15CE0E out}"
+E[02-03|21:46:24.226] Stopping peer for error                      module=p2p peer="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}" err=EOF
+I[02-03|21:46:24.226] Stopping Peer                                module=p2p peer=127.0.0.1:36332 impl="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"
+I[02-03|21:46:24.241] Stopping queryMaj23Routine for peer          module=consensus peer="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"
+I[02-03|21:46:24.266] Stopping gossipVotesRoutine for peer         module=consensus peer="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"
+I[02-03|21:46:24.266] Stopping gossipDataRoutine for peer          module=consensus peer="Peer{MConn{127.0.0.1:36332} 08B4EB489462 in}"

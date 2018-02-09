@@ -6,7 +6,6 @@ mytestnet/
 *.xcf
 *.svg
 *.old
-*.log
 *.temp
 bench/dummy/evil/*
 bench/dummy/graphs/*
@@ -77,7 +76,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 .static_storage/
 .media/
 local_settings.py

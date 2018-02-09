@@ -1,4 +1,4 @@
-Here I try to make the same analysis described [here](https://eprints.soton.ac.uk/415083/2/itasec18_main.pdf) on Tendermint/Ethermint, i.e.:
+In this document I try to make the same analysis described [here](https://eprints.soton.ac.uk/415083/2/itasec18_main.pdf) on Tendermint/Ethermint, i.e.:
 
 1. Classify the Tendermint consensus algorithm according to CAP theorem
 2. Performance Analysis
@@ -19,7 +19,7 @@ Since a blockchain must tolerate partitions, hence CA option is not considered, 
 analyse the algorithms with respect to CP and AP options. 
 
 ### Tendermint: Consistent or Available?
-Working assumptions (stated in [1] 6.1 On Byzantine Consensus:
+Working assumptions (stated in [1] 6.1 On Byzantine Consensus):
 > - The network is partially synchronous;
 > - All non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved
 > - It can tolerate of up to 1/3 byzantine voting power

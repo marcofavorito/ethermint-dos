@@ -1,0 +1,73 @@
+I[02-03|21:43:37.614] Starting multiAppConn                        module=proxy impl=multiAppConn
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=query impl=localClient
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=mempool impl=localClient
+I[02-03|21:43:37.614] Starting localClient                         module=abci-client connection=consensus impl=localClient
+I[02-03|21:43:37.615] ABCI Handshake                               module=consensus appHeight=0 appHash=
+I[02-03|21:43:37.615] ABCI Replay Blocks                           module=consensus appHeight=0 storeHeight=0 stateHeight=0
+I[02-03|21:43:37.615] Completed ABCI Handshake - Tendermint and App are synced module=consensus appHeight=0 appHash=
+I[02-03|21:43:37.775] Starting EventSwitch                         module=types impl=EventSwitch
+I[02-03|21:43:37.775] This node is a validator                     module=consensus 
+I[02-03|21:43:37.776] Starting Node                                module=main impl=Node
+I[02-03|21:43:37.777] Starting RPC HTTP server on tcp socket 0.0.0.0:46637 module=rpc-server 
+I[02-03|21:43:37.777] Local listener                               module=p2p ip=:: port=46636
+I[02-03|21:43:37.777] Getting UPNP external address                module=p2p 
+I[02-03|21:43:37.910] Could not add UPNP port mapping              module=p2p err="Error 500 for AddPortMapping"
+I[02-03|21:43:37.910] Starting DefaultListener                     module=p2p impl=Listener(@192.168.178.50:46636)
+I[02-03|21:43:37.910] Starting P2P Switch                          module=p2p impl="P2P Switch"
+I[02-03|21:43:37.910] Starting MempoolReactor                      module=mempool impl=MempoolReactor
+I[02-03|21:43:37.910] Starting BlockchainReactor                   module=blockchain impl=BlockchainReactor
+I[02-03|21:43:37.910] Starting BlockPool                           module=blockchain impl=BlockPool
+I[02-03|21:43:37.910] Starting ConsensusReactor                    module=consensus impl=ConsensusReactor
+I[02-03|21:43:37.910] ConsensusReactor                             module=consensus fastSync=true
+I[02-03|21:43:37.910] Started node                                 module=main nodeInfo="NodeInfo{pk: PubKeyEd25519{3C65666EC4A71F01C1643D403AF12F48080ABAA97693A7DAA5A8C8F89FF3BE79}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46636], version: 0.12.1-2de0ebea ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46637])}"
+I[02-03|21:43:38.022] Dialing peer                                 module=p2p address=0.0.0.0:46636
+I[02-03|21:43:38.026] Peer handshake                               module=p2p peer=0.0.0.0:46636 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3C65666EC4A71F01C1643D403AF12F48080ABAA97693A7DAA5A8C8F89FF3BE79}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46636], version: 0.12.1-2de0ebea ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46637])}"
+I[02-03|21:43:38.026] Peer handshake                               module=p2p peer=127.0.0.1:51518 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3C65666EC4A71F01C1643D403AF12F48080ABAA97693A7DAA5A8C8F89FF3BE79}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46636], version: 0.12.1-2de0ebea ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46637])}"
+E[02-03|21:43:38.026] Failed to add peer                           module=p2p address=0.0.0.0:46636 err="Ignoring connection from self"
+E[02-03|21:43:38.026] Error dialing seed                           module=p2p err="Ignoring connection from self"
+I[02-03|21:43:38.026] Ignoring inbound connection: error while adding peer module=p2p address=127.0.0.1:51518 err="Ignoring connection from self"
+I[02-03|21:43:38.557] Peer handshake                               module=p2p peer=127.0.0.1:51524 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{75B9AC15CE0E4BE024B6D8B08F00CF34662A6D8CFA6281687B31F7722FF1FC49}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46626], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46627])}"
+I[02-03|21:43:38.557] Starting Peer                                module=p2p peer=127.0.0.1:51524 impl="Peer{MConn{127.0.0.1:51524} 75B9AC15CE0E in}"
+I[02-03|21:43:38.557] Starting MConnection                         module=p2p peer=127.0.0.1:51524 impl=MConn{127.0.0.1:51524}
+I[02-03|21:43:38.557] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:51524} 75B9AC15CE0E in}"
+I[02-03|21:43:38.622] Dialing peer                                 module=p2p address=0.0.0.0:46616
+I[02-03|21:43:38.626] Peer handshake                               module=p2p peer=0.0.0.0:46616 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{08B4EB489462F347F3C5D017F1E6BF41EA76343D9A3927F2B2F038079186FB2B}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46616], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46617])}"
+I[02-03|21:43:38.628] Starting Peer                                module=p2p peer=0.0.0.0:46616 impl="Peer{MConn{127.0.0.1:46616} 08B4EB489462 out}"
+I[02-03|21:43:38.628] Starting MConnection                         module=p2p peer=0.0.0.0:46616 impl=MConn{127.0.0.1:46616}
+I[02-03|21:43:38.628] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:46616} 08B4EB489462 out}"
+I[02-03|21:43:38.628] Dialed and added peer                        module=p2p address=0.0.0.0:46616 peer="Peer{MConn{127.0.0.1:46616} 08B4EB489462 out}"
+I[02-03|21:43:38.628] Connected to seed                            module=p2p peer="Peer{MConn{127.0.0.1:46616} 08B4EB489462 out}"
+I[02-03|21:43:38.630] Dialing peer                                 module=p2p address=0.0.0.0:46606
+I[02-03|21:43:38.634] Peer handshake                               module=p2p peer=0.0.0.0:46606 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3B32FC9C0B9529A05776AEDA670D1E25EBA437248F0E3EC3831403F9AC99F4C1}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46606], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46607])}"
+I[02-03|21:43:38.634] Starting Peer                                module=p2p peer=0.0.0.0:46606 impl="Peer{MConn{127.0.0.1:46606} 3B32FC9C0B95 out}"
+I[02-03|21:43:38.634] Starting MConnection                         module=p2p peer=0.0.0.0:46606 impl=MConn{127.0.0.1:46606}
+I[02-03|21:43:38.634] Added peer                                   module=p2p peer="Peer{MConn{127.0.0.1:46606} 3B32FC9C0B95 out}"
+I[02-03|21:43:38.634] Dialed and added peer                        module=p2p address=0.0.0.0:46606 peer="Peer{MConn{127.0.0.1:46606} 3B32FC9C0B95 out}"
+I[02-03|21:43:38.634] Connected to seed                            module=p2p peer="Peer{MConn{127.0.0.1:46606} 3B32FC9C0B95 out}"
+I[02-03|21:43:38.771] Peer handshake                               module=p2p peer=127.0.0.1:51530 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{08B4EB489462F347F3C5D017F1E6BF41EA76343D9A3927F2B2F038079186FB2B}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46616], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46617])}"
+I[02-03|21:43:38.772] Ignoring inbound connection: error while adding peer module=p2p address=127.0.0.1:51530 err="Duplicate peer"
+I[02-03|21:43:38.911] Time to switch to consensus reactor!         module=blockchain height=1
+I[02-03|21:43:38.911] Stopping BlockPool                           module=blockchain impl=BlockPool
+I[02-03|21:43:38.911] SwitchToConsensus                            module=consensus 
+I[02-03|21:43:38.911] Ignoring updateToState()                     module=consensus newHeight=1 oldHeight=1
+I[02-03|21:43:38.911] Starting ConsensusState                      module=consensus impl=ConsensusState
+I[02-03|21:43:38.911] Starting WAL                                 module=consensus wal=mytestnet/mach3/data/cs.wal/wal impl=WAL
+I[02-03|21:43:39.010] Starting TimeoutTicker                       module=consensus impl=TimeoutTicker
+I[02-03|21:43:39.010] Catchup by replaying consensus messages      module=consensus height=1
+I[02-03|21:43:39.010] Replay: Done                                 module=consensus 
+I[02-03|21:43:39.010] Timed out                                    module=consensus dur=-233.822049ms height=1 round=0 step=RoundStepNewHeight
+I[02-03|21:43:39.094] enterNewRound(1/0). Current: 1/0/RoundStepNewHeight module=consensus 
+I[02-03|21:43:39.094] enterPropose(1/0). Current: 1/0/RoundStepNewRound module=consensus 
+I[02-03|21:43:39.094] enterPropose: Not our turn to propose        module=consensus proposer=38ED6FB32377ED45E9AFE21E53D54263BFAECBC0 privValidator="PrivValidator{A0E4B196A58237F97EF472F3E7D6E6E04EF0F243 LH:0, LR:0, LS:0}"
+I[02-03|21:43:39.242] Peer handshake                               module=p2p peer=127.0.0.1:51534 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{3B32FC9C0B9529A05776AEDA670D1E25EBA437248F0E3EC3831403F9AC99F4C1}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46606], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46607])}"
+I[02-03|21:43:39.242] Ignoring inbound connection: error while adding peer module=p2p address=127.0.0.1:51534 err="Duplicate peer"
+I[02-03|21:43:39.483] Dialing peer                                 module=p2p address=0.0.0.0:46626
+I[02-03|21:43:39.488] Peer handshake                               module=p2p peer=0.0.0.0:46626 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{75B9AC15CE0E4BE024B6D8B08F00CF34662A6D8CFA6281687B31F7722FF1FC49}, moniker: anonymous, network: chain-gZr42b [remote , listen 192.168.178.50:46626], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46627])}"
+E[02-03|21:43:39.488] Failed to add peer                           module=p2p address=0.0.0.0:46626 err="Duplicate peer"
+E[02-03|21:43:39.488] Error dialing seed                           module=p2p err="Duplicate peer"
+I[02-03|21:43:42.094] Timed out                                    module=consensus dur=3s height=1 round=0 step=RoundStepPropose
+I[02-03|21:43:42.123] enterPrevote(1/0). Current: 1/0/RoundStepPropose module=consensus 
+I[02-03|21:43:42.123] enterPrevote: ProposalBlock is nil           module=consensus height=1 round=0
+I[02-03|21:43:42.177] Signed and pushed vote                       module=consensus height=1 round=0 vote="Vote{1:A0E4B196A582 1/00/1(Prevote) 000000000000 {/64AF01435CA9.../}}" err=null
+I[02-03|21:43:42.344] Added to prevote                             module=consensus vote="Vote{1:A0E4B196A582 1/00/1(Prevote) 000000000000 {/64AF01435CA9.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:<nil> BA{4:_X__} map[]}"
+I[02-03|21:45:30.205] Added good transaction                       module=mempool tx=myFirstTransaction res=&{CheckTx:}
