@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE tsung SYSTEM "/usr/share/tsung/tsung-1.0.dtd" []>
+<!--<tsung loglevel="debug" dumptraffic="true">-->
+<tsung>
+
+    <clients>
+        <client host="localhost" cpu="2" maxusers="30000000"/>
+    </clients>
+
+    <servers>
+        <server host="172.57.101.100" port="8545" type="tcp"/>
+        <server host="172.57.101.101" port="8545" type="tcp"/>
+        <server host="172.57.101.102" port="8545" type="tcp"/>
+        <!--
+        NOTICE: This node is byzantine when you run the evil network
+          Depending on the version of Tendermint Evil, it might make no sense to send request to it
+        -->
+        <!--<server host="172.57.101.103" port="8545" type="tcp"/>-->
+    </servers>
+
+    <load>
+        <arrivalphase phase="1" duration="3" unit="minute">
+            <users arrivalrate="2" unit="second"/>
+        </arrivalphase>
+    </load>
+
+    <options>
+        <option name="file_server" id="addresses" value="./accounts.temp"/>
+    </options>
+
+    <sessions>
+        <session name="ethermint_transaction" weight="1" type="ts_http">
+            <transaction name="transaction">
+                <setdynvars sourcetype="file" fileid="addresses" delimiter=";" order="iter">
+                    <var name="addr_1"/>
+                    <var name="addr_2"/>
+                </setdynvars>
+                <request subst="true">
+                    <http url="/" method="POST"
+                          contents='{"params": ["%%_addr_1%%", "1234", 10000], "id": 2, "method": "personal_unlockAccount", "jsonrpc": "2.0"}'
+                          content_type="application/json"/>
+                </request>
+                <request subst="true">
+                    <dyn_variable name="transaction_hash" jsonpath="result"/>
+                    <http url="/" method="POST"
+                          contents='{"jsonrpc":"2.0", "method":"eth_sendTransaction", "id":1, "params":[{"from":"%%_addr_1%%", "to":"%%_addr_2%%", "value":"0x1"}]}'
+                          content_type="application/json"/>
+                </request>
+                <request subst="true">
+                    <!--<match do="log" when="match">"result":null</match>-->
+                    <!--<match do="dump" when="match">"result":null</match>-->
+                    <match do="loop" sleep_loop="2" max_loop="20" when="match">"result":null</match>
+                    <http url="/" method="POST"
+                          contents='{"jsonrpc":"2.0", "method":"eth_getTransactionReceipt", "id":1, "params":["%%_transaction_hash%%"]}'
+                          content_type="application/json"/>
+                </request>
+
+
+            </transaction>
+        </session>
+    </sessions>
+
+</tsung>

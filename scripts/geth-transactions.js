@@ -1,10 +1,20 @@
-var addr_1;
-var addr_2;
+// var addr_1;
+// var addr_2;
+// addr_1 = eth.accounts[0];
+// addr_2 = personal.newAccount("1234");
+// personal.unlockAccount(addr_1, "1234", 2000);
+// var transaction = function(sender, receiver, amount){
+//     // console.log( sender + " => " + receiver + ", " + amount + " ether");
+//     return eth.sendTransaction({from:sender, to:receiver, value: web3.toWei(amount, "ether")})
+// }
+// var hash;
+// hash = transaction(addr_1, addr_2, 0.0000000001);
+// web3.eth.getTransactionReceipt(hash);
 
 
 var main = function(test_tx_num) {
-    addr_1 = eth.accounts[0];
-    addr_2 = personal.newAccount("1234");
+    var addr_1 = eth.accounts[0];
+    var addr_2 = personal.newAccount("1234");
     personal.unlockAccount(addr_1, "1234", 2000);
 
     var curTime, hash;

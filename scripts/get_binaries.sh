@@ -19,5 +19,6 @@ mv tendermint bin/tendermint_evil
 echo "Getting Ethermint..."
 curl -OL https://github.com/tendermint/ethermint/releases/download/v${ETHERMINT_VERSION}/ethermint_${ETHERMINT_VERSION}_linux-amd64.zip
 unzip -o ethermint_${ETHERMINT_VERSION}_linux-amd64.zip -d bin/
-
+#curl -OL https://github.com/MarcoFavorito/ethermint/releases/download/ethermint_broadcast_tx_commit/ethermint.zip
+#unzip -o ethermint.zip -d bin/
 rm *.zip

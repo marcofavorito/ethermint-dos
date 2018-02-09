@@ -18,10 +18,10 @@ In the following I show to you how this change affects the consensus phase.
 The byzantine node is `Node 3`.
 
 ### Height=1, Round=0
-- [Node 0](../res/demo-dos-logs/log-tendermint-node0#L55)
-- [Node 1](../res/demo-dos-logs/log-tendermint-node1#L43)
-- [Node 2](../res/demo-dos-logs/log-tendermint-node2#L48)
-- [Node 3](../res/demo-dos-logs/log-tendermint-node3#L59)
+- [Node 0](../res/demo-dos-logs/log-tendermint-node0.log#L55)
+- [Node 1](../res/demo-dos-logs/log-tendermint-node1.log#L43)
+- [Node 2](../res/demo-dos-logs/log-tendermint-node2.log#L48)
+- [Node 3](../res/demo-dos-logs/log-tendermint-node3.log#L59)
 
 The genesis block is correctly committed, since `2/3` of the nodes are enough to complete the consensus phase.
 [Here](../res/demo-dos-logs/log-tendermint-node0#L156) you can see the `nil-vote` in the data structure `Commit` of the block at height 2. This is due to the fact that the correct nodes never received pre-votes or pre-commit of the byzantine node for the block at height=1. 
@@ -44,25 +44,25 @@ The `curl` call is blocked until the transaction is committed. The node associat
 
 The consequences of this commands are the following:
 - The transaction is submitted to the `dummy` ABCI app to check if it is valid (by calling `CheckTx` function);
-- Once the transaction is checked, it is [added to the mempool and broadcast to the other nodes](../res/demo-dos-logs/log-tendermint-node0#L104);
+- Once the transaction is checked, it is [added to the mempool and broadcast to the other nodes](../res/demo-dos-logs/log-tendermint-node0.log#L104);
 - At this point there is one pending transaction. Hence, every node enter into the `propose` phase.
 - The deterministic algorithm to determine the proposer [chooses the byzantine node, `Node 3`. Indeed, check the message `Not our turn to propose` of every correct node:
-    - [Node 0](../res/demo-dos-logs/log-tendermint-node0#L106)
-    - [Node 1](../res/demo-dos-logs/log-tendermint-node1#L107)
-    - [Node 2](../res/demo-dos-logs/log-tendermint-node2#L107)
-- ... But unfortunately, no proposal arrive, since the proposer is _silent_. After the [timeout ends](../res/demo-dos-logs/log-tendermint-node0#L107) (3 seconds in current configurations), every node [proposes a `nil` block](../res/demo-dos-logs/log-tendermint-node0#L109).
+    - [Node 0](../res/demo-dos-logs/log-tendermint-node0.log#L106)
+    - [Node 1](../res/demo-dos-logs/log-tendermint-node1.log#L107)
+    - [Node 2](../res/demo-dos-logs/log-tendermint-node2.log#L107)
+- ... But unfortunately, no proposal arrive, since the proposer is _silent_. After the [timeout ends](../res/demo-dos-logs/log-tendermint-node0.log#L107) (3 seconds in current configurations), every node [proposes a `nil` block](../res/demo-dos-logs/log-tendermint-node0.log#L109).
 - A "`nil` round" is performed (i.e.: nil prevotes and nil precommits) in order to exit the current round and go to the next one.
 
 ### Height=2, Round=1
 
-For this round [the proposer is Node 2](../res/demo-dos-logs/log-tendermint-node2#L123), which proposes the right block.
+For this round [the proposer is Node 2](../res/demo-dos-logs/log-tendermint-node2.log#L123), which proposes the right block.
 
 Since only one node of four nodes is down, the round is completed correctly.
 
 You can see the votes for block at height=2 on the field `Commit` of the block at height=3:
-- [Node 0](../res/demo-dos-logs/log-tendermint-node0#L203)
-- [Node 1](../res/demo-dos-logs/log-tendermint-node1#L201)
-- [Node 2](../res/demo-dos-logs/log-tendermint-node2#L203)
+- [Node 0](../res/demo-dos-logs/log-tendermint-node0.log#L203)
+- [Node 1](../res/demo-dos-logs/log-tendermint-node1.log#L201)
+- [Node 2](../res/demo-dos-logs/log-tendermint-node2.log#L203)
 
 
 ## Conclusions

@@ -24,19 +24,18 @@
     <arrivalphase phase="2" duration="1" unit="minute">
       <users arrivalrate="100" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="3" duration="1" unit="minute">
-      <users arrivalrate="250" unit="second"/>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="200" unit="second"/>
     </arrivalphase>
   </load>
 
   <sessions>
-  <session name="app_event" weight="9" type="ts_http">
+  <session name="app_event" weight="1" type="ts_http">
     <setdynvars sourcetype="random_string" length="20">
         <var name="randstring"/>
     </setdynvars>
     <request subst="true">
-      <http url='/broadcast_tx_commit?tx="%%_randstring%%"'
-         method="GET"
+      <http url='/broadcast_tx_commit?tx="%%_randstring%%"' method="GET"
         />
     </request>
   </session>

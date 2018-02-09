@@ -19,10 +19,15 @@ Since a blockchain must tolerate partitions, hence CA option is not considered, 
 analyse the algorithms with respect to CP and AP options. 
 
 ### Tendermint: Consistent or Available?
+Working assumptions (stated in [1] 6.1 On Byzantine Consensus:
+> - The network is partially synchronous;
+> - All non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved
+> - It can tolerate of up to 1/3 byzantine voting power
+
 As stated in [1]:
 > A block is considered committed when a 2/3 majority of validators sign commit votes for that block. A fork occurs when two blocks at the same height are each signed by a 2/3 majority of validators. By simple arithmetic, a fork can only happen when at least a 1/3 majority of validators signs duplicitously. 
 >
-Hence, as long as there exists a majority of validators (in terms of their voting power), no forks can happen.
+Hence, as long as there exists a majority of honest validators (in terms of their voting power), no forks can happen.
 
 Moreover, as stated in [2] (3.2 Consensus):
 > After the proposal,  rounds proceed in a fully asynchronous manner - a
@@ -41,29 +46,32 @@ Summarizing the message passing schema:
 [Here](demo-consensus.md) you can find description of logs of a Tendermint network to prove the depitched behavior.
 
 
-### Tendermint consensus algorithm
-Here some more information about the Tendermint consensus algorithm.
+[//]: # (### Tendermint consensus algorithm
+[//]: # (Here some more information about the Tendermint consensus algorithm.)
  
-[paper on Tendermint](https://tendermint.com/static/docs/tendermint.pdf)
-- Description of the working assumptions for the consensus algorithm, in the light of [FLP impossbiility](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
-> - Partial-synchrony
-> - all non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved
->
+[//]: # ([paper on Tendermint](https://tendermint.com/static/docs/tendermint.pdf)
+[//]: # (- Description of the working assumptions for the consensus algorithm, in the light of [FLP impossbiility](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+[//]: # (> - Partial-synchrony)
+[//]: # (> - all non-byzantine nodes have access to an internal clock that can stay sufficiently accurate for a short duration of time until consensus on the next block is achieved)
+[//]: # (>)
 
-#### Consensus Phases
-There are 3 phases + 2 special phases (Commit and NewHeight):
-
-- Propose
-- Prevote
-- Precommit
-- Commit
-- NewHeight
-
-A _Round_ is:
-> (Propose -> Prevote -> Precommit)
-
-Optimal scenario:
-> NewHeight -> (Propose -> Prevote -> Precommit)+ -> Commit
+[//]: # (#### Consensus Phases)
+[//]: # (There are 3 phases + 2 special phases, Commit and NewHeight:)
+[//]: # ()
+[//]: # (- Propose)
+[//]: # (- Prevote)
+[//]: # (- Precommit)
+[//]: # (- Commit)
+[//]: # (- NewHeight)
+[//]: # ()
+[//]: # (A _Round_ is:)
+[//]: # (> Propose -> Prevote -> Precommit)
+[//]: # ()
+[//]: # (In the optimal scenario, the order of steps is:)
+[//]: # ()
+[//]: # (    NewHeight -> Propose -> Prevote -> Precommit+ -> Commit -> NewHeight ->...)
+[//]: # ()
+[//]: # ()
 
 some references:
 [2] (4.2.2 Votes), in which says that:
