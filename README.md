@@ -30,6 +30,12 @@ The platform used is `Ubuntu 16.04.3 LTS`.
     - `get_binaries.sh` allows you to update the `bin/` content;
     - `geth-script-loader.sh` is an utility script for inject commands into the JavaScript console;
 ## How to use
+First of all, run:
+
+    ./scripts/get_binaries.sh
+
+To download all the needed binaries.
+
 
 `ethermint-dos.py` is a useful script for rapidly set up a Ethermint/Tendermint network.
 
@@ -39,7 +45,7 @@ Usage:
     
 However, it uses system commands such as `gnome-terminal`, so there are high chances that your platform cannot support it. Sorry. 
 
-I'll update the script to allow one node to call `bin/tendermint_evil`: that node will be our byzantine client.
+I'll update the script to allow one node to call `bin/tendermint_evil`: that node will be our byzantine client. It is a symbolic link to one of the choosen byzantine versions of Tendermint (default: [Tendermint Evil 'Shy'](https://github.com/MarcoFavorito/tendermint/releases/tag/v0.12.1.2))
 
 There will be also some scripts for benchmarking (in terms of e.g. transactions/block throughput) between zero byzantine and one byzantine.
 
@@ -47,7 +53,7 @@ There will be also some scripts for benchmarking (in terms of e.g. transactions/
 
     for pid in $(ps -ef | grep "tendermint" | awk '{print $2}'); do sudo kill -9 $pid; done
     for pid in $(ps -ef | grep "ethermint" | awk '{print $2}'); do sudo kill -9 $pid; done
-
+    docker rm -f $(docker ps -aq)
  
 
 ## What is Tendermint
