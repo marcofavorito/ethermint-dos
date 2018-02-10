@@ -87,7 +87,7 @@ The following instructions require `tsung` to be installed.
 
 In one terminal, run:
 
-    python3 ethermint-dos.py 4 --dummy
+    python3 ethermint-dos.py 4 --dummy --no-docker
     
 In another terminal, run:
 
@@ -112,7 +112,7 @@ Replace `firefox` with your favorite browser.
     
 ### Results
 
-You can execute the load test by yourself, or see the result of a test that I've executed, saved in `res/loadtests_results`.
+You can execute the load test by yourself, or see the result of a test that I've executed, saved in [`res/loadtests_results`](../res/loadtests_results).
 
 For example, given a zip file called `data.zip`:
 
@@ -130,5 +130,4 @@ Please refer to this [demo](demo-dos.md) for the details.
 
 ## References
 - [[1] Tendermint: Consensus without Mining](https://tendermint.com/static/docs/tendermint.pdf)
-- [[2] Tendermint:  Byzantine Fault Tolerance in the Age of Blockchains](https://tendermint.com/static/docs/tendermint.pdf)
-
+- [[2] Tendermint:  Byzantine Fault Tolerance in the Age of Blockchains](https://allquantor.at/blockchainbib/pdf/buchman2016tendermint.pdf)
