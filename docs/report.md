@@ -112,15 +112,12 @@ Replace `firefox` with your favorite browser.
     
 ### Results
 
-You can execute the load test by yourself, or see the result of a test that I've executed, saved in `res/bench-dummy-results`.
+You can execute the load test by yourself, or see the result of a test that I've executed, saved in `res/loadtests_results`.
 
-For example, you can execute:
+For example, given a zip file called `data.zip`:
 
-    cd res/bench-dummy-results/graphs
-    find . ! -name '*_tn.png'  | xargs firefox
-    
-    cd ../
-    firefox ./evil/graph.html ./normal/graph.html
+    open_test_results.sh data.zip
+
 
 
 ## 3) Feasible attacks and protocol vulnerabilities;

@@ -67,8 +67,8 @@ def main(args):
                                    save_logs=args.save_logs,
                                    path=DOCKER_PATH_ETHERMINT,
                                    datadir=DOCKER_ETHERMINT_DATADIR,
-                                   genesis_file_path=DOCKER_ETHERMINT_DATADIR+"/genesis.json"
-
+                                   genesis_file_path=DOCKER_ETHERMINT_DATADIR+"/genesis.json",
+                                   other_flags=args.ethermint_flags
                                    )
                       for i in range(args.num_of_nodes)]
 

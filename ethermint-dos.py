@@ -14,8 +14,9 @@ parser.add_argument('--no-docker', dest='dockerized', action='store_const', cons
 parser.add_argument('--verbosity', type=int, dest='verbosity', nargs='?', metavar='LEVEL', default=0, choices=[0, 1, 2], help="Tune the log level [0=default. 1=info. 2=debug]")
 parser.add_argument('--create_empty_blocks', dest='create_empty_blocks', action='store_const', const=True, default=False, help="Enable creation of empty blocks (works only for --dummy app).")
 parser.add_argument('--dummy', action='store_const', const=True, default=False, help="Use the 'dummy' ABCI application")
-parser.add_argument('--save_logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
-
+parser.add_argument('--save-logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
+parser.add_argument('--ethermint_genesis_path', dest='ethermint_genesis_path', default="", help="Specify path folder where to find genesis.json file and keystore folder")
+parser.add_argument('--ethermint_flags', dest='ethermint_flags', default="", help="generic Ethermint flags")
 args = parser.parse_args()
 
 def main():

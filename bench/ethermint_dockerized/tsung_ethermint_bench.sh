@@ -2,6 +2,8 @@
 
 WORKING_DIR=./bench/ethermint_dockerized
 TSUNG_CONFIG_FILE=$WORKING_DIR/ethermint_dockerized.xml
+ACCOUNTS_TO_BE_UNLOCKED=$(cat res/accounts.csv)
+PASSWORDS="/root/password.txt"
 
 rm -R $WORKING_DIR/normal $WORKING_DIR/evil $WORKING_DIR/graphs
 mkdir $WORKING_DIR/normal $WORKING_DIR/evil $WORKING_DIR/graphs
@@ -10,13 +12,13 @@ docker build -t marcofavorito/ethermint-dos -f ./docker/Dockerfile .
 
 echo "***********************************************"
 echo "Test normal network (where all nodes are correct)"
-./scripts/tsung_test.sh $TSUNG_CONFIG_FILE  $WORKING_DIR/normal    "python3 ethermint-dos.py 4 0 --verbosity 1" "ETHERMINT"
+./scripts/tsung_test.sh $TSUNG_CONFIG_FILE  $WORKING_DIR/normal    "python3 ethermint-dos.py 4 0 --verbosity 1 --ethermint_genesis_path /root/ --ethermint_flags '--unlock $ACCOUNTS_TO_BE_UNLOCKED --password $PASSWORDS'"
 
 docker rm -f $(docker ps -a --filter name="local_testnet" -q)
 
 echo "***********************************************"
 echo "Test evil network (with one byzantine node)"
-./scripts/tsung_test.sh $TSUNG_CONFIG_FILE  $WORKING_DIR/evil      "python3 ethermint-dos.py 4 1 --verbosity 1" "ETHERMINT"
+./scripts/tsung_test.sh $TSUNG_CONFIG_FILE  $WORKING_DIR/evil      "python3 ethermint-dos.py 4 1 --verbosity 1 --ethermint_genesis_path /root/ --ethermint_flags '--unlock $ACCOUNTS_TO_BE_UNLOCKED --password $PASSWORDS'"
 
 docker rm -f $(docker ps -a --filter name="local_testnet" -q)
 

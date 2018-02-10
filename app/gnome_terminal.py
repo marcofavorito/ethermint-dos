@@ -41,7 +41,9 @@ def main(args):
                                        ETH_RCP_PORTS[i],
                                        ETH_WS_PORTS[i],
                                        verbosity=args.verbosity,
-                                       save_logs=args.save_logs
+                                       save_logs=args.save_logs,
+                                       genesis_file_path=args.ethermint_genesis_path,
+                                       other_flags=args.ethermint_flags
                                        )
                           for i in range(args.num_of_nodes)]
 

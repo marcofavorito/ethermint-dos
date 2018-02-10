@@ -9,8 +9,8 @@
 
     <servers>
         <server host="172.57.101.100" port="8545" type="tcp"/>
-        <server host="172.57.101.101" port="8545" type="tcp"/>
-        <server host="172.57.101.102" port="8545" type="tcp"/>
+        <!--<server host="172.57.101.101" port="8545" type="tcp"/>-->
+        <!--<server host="172.57.101.102" port="8545" type="tcp"/>-->
         <!--
         NOTICE: This node is byzantine when you run the evil network
           Depending on the version of Tendermint Evil, it might make no sense to send request to it
@@ -19,27 +19,36 @@
     </servers>
 
     <load>
-        <arrivalphase phase="1" duration="3" unit="minute">
-            <users arrivalrate="2" unit="second"/>
-        </arrivalphase>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="15" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="20" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="10" unit="second">
+      <users arrivalrate="1" unit="second"/>
+    </arrivalphase>
     </load>
 
+
     <options>
-        <option name="file_server" id="addresses" value="./accounts.temp"/>
+        <option name="file_server" id="addresses" value="./res/accounts.csv"/>
     </options>
 
     <sessions>
         <session name="ethermint_transaction" weight="1" type="ts_http">
-            <transaction name="transaction">
-                <setdynvars sourcetype="file" fileid="addresses" delimiter=";" order="iter">
+            <transaction name="send_transaction_and_wait_for_commit">
+                <setdynvars sourcetype="file" fileid="addresses" delimiter="," order="iter">
+                    <!--0xce63277f38572bb802972edc7fe9bcd9eabadc15-->
                     <var name="addr_1"/>
+                    <!--0x6178fb747810f9f67d70e043b5fb690505088303-->
                     <var name="addr_2"/>
                 </setdynvars>
-                <request subst="true">
-                    <http url="/" method="POST"
-                          contents='{"params": ["%%_addr_1%%", "1234", 10000], "id": 2, "method": "personal_unlockAccount", "jsonrpc": "2.0"}'
-                          content_type="application/json"/>
-                </request>
+                <!--<request subst="true">-->
+                    <!--<http url="/" method="POST"-->
+                          <!--contents='{"params": ["%%_addr_1%%", "1234", 10000], "id": 1, "method": "personal_unlockAccount", "jsonrpc": "2.0"}'-->
+                          <!--content_type="application/json"/>-->
+                <!--</request>-->
                 <request subst="true">
                     <dyn_variable name="transaction_hash" jsonpath="result"/>
                     <http url="/" method="POST"
@@ -48,11 +57,12 @@
                 </request>
                 <request subst="true">
                     <!--<match do="log" when="match">"result":null</match>-->
-                    <!--<match do="dump" when="match">"result":null</match>-->
-                    <match do="loop" sleep_loop="2" max_loop="20" when="match">"result":null</match>
+                    <!--dump response when we get the receipt-->
+                    <!--<match do="dump" when="nomatch">"result":null</match>-->
+                    <match do="loop" sleep_loop="1" max_loop="20" when="match">"result":null</match>
                     <http url="/" method="POST"
                           contents='{"jsonrpc":"2.0", "method":"eth_getTransactionReceipt", "id":1, "params":["%%_transaction_hash%%"]}'
-                          content_type="application/json"/>
+                    content_type="application/json"/>
                 </request>
 
 

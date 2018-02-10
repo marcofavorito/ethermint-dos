@@ -2,14 +2,15 @@ FROM ubuntu:16.04
 
 RUN apt-get update && apt-get upgrade -y
 
-ADD ./bin/tendermint_evil   /bin/tendermint_evil
-ADD ./bin/tendermint        /bin/tendermint
-ADD ./bin/ethermint         /bin/ethermint
-
-ENV DATA_ROOT_ETHERMINT /root/ethermint
 ARG NUM_NODES=4
+ENV DATA_ROOT_ETHERMINT /root/ethermint
 
-WORKDIR /root/
+ADD ./bin/   /bin/
+ADD ./res/genesis.json /root/genesis.json
+ADD ./res/keystore /root/keystore
+ADD ./res/accounts.csv /root/accounts.csv
+ADD ./res/password.txt /root/password.txt
+
 
 # p2p port
 EXPOSE 46656
@@ -18,11 +19,22 @@ EXPOSE 46657
 # abci port
 EXPOSE 46658
 
-RUN mkdir $DATA_ROOT_ETHERMINT
-ADD ./docker/genesis.json /root/genesis.json
+########
+# setup
+########
+
+WORKDIR /root/
+
+#tendermint
 RUN tendermint testnet --n $NUM_NODES
-RUN ethermint --datadir $DATA_ROOT_ETHERMINT init
-#/root/genesis.json
+RUN tendermint --home .tendermint init
+
+#ethermint
+RUN mkdir $DATA_ROOT_ETHERMINT
+#RUN ethermint --datadir $DATA_ROOT_ETHERMINT init
+RUN ethermint --datadir $DATA_ROOT_ETHERMINT init genesis.json
+RUN rm -R $DATA_ROOT_ETHERMINT/keystore -R
+RUN mv keystore $DATA_ROOT_ETHERMINT/keystore
 
 WORKDIR /
 

@@ -6,7 +6,7 @@ We used the `dummy` application for convenience, but the observations made in th
 
 Please, be sure that you have already run `scripts/get_binaries.sh` so you are sure to have the right version of Tendermint and Tendermint Evil.
 
-## Tendermint Evil: what it is?
+## Tendermint Evil: what is it?
 
 As explained in other documents, [Tendermint Evil](https://github.com/MarcoFavorito/tendermint/tree/dos-tendermint-master) is my fork of Tendermint Core, where I made some changes in the source code to affect the consensus algorithm.
 
@@ -27,9 +27,9 @@ The genesis block is correctly committed, since `2/3` of the nodes are enough to
 [Here](../res/demo-dos-logs/log-tendermint-node0#L156) you can see the `nil-vote` in the data structure `Commit` of the block at height 2. This is due to the fact that the correct nodes never received pre-votes or pre-commit of the byzantine node for the block at height=1. 
 
 ### Height=2, Round=0
-- [Node 0](../res/demo-dos-logs/log-tendermint-node0#L103)
-- [Node 1](../res/demo-dos-logs/log-tendermint-node1#L104)
-- [Node 2](../res/demo-dos-logs/log-tendermint-node2#L104)
+- [Node 0](../res/demo-dos-logs/log-tendermint-node0.log#L103)
+- [Node 1](../res/demo-dos-logs/log-tendermint-node1.log#L104)
+- [Node 2](../res/demo-dos-logs/log-tendermint-node2.log#L104)
 - Node 3: X
 
 The system should block here, since the flag `--consensus.create_empty_blocks` is set to `false` for every node. This means that new blocks will be created only if there are some pending transactions.
