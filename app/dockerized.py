@@ -16,6 +16,7 @@ DOCKER_NETWORK_ETHERMINT_NODES = "172.57.101"
 DOCKER_ROOT_TESTNET_FOLDER =     "/root/mytestnet"
 DOCKER_PATH_TENDERMINT =         "/bin/tendermint"
 DOCKER_PATH_TENDERMINT_EVIL =    "/bin/tendermint_evil"
+DOCKER_PATH_TENDERMINT_EVIL_BASE_NAME =    "/bin/tendermint_"
 DOCKER_PATH_ETHERMINT =          "/bin/ethermint"
 
 DOCKER_ETHERMINT_DATADIR= "/root/ethermint"
@@ -41,7 +42,7 @@ def main(args):
                                            create_empty_blocks=args.create_empty_blocks,
                                            is_evil=False if i < args.num_of_nodes - args.num_of_evils else True,
                                            testnet_folder=DOCKER_ROOT_TESTNET_FOLDER,
-                                           path=DOCKER_PATH_TENDERMINT if i < args.num_of_nodes - args.num_of_evils else DOCKER_PATH_TENDERMINT_EVIL,
+                                           path=DOCKER_PATH_TENDERMINT if i < args.num_of_nodes - args.num_of_evils else DOCKER_PATH_TENDERMINT_EVIL_BASE_NAME + args.tendermint_evil,
                                            )
                             for i in range(args.num_of_nodes)]
 

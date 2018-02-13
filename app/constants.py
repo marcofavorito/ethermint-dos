@@ -18,6 +18,7 @@ ETHERMINT_FLAGS = "--rpc --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0"
 
 TENDERMINT_PATH="./bin/tendermint"
 TENDERMINT_EVIL_PATH="./bin/tendermint_evil"
+TENDERMINT_EVIL_BASE_NAME="./bin/tendermint_"
 ETHERMINT_PATH="./bin/ethermint"
 
 

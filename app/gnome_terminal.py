@@ -12,6 +12,7 @@ def main(args):
     ETH_RCP_PORTS = [BASE_RCP_PORT_ETH + i * 10 for i in range(args.num_of_nodes)]
     ETH_WS_PORTS = [BASE_WS_PORT_ETH + i * 10 for i in range(args.num_of_nodes)]
     SEEDS = ",".join([IP + ":" + str(p2pp) for p2pp in P2P_PORTS])
+
     tendermint_nodes = [TendermintNode(i,
                                        TCP_ALL_IPS + ":" + str(RPC_PORTS[i]),
                                        TCP_ALL_IPS + ":" + str(P2P_PORTS[i]),
@@ -21,7 +22,7 @@ def main(args):
                                        save_logs=args.save_logs,
                                        create_empty_blocks=args.create_empty_blocks,
                                        is_evil=True if i >= args.num_of_nodes - args.num_of_evils else False,
-                                       path=TENDERMINT_PATH if i < args.num_of_nodes - args.num_of_evils else TENDERMINT_EVIL_PATH,
+                                       path=TENDERMINT_PATH if i < args.num_of_nodes - args.num_of_evils else TENDERMINT_EVIL_BASE_NAME+args.tendermint_evil,
                                        )
                         for i in range(args.num_of_nodes)]
 

@@ -2,6 +2,8 @@ import os
 import sys
 
 import argparse
+
+from app.TendermintEvilVersion import TendermintEvilVersion
 from app.constants import *
 
 import app.gnome_terminal
@@ -17,6 +19,7 @@ parser.add_argument('--dummy', action='store_const', const=True, default=False, 
 parser.add_argument('--save-logs', dest='save_logs', action='store_const', const=True, default=False, help="save logs in logs/. NOTICE: with this flag the program to remove old logs.")
 parser.add_argument('--ethermint_genesis_path', dest='ethermint_genesis_path', default="", help="Specify path folder where to find genesis.json file and keystore folder")
 parser.add_argument('--ethermint_flags', dest='ethermint_flags', default="", help="generic Ethermint flags")
+parser.add_argument('--tendermint_evil', dest='tendermint_evil', default=TendermintEvilVersion.shy.value, choices=[e.value for e in TendermintEvilVersion], help="Tendermint Evil version (default: 'shy')")
 args = parser.parse_args()
 
 def main():
@@ -34,8 +37,6 @@ def main():
         app.gnome_terminal.main(args)
     else:
         app.dockerized.main(args)
-
-
 
 
 
