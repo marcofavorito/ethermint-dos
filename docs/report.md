@@ -1,4 +1,4 @@
-In this document I try to make the same analysis described [here](https://eprints.soton.ac.uk/415083/2/itasec18_main.pdf) on Tendermint/Ethermint, i.e.:
+In this document I try to make the same analysis described in [[7](https://eprints.soton.ac.uk/415083/2/itasec18_main.pdf)] on Tendermint/Ethermint, i.e.:
 
 1. Classify the Tendermint consensus algorithm according to the CAP theorem
 2. Performance Analysis
@@ -136,3 +136,4 @@ Please refer to this [demo](demo-dos.md) for the details.
 - [[4] Practical Byzantine Fault Tolerance](http://pmg.csail.mit.edu/papers/osdi99.pdf)
 - [[5] Consensus in the presence of Partial Synchrony](https://groups.csail.mit.edu/tds/papers/Lynch/jacm88.pdf)
 - [[6] Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+- [[7] PBFT vs Proof-of-Authority: Applying the CAP Theorem to permissioned Blockchain](https://eprints.soton.ac.uk/415083/2/itasec18_main.pdf)
