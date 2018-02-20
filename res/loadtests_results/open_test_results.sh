@@ -4,8 +4,9 @@ filename=$(basename "$1")
 extension="${filename##*.}"
 filename="${filename%.*}"
 
+rm -rf $filename
 unzip -o $1 -d $filename
 cd $filename/graphs
 find . ! -name '*_tn.png'  | xargs firefox &
-cd ../
-firefox $(pwd)/evil/graph.html $(pwd)//normal/graph.html &
+cd ..
+firefox $(pwd)/evil/graph.html $(pwd)/normal/graph.html &

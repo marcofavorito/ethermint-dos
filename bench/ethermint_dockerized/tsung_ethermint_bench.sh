@@ -31,3 +31,7 @@ echo "***********************************************"
 tsplot "Normal" $WORKING_DIR/normal/log/$LAST_LOG_DIR_NORM/tsung.log "Evil" $WORKING_DIR/evil/log/$LAST_LOG_DIR_EVIL/tsung.log -d $WORKING_DIR/graphs
 cd $WORKING_DIR/graphs/
 find . ! -name '*_tn.png'  | xargs firefox
+
+rm res/loadtests_results/ethermint_dockerized.zip
+zip res/loadtest_results/ethermint_dockerized.zip $WORKING_DIR/evil/* $WORKING_DIR/graphs/* $WORKING_DIR/normal/*
+

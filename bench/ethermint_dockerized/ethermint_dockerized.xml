@@ -9,8 +9,10 @@
 
     <servers>
         <server host="172.57.101.100" port="8545" type="tcp"/>
-        <!--<server host="172.57.101.101" port="8545" type="tcp"/>-->
-        <!--<server host="172.57.101.102" port="8545" type="tcp"/>-->
+        <!--
+	<server host="172.57.101.101" port="8545" type="tcp"/>
+        <server host="172.57.101.102" port="8545" type="tcp"/>
+	-->
         <!--
         NOTICE: This node is byzantine when you run the evil network
           Depending on the version of Tendermint Evil, it might make no sense to send request to it
@@ -19,15 +21,18 @@
     </servers>
 
     <load>
-    <arrivalphase phase="1" duration="30" unit="second">
+    <arrivalphase phase="1" duration="1" unit="minute">
       <users arrivalrate="15" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="2" duration="30" unit="second">
+<!--PHASE 2 is used to allow the Tendermint network to validate remaining pending transactions -->
+    <arrivalphase phase="2" duration="10" unit="second">
+      <users arrivalrate="1" unit="minute"/>
+    </arrivalphase>
+<!--
+    <arrivalphase phase="3" duration="30" unit="second">
       <users arrivalrate="20" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="3" duration="10" unit="second">
-      <users arrivalrate="1" unit="second"/>
-    </arrivalphase>
+-->
     </load>
 
 
