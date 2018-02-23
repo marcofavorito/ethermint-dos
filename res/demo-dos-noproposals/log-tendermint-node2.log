@@ -1,0 +1,616 @@
+I[02-23|17:54:43.815] Starting multiAppConn                        module=proxy impl=multiAppConn
+I[02-23|17:54:43.815] Starting socketClient                        module=abci-client connection=query impl=socketClient
+E[02-23|17:54:45.352] abci.socketClient failed to connect to tcp://172.57.101.102:46658.  Retrying... module=abci-client connection=query
+I[02-23|17:54:48.353] Starting socketClient                        module=abci-client connection=mempool impl=socketClient
+I[02-23|17:54:48.353] Starting socketClient                        module=abci-client connection=consensus impl=socketClient
+I[02-23|17:54:48.355] ABCI Handshake                               module=consensus appHeight=0 appHash=
+I[02-23|17:54:48.355] ABCI Replay Blocks                           module=consensus appHeight=0 storeHeight=0 stateHeight=0
+I[02-23|17:54:48.356] Completed ABCI Handshake - Tendermint and App are synced module=consensus appHeight=0 appHash=
+I[02-23|17:54:48.444] Starting EventSwitch                         module=types impl=EventSwitch
+I[02-23|17:54:48.444] This node is a validator                     module=consensus 
+I[02-23|17:54:48.446] Starting Node                                module=main impl=Node
+I[02-23|17:54:48.446] Starting RPC HTTP server on tcp socket 0.0.0.0:46657 module=rpc-server 
+I[02-23|17:54:48.447] Local listener                               module=p2p ip=:: port=46656
+I[02-23|17:54:48.447] Getting UPNP external address                module=p2p 
+I[02-23|17:54:51.355] HTTPRestRPC                                  module=rpc-server method=/status args=[] returns="[<*core_types.ResultStatus Value> <error Value>]"
+I[02-23|17:54:51.355] Served RPC HTTP response                     module=rpc-server method=POST url=/status status=200 duration=0 remoteAddr=172.57.101.102:60478
+I[02-23|17:54:51.447] Could not perform UPNP discover              module=p2p err="write udp4 0.0.0.0:53877->239.255.255.250:1900: i/o timeout"
+I[02-23|17:54:51.447] Starting DefaultListener                     module=p2p impl=Listener(@172.57.100.102:46656)
+I[02-23|17:54:51.448] Starting P2P Switch                          module=p2p impl="P2P Switch"
+I[02-23|17:54:51.448] Starting MempoolReactor                      module=mempool impl=MempoolReactor
+I[02-23|17:54:51.448] Starting BlockchainReactor                   module=blockchain impl=BlockchainReactor
+I[02-23|17:54:51.448] Starting BlockPool                           module=blockchain impl=BlockPool
+I[02-23|17:54:51.448] Starting ConsensusReactor                    module=consensus impl=ConsensusReactor
+I[02-23|17:54:51.448] ConsensusReactor                             module=consensus fastSync=true
+I[02-23|17:54:51.448] Started node                                 module=main nodeInfo="NodeInfo{pk: PubKeyEd25519{03DB2AC0D1A3574004A27F4AA24B278EE2CF132FABBBA5777D38C73F9559AD76}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.102:46656], version: 0.12.1-ff97fe6a ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:51.457] Peer handshake                               module=p2p peer=172.57.100.100:53960 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{B80286D8427D221094BF20C700A8B91CC6FC8A39D33904959A2D27327462E0F0}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.100:46656], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:51.458] Starting Peer                                module=p2p peer=172.57.100.100:53960 impl="Peer{MConn{172.57.100.100:53960} B80286D8427D in}"
+I[02-23|17:54:51.458] Starting MConnection                         module=p2p peer=172.57.100.100:53960 impl=MConn{172.57.100.100:53960}
+I[02-23|17:54:51.458] Added peer                                   module=p2p peer="Peer{MConn{172.57.100.100:53960} B80286D8427D in}"
+I[02-23|17:54:52.433] Dialing peer                                 module=p2p address=172.57.100.102:46656
+I[02-23|17:54:52.440] Peer handshake                               module=p2p peer=172.57.100.102:54186 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{03DB2AC0D1A3574004A27F4AA24B278EE2CF132FABBBA5777D38C73F9559AD76}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.102:46656], version: 0.12.1-ff97fe6a ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:52.441] Ignoring inbound connection: error while adding peer module=p2p address=172.57.100.102:54186 err="Ignoring connection from self"
+I[02-23|17:54:52.442] Peer handshake                               module=p2p peer=172.57.100.102:46656 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{03DB2AC0D1A3574004A27F4AA24B278EE2CF132FABBBA5777D38C73F9559AD76}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.102:46656], version: 0.12.1-ff97fe6a ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+E[02-23|17:54:52.442] Failed to add peer                           module=p2p address=172.57.100.102:46656 err="Ignoring connection from self"
+E[02-23|17:54:52.442] Error dialing seed                           module=p2p err="Ignoring connection from self"
+I[02-23|17:54:52.449] Time to switch to consensus reactor!         module=blockchain height=1
+I[02-23|17:54:52.449] Stopping BlockPool                           module=blockchain impl=BlockPool
+I[02-23|17:54:52.449] SwitchToConsensus                            module=consensus 
+I[02-23|17:54:52.449] Ignoring updateToState()                     module=consensus newHeight=1 oldHeight=1
+I[02-23|17:54:52.449] Starting ConsensusState                      module=consensus impl=ConsensusState
+I[02-23|17:54:52.450] Starting WAL                                 module=consensus wal=/root/mytestnet/mach2/data/cs.wal/wal impl=WAL
+I[02-23|17:54:52.482] Starting TimeoutTicker                       module=consensus impl=TimeoutTicker
+I[02-23|17:54:52.482] Catchup by replaying consensus messages      module=consensus height=1
+I[02-23|17:54:52.482] Replay: Done                                 module=consensus 
+I[02-23|17:54:52.482] Timed out                                    module=consensus dur=-3.036331612s height=1 round=0 step=RoundStepNewHeight
+I[02-23|17:54:52.515] enterNewRound(1/0). Current: 1/0/RoundStepNewHeight module=consensus 
+I[02-23|17:54:52.515] enterPropose(1/0). Current: 1/0/RoundStepNewRound module=consensus 
+I[02-23|17:54:52.515] enterPropose: Our turn to propose            module=consensus proposer=4DC7C72DB6D715A890618313D423F6744FFDE7A8 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:0, LR:0, LS:0}"
+I[02-23|17:54:52.549] EVIL! Do not send proposal.                  module=consensus 
+I[02-23|17:54:52.790] Dialing peer                                 module=p2p address=172.57.100.101:46656
+I[02-23|17:54:52.796] Peer handshake                               module=p2p peer=172.57.100.101:46656 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{F563FCBEEA8195365AE08D39FBB03F9FC8F87EE91DFB25B79F691B14F49B37E6}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.101:46656], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:52.796] Starting Peer                                module=p2p peer=172.57.100.101:46656 impl="Peer{MConn{172.57.100.101:46656} F563FCBEEA81 out}"
+I[02-23|17:54:52.797] Starting MConnection                         module=p2p peer=172.57.100.101:46656 impl=MConn{172.57.100.101:46656}
+I[02-23|17:54:52.797] Added peer                                   module=p2p peer="Peer{MConn{172.57.100.101:46656} F563FCBEEA81 out}"
+I[02-23|17:54:52.797] Dialed and added peer                        module=p2p address=172.57.100.101:46656 peer="Peer{MConn{172.57.100.101:46656} F563FCBEEA81 out}"
+I[02-23|17:54:52.797] Connected to seed                            module=p2p peer="Peer{MConn{172.57.100.101:46656} F563FCBEEA81 out}"
+I[02-23|17:54:53.483] Peer handshake                               module=p2p peer=172.57.100.101:55152 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{F563FCBEEA8195365AE08D39FBB03F9FC8F87EE91DFB25B79F691B14F49B37E6}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.101:46656], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:53.483] Ignoring inbound connection: error while adding peer module=p2p address=172.57.100.101:55152 err="Duplicate peer"
+I[02-23|17:54:53.593] Peer handshake                               module=p2p peer=172.57.100.103:41604 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{F4346728780CCA5A37C6E25644BDC505232E81C68F89C23869E9AA4A8A56F6FD}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.103:46656], version: 0.12.1-ff97fe6a ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+I[02-23|17:54:53.593] Starting Peer                                module=p2p peer=172.57.100.103:41604 impl="Peer{MConn{172.57.100.103:41604} F4346728780C in}"
+I[02-23|17:54:53.593] Starting MConnection                         module=p2p peer=172.57.100.103:41604 impl=MConn{172.57.100.103:41604}
+I[02-23|17:54:53.593] Added peer                                   module=p2p peer="Peer{MConn{172.57.100.103:41604} F4346728780C in}"
+I[02-23|17:54:53.810] Dialing peer                                 module=p2p address=172.57.100.103:46656
+I[02-23|17:54:53.816] Peer handshake                               module=p2p peer=172.57.100.103:46656 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{F4346728780CCA5A37C6E25644BDC505232E81C68F89C23869E9AA4A8A56F6FD}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.103:46656], version: 0.12.1-ff97fe6a ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+E[02-23|17:54:53.816] Failed to add peer                           module=p2p address=172.57.100.103:46656 err="Duplicate peer"
+E[02-23|17:54:53.816] Error dialing seed                           module=p2p err="Duplicate peer"
+I[02-23|17:54:53.854] Dialing peer                                 module=p2p address=172.57.100.100:46656
+I[02-23|17:54:53.860] Peer handshake                               module=p2p peer=172.57.100.100:46656 peerNodeInfo="NodeInfo{pk: PubKeyEd25519{B80286D8427D221094BF20C700A8B91CC6FC8A39D33904959A2D27327462E0F0}, moniker: anonymous, network: chain-9sFObL [remote , listen 172.57.100.100:46656], version: 0.12.1-'c7f923c ([wire_version=0.7.1 p2p_version=0.5.0 consensus_version=v1/0.2.2 rpc_version=0.7.0/3 tx_index=on rpc_addr=tcp://0.0.0.0:46657])}"
+E[02-23|17:54:53.860] Failed to add peer                           module=p2p address=172.57.100.100:46656 err="Duplicate peer"
+E[02-23|17:54:53.860] Error dialing seed                           module=p2p err="Duplicate peer"
+I[02-23|17:54:54.851] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 1/00/1(Prevote) 000000000000 {/6BFCE9368FCA.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:<nil> BA{4:_X__} map[]}"
+I[02-23|17:54:55.471] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 1/00/1(Prevote) 000000000000 {/8B4A1A1F0A6A.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3:<nil> BA{4:_XX_} map[]}"
+I[02-23|17:54:55.516] Timed out                                    module=consensus dur=3s height=1 round=0 step=RoundStepPropose
+I[02-23|17:54:55.556] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 1/00/1(Prevote) 000000000000 {/4051D68CDD62.../}}" prevotes="VoteSet{H:1 R:0 T:1 +2/3::0:000000000000 BA{4:_XXX} map[]}"
+I[02-23|17:54:55.556] enterPrecommit(1/0). Current: 1/0/RoundStepPropose module=consensus 
+I[02-23|17:54:55.556] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:54:55.638] Signed and pushed vote                       module=consensus height=1 round=0 vote="Vote{0:4DC7C72DB6D7 1/00/2(Precommit) 000000000000 {/D6B78024E110.../}}" err=null
+I[02-23|17:54:55.773] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 1/00/2(Precommit) 000000000000 {/D6B78024E110.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:54:56.056] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 1/00/2(Precommit) 000000000000 {/E46D78BF54EE.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:54:56.139] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 1/00/2(Precommit) 000000000000 {/244DE0D153EE.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3::0:000000000000 BA{4:X_XX} map[]}"
+I[02-23|17:54:56.139] enterNewRound(1/1). Current: 1/0/RoundStepPrecommit module=consensus 
+I[02-23|17:54:56.140] enterPropose(1/1). Current: 1/1/RoundStepNewRound module=consensus 
+I[02-23|17:54:56.140] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:1, LR:0, LS:3}"
+I[02-23|17:54:56.297] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 1/00/2(Precommit) 000000000000 {/4455A0C1E48B.../}}" precommits="VoteSet{H:1 R:0 T:2 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:54:57.080] Received complete proposal block             module=consensus height=1 hash=871325E1334E605D2184ABD0AEC11EF6E646EC0E
+I[02-23|17:54:57.080] enterPrevote(1/1). Current: 1/1/RoundStepPropose module=consensus 
+I[02-23|17:54:57.080] enterPrevote: ProposalBlock is valid         module=consensus height=1 round=1
+I[02-23|17:54:57.155] Signed and pushed vote                       module=consensus height=1 round=1 vote="Vote{0:4DC7C72DB6D7 1/01/1(Prevote) 871325E1334E {/DBD6A09FEB7A.../}}" err=null
+I[02-23|17:54:57.389] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 1/01/1(Prevote) 871325E1334E {/F2FEF924377B.../}}" prevotes="VoteSet{H:1 R:1 T:1 +2/3:<nil> BA{4:_X__} map[]}"
+I[02-23|17:54:57.489] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 1/01/1(Prevote) 871325E1334E {/DBD6A09FEB7A.../}}" prevotes="VoteSet{H:1 R:1 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:54:57.839] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 1/01/1(Prevote) 871325E1334E {/1A1B1F255B75.../}}" prevotes="VoteSet{H:1 R:1 T:1 +2/3:871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5 BA{4:XX_X} map[]}"
+I[02-23|17:54:57.839] enterPrecommit(1/1). Current: 1/1/RoundStepPrevote module=consensus 
+I[02-23|17:54:57.839] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=871325E1334E605D2184ABD0AEC11EF6E646EC0E
+I[02-23|17:54:57.921] Signed and pushed vote                       module=consensus height=1 round=1 vote="Vote{0:4DC7C72DB6D7 1/01/2(Precommit) 871325E1334E {/B2ED12EA1D86.../}}" err=null
+I[02-23|17:54:58.080] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 1/01/1(Prevote) 871325E1334E {/AEE6668C6E83.../}}" prevotes="VoteSet{H:1 R:1 T:1 +2/3:871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5 BA{4:XXXX} map[]}"
+I[02-23|17:54:58.161] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 1/01/2(Precommit) 871325E1334E {/B2ED12EA1D86.../}}" precommits="VoteSet{H:1 R:1 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:54:58.478] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 1/01/2(Precommit) 871325E1334E {/C4D94CF6E92B.../}}" precommits="VoteSet{H:1 R:1 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:54:58.738] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 1/01/2(Precommit) 871325E1334E {/B2DEF5327AD4.../}}" precommits="VoteSet{H:1 R:1 T:2 +2/3:871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5 BA{4:XXX_} map[]}"
+I[02-23|17:54:58.738] enterCommit(1/1). Current: 1/1/RoundStepPrecommit module=consensus 
+I[02-23|17:54:58.821] Finalizing commit of block with 0 txs        module=consensus height=1 hash=871325E1334E605D2184ABD0AEC11EF6E646EC0E root=
+I[02-23|17:54:58.821] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         1
+    Time:           2018-02-23 17:54:56.056 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    :0:000000000000
+    LastCommit:     
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            
+  }#871325E1334E605D2184ABD0AEC11EF6E646EC0E
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    :0:000000000000
+    Precommits: 
+  }#
+}#871325E1334E605D2184ABD0AEC11EF6E646EC0E module=consensus 
+I[02-23|17:54:59.106] Executed block                               module=state height=1 validTxs=0 invalidTxs=0
+I[02-23|17:54:59.222] Committed state                              module=state height=1 txs=0 hash=64F97388872BD48559C32E933B8C3BFADBCE6F14B40416F8F9650C272C01A47F
+I[02-23|17:54:59.223] Recheck txs                                  module=mempool numtxs=0 height=1
+I[02-23|17:54:59.604] Added to lastPrecommits: VoteSet{H:1 R:1 T:2 +2/3:871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5 BA{4:XXXX} map[]} module=consensus 
+I[02-23|17:54:59.739] Timed out                                    module=consensus dur=211.132605ms height=2 round=0 step=RoundStepNewHeight
+I[02-23|17:54:59.895] enterNewRound(2/0). Current: 2/0/RoundStepNewHeight module=consensus 
+I[02-23|17:54:59.895] enterPropose(2/0). Current: 2/0/RoundStepNewRound module=consensus 
+I[02-23|17:54:59.895] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:1, LR:1, LS:3}"
+I[02-23|17:55:01.181] Received complete proposal block             module=consensus height=2 hash=0AD2CF0D5391CE4C49D1F6A455C395AF5237E746
+I[02-23|17:55:01.181] enterPrevote(2/0). Current: 2/0/RoundStepPropose module=consensus 
+I[02-23|17:55:01.184] enterPrevote: ProposalBlock is valid         module=consensus height=2 round=0
+I[02-23|17:55:01.263] Signed and pushed vote                       module=consensus height=2 round=0 vote="Vote{0:4DC7C72DB6D7 2/00/1(Prevote) 0AD2CF0D5391 {/2AF1DB871EBE.../}}" err=null
+I[02-23|17:55:01.412] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 2/00/1(Prevote) 0AD2CF0D5391 {/2AF1DB871EBE.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:01.545] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 2/00/1(Prevote) 0AD2CF0D5391 {/61814D74771E.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:01.940] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 2/00/1(Prevote) 0AD2CF0D5391 {/DA9C2D586AA5.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA BA{4:XXX_} map[]}"
+I[02-23|17:55:01.940] enterPrecommit(2/0). Current: 2/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:01.940] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=0AD2CF0D5391CE4C49D1F6A455C395AF5237E746
+I[02-23|17:55:02.031] Signed and pushed vote                       module=consensus height=2 round=0 vote="Vote{0:4DC7C72DB6D7 2/00/2(Precommit) 0AD2CF0D5391 {/4A785A32A692.../}}" err=null
+I[02-23|17:55:02.207] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 2/00/2(Precommit) 0AD2CF0D5391 {/4A785A32A692.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:02.364] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 2/00/1(Prevote) 0AD2CF0D5391 {/0CEE3B24D9CE.../}}" prevotes="VoteSet{H:2 R:0 T:1 +2/3:0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA BA{4:XXXX} map[]}"
+I[02-23|17:55:02.722] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 2/00/2(Precommit) 0AD2CF0D5391 {/EB74113125AC.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:02.864] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 2/00/2(Precommit) 0AD2CF0D5391 {/FDE158154A3B.../}}" precommits="VoteSet{H:2 R:0 T:2 +2/3:0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA BA{4:XX_X} map[]}"
+I[02-23|17:55:02.864] enterCommit(2/0). Current: 2/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:02.896] Timed out                                    module=consensus dur=3s height=2 round=0 step=RoundStepPropose
+I[02-23|17:55:02.966] Finalizing commit of block with 0 txs        module=consensus height=2 hash=0AD2CF0D5391CE4C49D1F6A455C395AF5237E746 root=64F97388872BD48559C32E933B8C3BFADBCE6F14B40416F8F9650C272C01A47F
+I[02-23|17:55:02.966] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         2
+    Time:           2018-02-23 17:54:59.403 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5
+    LastCommit:     634287A998DA3833C5648C2A2F94B2F455AA4C88
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            64F97388872BD48559C32E933B8C3BFADBCE6F14B40416F8F9650C272C01A47F
+  }#0AD2CF0D5391CE4C49D1F6A455C395AF5237E746
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    871325E1334E605D2184ABD0AEC11EF6E646EC0E:1:BBE4F790A7D5
+    Precommits: Vote{0:4DC7C72DB6D7 1/01/2(Precommit) 871325E1334E {/B2ED12EA1D86.../}}
+    Vote{1:5BB83C055C3B 1/01/2(Precommit) 871325E1334E {/C4D94CF6E92B.../}}
+    Vote{2:BC977FC69072 1/01/2(Precommit) 871325E1334E {/B2DEF5327AD4.../}}
+    Vote{3:FB84A36F5EEE 1/01/2(Precommit) 871325E1334E {/043ABDCCADF6.../}}
+  }#634287A998DA3833C5648C2A2F94B2F455AA4C88
+}#0AD2CF0D5391CE4C49D1F6A455C395AF5237E746 module=consensus 
+I[02-23|17:55:03.268] Executed block                               module=state height=2 validTxs=0 invalidTxs=0
+I[02-23|17:55:03.414] Committed state                              module=state height=2 txs=0 hash=C0FA38F90F19F2C7397D2E51B47EBC2C4FBD53ED4C409D21A538AE2C82E1C6E2
+I[02-23|17:55:03.414] Recheck txs                                  module=mempool numtxs=0 height=2
+I[02-23|17:55:03.865] Timed out                                    module=consensus dur=105.153535ms height=3 round=0 step=RoundStepNewHeight
+I[02-23|17:55:03.897] Added to lastPrecommits: VoteSet{H:2 R:0 T:2 +2/3:0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA BA{4:XXXX} map[]} module=consensus 
+I[02-23|17:55:04.223] enterNewRound(3/0). Current: 3/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:04.223] enterPropose(3/0). Current: 3/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:04.223] enterPropose: Not our turn to propose        module=consensus proposer=BC977FC69072253C39650A497D4334ACA98E138A privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:2, LR:0, LS:3}"
+I[02-23|17:55:06.063] Received complete proposal block             module=consensus height=3 hash=989290480FF087A2C077461E03445F746695195D
+I[02-23|17:55:06.063] enterPrevote(3/0). Current: 3/0/RoundStepPropose module=consensus 
+I[02-23|17:55:06.066] enterPrevote: ProposalBlock is valid         module=consensus height=3 round=0
+I[02-23|17:55:06.171] Signed and pushed vote                       module=consensus height=3 round=0 vote="Vote{0:4DC7C72DB6D7 3/00/1(Prevote) 989290480FF0 {/F1B8D677BFC5.../}}" err=null
+I[02-23|17:55:06.373] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 3/00/1(Prevote) 989290480FF0 {/F1B8D677BFC5.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:06.464] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 3/00/1(Prevote) 989290480FF0 {/B2BAB261E7CE.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:06.682] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 3/00/1(Prevote) 989290480FF0 {/824EB30093DB.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:989290480FF087A2C077461E03445F746695195D:1:BEB8E42524C1 BA{4:XXX_} map[]}"
+I[02-23|17:55:06.682] enterPrecommit(3/0). Current: 3/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:06.683] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=989290480FF087A2C077461E03445F746695195D
+I[02-23|17:55:06.764] Signed and pushed vote                       module=consensus height=3 round=0 vote="Vote{0:4DC7C72DB6D7 3/00/2(Precommit) 989290480FF0 {/370515F7C325.../}}" err=null
+I[02-23|17:55:06.948] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 3/00/2(Precommit) 989290480FF0 {/370515F7C325.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:07.189] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 3/00/1(Prevote) 989290480FF0 {/F9DC7D2EA9B9.../}}" prevotes="VoteSet{H:3 R:0 T:1 +2/3:989290480FF087A2C077461E03445F746695195D:1:BEB8E42524C1 BA{4:XXXX} map[]}"
+I[02-23|17:55:07.223] Timed out                                    module=consensus dur=3s height=3 round=0 step=RoundStepPropose
+I[02-23|17:55:07.287] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 3/00/2(Precommit) 989290480FF0 {/49793ECA28FE.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:07.445] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 3/00/2(Precommit) 989290480FF0 {/9808535722C3.../}}" precommits="VoteSet{H:3 R:0 T:2 +2/3:989290480FF087A2C077461E03445F746695195D:1:BEB8E42524C1 BA{4:XXX_} map[]}"
+I[02-23|17:55:07.445] enterCommit(3/0). Current: 3/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:07.551] Finalizing commit of block with 0 txs        module=consensus height=3 hash=989290480FF087A2C077461E03445F746695195D root=C0FA38F90F19F2C7397D2E51B47EBC2C4FBD53ED4C409D21A538AE2C82E1C6E2
+I[02-23|17:55:07.551] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         3
+    Time:           2018-02-23 17:55:04.561 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA
+    LastCommit:     373BA101F8A4447B80F45FA58E04CFDA503E80F9
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            C0FA38F90F19F2C7397D2E51B47EBC2C4FBD53ED4C409D21A538AE2C82E1C6E2
+  }#989290480FF087A2C077461E03445F746695195D
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    0AD2CF0D5391CE4C49D1F6A455C395AF5237E746:1:C6B8F36BF0FA
+    Precommits: Vote{0:4DC7C72DB6D7 2/00/2(Precommit) 0AD2CF0D5391 {/4A785A32A692.../}}
+    Vote{1:5BB83C055C3B 2/00/2(Precommit) 0AD2CF0D5391 {/EB74113125AC.../}}
+    Vote{2:BC977FC69072 2/00/2(Precommit) 0AD2CF0D5391 {/8952920D17FC.../}}
+    Vote{3:FB84A36F5EEE 2/00/2(Precommit) 0AD2CF0D5391 {/FDE158154A3B.../}}
+  }#373BA101F8A4447B80F45FA58E04CFDA503E80F9
+}#989290480FF087A2C077461E03445F746695195D module=consensus 
+I[02-23|17:55:07.843] Executed block                               module=state height=3 validTxs=0 invalidTxs=0
+I[02-23|17:55:07.934] Committed state                              module=state height=3 txs=0 hash=6A4929A05E7B7C148902A284602379BD5D873F031F138F8D4BD33FA999F7DCCF
+I[02-23|17:55:07.934] Recheck txs                                  module=mempool numtxs=0 height=3
+I[02-23|17:55:08.446] Timed out                                    module=consensus dur=257.078226ms height=4 round=0 step=RoundStepNewHeight
+I[02-23|17:55:08.538] enterNewRound(4/0). Current: 4/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:08.538] enterPropose(4/0). Current: 4/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:08.539] enterPropose: Not our turn to propose        module=consensus proposer=FB84A36F5EEEEB47319427F20A5E30EBFCA6A230 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:3, LR:0, LS:3}"
+I[02-23|17:55:11.539] Timed out                                    module=consensus dur=3s height=4 round=0 step=RoundStepPropose
+I[02-23|17:55:11.575] enterPrevote(4/0). Current: 4/0/RoundStepPropose module=consensus 
+I[02-23|17:55:11.575] enterPrevote: ProposalBlock is nil           module=consensus height=4 round=0
+I[02-23|17:55:11.609] Signed and pushed vote                       module=consensus height=4 round=0 vote="Vote{0:4DC7C72DB6D7 4/00/1(Prevote) 000000000000 {/B35F6C6BCC5C.../}}" err=null
+I[02-23|17:55:11.714] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 4/00/1(Prevote) 000000000000 {/B35F6C6BCC5C.../}}" prevotes="VoteSet{H:4 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:11.789] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 4/00/1(Prevote) 000000000000 {/ADAB88DB2656.../}}" prevotes="VoteSet{H:4 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:12.236] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 4/00/1(Prevote) 000000000000 {/587CE6E635DB.../}}" prevotes="VoteSet{H:4 R:0 T:1 +2/3::0:000000000000 BA{4:XXX_} map[]}"
+I[02-23|17:55:12.236] enterPrecommit(4/0). Current: 4/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:12.236] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:12.328] Signed and pushed vote                       module=consensus height=4 round=0 vote="Vote{0:4DC7C72DB6D7 4/00/2(Precommit) 000000000000 {/D1681AC880D8.../}}" err=null
+I[02-23|17:55:12.528] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 4/00/2(Precommit) 000000000000 {/D1681AC880D8.../}}" precommits="VoteSet{H:4 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:12.602] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 4/00/2(Precommit) 000000000000 {/60783B82C12A.../}}" precommits="VoteSet{H:4 R:0 T:2 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:12.694] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 4/00/2(Precommit) 000000000000 {/2322D233B9D5.../}}" precommits="VoteSet{H:4 R:0 T:2 +2/3::0:000000000000 BA{4:XXX_} map[]}"
+I[02-23|17:55:12.694] enterNewRound(4/1). Current: 4/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:12.694] enterPropose(4/1). Current: 4/1/RoundStepNewRound module=consensus 
+I[02-23|17:55:12.694] enterPropose: Our turn to propose            module=consensus proposer=4DC7C72DB6D715A890618313D423F6744FFDE7A8 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:4, LR:0, LS:3}"
+I[02-23|17:55:12.778] EVIL! Do not send proposal.                  module=consensus 
+I[02-23|17:55:13.162] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 4/00/2(Precommit) 000000000000 {/A5EBB360A9AF.../}}" precommits="VoteSet{H:4 R:0 T:2 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:55:16.194] Timed out                                    module=consensus dur=3.5s height=4 round=1 step=RoundStepPropose
+I[02-23|17:55:16.254] enterPrevote(4/1). Current: 4/1/RoundStepPropose module=consensus 
+I[02-23|17:55:16.254] enterPrevote: ProposalBlock is nil           module=consensus height=4 round=1
+I[02-23|17:55:16.305] Signed and pushed vote                       module=consensus height=4 round=1 vote="Vote{0:4DC7C72DB6D7 4/01/1(Prevote) 000000000000 {/DD1824AB7F4F.../}}" err=null
+I[02-23|17:55:16.397] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 4/01/1(Prevote) 000000000000 {/DD1824AB7F4F.../}}" prevotes="VoteSet{H:4 R:1 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:16.681] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 4/01/1(Prevote) 000000000000 {/52ABF86733A2.../}}" prevotes="VoteSet{H:4 R:1 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:16.797] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 4/01/1(Prevote) 000000000000 {/1F2176332D16.../}}" prevotes="VoteSet{H:4 R:1 T:1 +2/3::0:000000000000 BA{4:XX_X} map[]}"
+I[02-23|17:55:16.797] enterPrecommit(4/1). Current: 4/1/RoundStepPrevote module=consensus 
+I[02-23|17:55:16.797] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:16.877] Signed and pushed vote                       module=consensus height=4 round=1 vote="Vote{0:4DC7C72DB6D7 4/01/2(Precommit) 000000000000 {/84A5083F51F9.../}}" err=null
+I[02-23|17:55:17.053] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 4/01/2(Precommit) 000000000000 {/84A5083F51F9.../}}" precommits="VoteSet{H:4 R:1 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:17.237] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 4/01/2(Precommit) 000000000000 {/DF34C152D4D2.../}}" precommits="VoteSet{H:4 R:1 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:17.371] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 4/01/2(Precommit) 000000000000 {/3134C8B4FD2A.../}}" precommits="VoteSet{H:4 R:1 T:2 +2/3::0:000000000000 BA{4:XX_X} map[]}"
+I[02-23|17:55:17.371] enterNewRound(4/2). Current: 4/1/RoundStepPrecommit module=consensus 
+I[02-23|17:55:17.371] enterPropose(4/2). Current: 4/2/RoundStepNewRound module=consensus 
+I[02-23|17:55:17.371] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:4, LR:1, LS:3}"
+I[02-23|17:55:18.262] Received complete proposal block             module=consensus height=4 hash=5ED00729302B5E130091EC791F65F9B98D446662
+I[02-23|17:55:18.262] enterPrevote(4/2). Current: 4/2/RoundStepPropose module=consensus 
+I[02-23|17:55:18.262] enterPrevote: ProposalBlock is valid         module=consensus height=4 round=2
+I[02-23|17:55:18.358] Signed and pushed vote                       module=consensus height=4 round=2 vote="Vote{0:4DC7C72DB6D7 4/02/1(Prevote) 5ED00729302B {/AFE32D2BEC40.../}}" err=null
+I[02-23|17:55:18.530] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 4/02/1(Prevote) 5ED00729302B {/AFE32D2BEC40.../}}" prevotes="VoteSet{H:4 R:2 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:18.613] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 4/02/1(Prevote) 5ED00729302B {/922B14C9A854.../}}" prevotes="VoteSet{H:4 R:2 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:18.763] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 4/01/1(Prevote) 000000000000 {/580F0EB4F48B.../}}" prevotes="VoteSet{H:4 R:1 T:1 +2/3::0:000000000000 BA{4:XXXX} map[B80286D8427D221094BF20C700A8B91CC6FC8A39D33904959A2D27327462E0F0::0:000000000000]}"
+I[02-23|17:55:18.854] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 4/02/1(Prevote) 5ED00729302B {/61791A35876B.../}}" prevotes="VoteSet{H:4 R:2 T:1 +2/3:5ED00729302B5E130091EC791F65F9B98D446662:1:709FC9ABF9C7 BA{4:XX_X} map[]}"
+I[02-23|17:55:18.855] enterPrecommit(4/2). Current: 4/2/RoundStepPrevote module=consensus 
+I[02-23|17:55:18.855] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=5ED00729302B5E130091EC791F65F9B98D446662
+I[02-23|17:55:18.937] Signed and pushed vote                       module=consensus height=4 round=2 vote="Vote{0:4DC7C72DB6D7 4/02/2(Precommit) 5ED00729302B {/36CEE56E7E1E.../}}" err=null
+I[02-23|17:55:19.178] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 4/02/2(Precommit) 5ED00729302B {/36CEE56E7E1E.../}}" precommits="VoteSet{H:4 R:2 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:19.532] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 4/02/2(Precommit) 5ED00729302B {/BD7862E7C13A.../}}" precommits="VoteSet{H:4 R:2 T:2 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-23|17:55:19.623] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 4/02/2(Precommit) 5ED00729302B {/B76F48BB0CCF.../}}" precommits="VoteSet{H:4 R:2 T:2 +2/3:5ED00729302B5E130091EC791F65F9B98D446662:1:709FC9ABF9C7 BA{4:XX_X} map[]}"
+I[02-23|17:55:19.623] enterCommit(4/2). Current: 4/2/RoundStepPrecommit module=consensus 
+I[02-23|17:55:19.709] Finalizing commit of block with 0 txs        module=consensus height=4 hash=5ED00729302B5E130091EC791F65F9B98D446662 root=6A4929A05E7B7C148902A284602379BD5D873F031F138F8D4BD33FA999F7DCCF
+I[02-23|17:55:19.710] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         4
+    Time:           2018-02-23 17:55:17.421 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    989290480FF087A2C077461E03445F746695195D:1:BEB8E42524C1
+    LastCommit:     77D350DE3A691541300505EEE0D7F40071CFD421
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            6A4929A05E7B7C148902A284602379BD5D873F031F138F8D4BD33FA999F7DCCF
+  }#5ED00729302B5E130091EC791F65F9B98D446662
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    989290480FF087A2C077461E03445F746695195D:1:BEB8E42524C1
+    Precommits: Vote{0:4DC7C72DB6D7 3/00/2(Precommit) 989290480FF0 {/370515F7C325.../}}
+    Vote{1:5BB83C055C3B 3/00/2(Precommit) 989290480FF0 {/49793ECA28FE.../}}
+    Vote{2:BC977FC69072 3/00/2(Precommit) 989290480FF0 {/9808535722C3.../}}
+    nil-Vote
+  }#77D350DE3A691541300505EEE0D7F40071CFD421
+}#5ED00729302B5E130091EC791F65F9B98D446662 module=consensus 
+I[02-23|17:55:19.958] Executed block                               module=state height=4 validTxs=0 invalidTxs=0
+I[02-23|17:55:20.041] Committed state                              module=state height=4 txs=0 hash=E00D83D547DD476366238CC186D0DA3A0A0212BF6DF245F35A687F8C75FE70BD
+I[02-23|17:55:20.042] Recheck txs                                  module=mempool numtxs=0 height=4
+I[02-23|17:55:20.624] Timed out                                    module=consensus dur=377.304323ms height=5 round=0 step=RoundStepNewHeight
+I[02-23|17:55:20.696] enterNewRound(5/0). Current: 5/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:20.696] enterPropose(5/0). Current: 5/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:20.696] enterPropose: Our turn to propose            module=consensus proposer=4DC7C72DB6D715A890618313D423F6744FFDE7A8 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:4, LR:2, LS:3}"
+I[02-23|17:55:20.788] EVIL! Do not send proposal.                  module=consensus 
+I[02-23|17:55:23.697] Timed out                                    module=consensus dur=3s height=5 round=0 step=RoundStepPropose
+I[02-23|17:55:23.761] enterPrevote(5/0). Current: 5/0/RoundStepPropose module=consensus 
+I[02-23|17:55:23.761] enterPrevote: ProposalBlock is nil           module=consensus height=5 round=0
+I[02-23|17:55:23.795] Signed and pushed vote                       module=consensus height=5 round=0 vote="Vote{0:4DC7C72DB6D7 5/00/1(Prevote) 000000000000 {/A29C08D68748.../}}" err=null
+I[02-23|17:55:23.880] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 5/00/1(Prevote) 000000000000 {/A29C08D68748.../}}" prevotes="VoteSet{H:5 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:23.949] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 5/00/1(Prevote) 000000000000 {/F5B5EEC9902B.../}}" prevotes="VoteSet{H:5 R:0 T:1 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-23|17:55:24.298] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 5/00/1(Prevote) 000000000000 {/89291F93D21E.../}}" prevotes="VoteSet{H:5 R:0 T:1 +2/3::0:000000000000 BA{4:XX_X} map[]}"
+I[02-23|17:55:24.298] enterPrecommit(5/0). Current: 5/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:24.298] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:24.412] Signed and pushed vote                       module=consensus height=5 round=0 vote="Vote{0:4DC7C72DB6D7 5/00/2(Precommit) 000000000000 {/97048C8C151A.../}}" err=null
+I[02-23|17:55:24.612] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 5/00/2(Precommit) 000000000000 {/97048C8C151A.../}}" precommits="VoteSet{H:5 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:24.779] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 5/00/2(Precommit) 000000000000 {/4084FC815A8A.../}}" precommits="VoteSet{H:5 R:0 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:24.865] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 5/00/2(Precommit) 000000000000 {/1FFBA57739F8.../}}" precommits="VoteSet{H:5 R:0 T:2 +2/3::0:000000000000 BA{4:XX_X} map[]}"
+I[02-23|17:55:24.866] enterNewRound(5/1). Current: 5/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:24.866] enterPropose(5/1). Current: 5/1/RoundStepNewRound module=consensus 
+I[02-23|17:55:24.866] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:5, LR:0, LS:3}"
+I[02-23|17:55:25.032] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 5/00/2(Precommit) 000000000000 {/000B1F53B3F5.../}}" precommits="VoteSet{H:5 R:0 T:2 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:55:26.065] Received complete proposal block             module=consensus height=5 hash=73E5259DF216E49449E0CA14B8568FAF170A001D
+I[02-23|17:55:26.065] enterPrevote(5/1). Current: 5/1/RoundStepPropose module=consensus 
+I[02-23|17:55:26.066] enterPrevote: ProposalBlock is valid         module=consensus height=5 round=1
+I[02-23|17:55:26.143] Signed and pushed vote                       module=consensus height=5 round=1 vote="Vote{0:4DC7C72DB6D7 5/01/1(Prevote) 73E5259DF216 {/65F334F6E136.../}}" err=null
+I[02-23|17:55:26.324] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 5/01/1(Prevote) 73E5259DF216 {/65F334F6E136.../}}" prevotes="VoteSet{H:5 R:1 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:26.748] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 5/01/1(Prevote) 73E5259DF216 {/8AAA670F9947.../}}" prevotes="VoteSet{H:5 R:1 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:27.607] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 5/01/1(Prevote) 73E5259DF216 {/4C36D2AFA89C.../}}" prevotes="VoteSet{H:5 R:1 T:1 +2/3:73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963 BA{4:XXX_} map[F563FCBEEA8195365AE08D39FBB03F9FC8F87EE91DFB25B79F691B14F49B37E6:73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963]}"
+I[02-23|17:55:27.607] enterPrecommit(5/1). Current: 5/1/RoundStepPrevote module=consensus 
+I[02-23|17:55:27.607] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=73E5259DF216E49449E0CA14B8568FAF170A001D
+I[02-23|17:55:27.689] Signed and pushed vote                       module=consensus height=5 round=1 vote="Vote{0:4DC7C72DB6D7 5/01/2(Precommit) 73E5259DF216 {/5E3B7ECD5EFE.../}}" err=null
+I[02-23|17:55:27.862] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 5/01/1(Prevote) 73E5259DF216 {/194DE8C4E29F.../}}" prevotes="VoteSet{H:5 R:1 T:1 +2/3:73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963 BA{4:XXXX} map[F563FCBEEA8195365AE08D39FBB03F9FC8F87EE91DFB25B79F691B14F49B37E6:73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963]}"
+I[02-23|17:55:27.937] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 5/01/2(Precommit) 73E5259DF216 {/5E3B7ECD5EFE.../}}" precommits="VoteSet{H:5 R:1 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:28.180] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 5/01/2(Precommit) 73E5259DF216 {/B9CA6E090C43.../}}" precommits="VoteSet{H:5 R:1 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:28.366] Timed out                                    module=consensus dur=3.5s height=5 round=1 step=RoundStepPropose
+I[02-23|17:55:28.419] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 5/01/2(Precommit) 73E5259DF216 {/C738E97DDAFC.../}}" precommits="VoteSet{H:5 R:1 T:2 +2/3:73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963 BA{4:XXX_} map[]}"
+I[02-23|17:55:28.419] enterCommit(5/1). Current: 5/1/RoundStepPrecommit module=consensus 
+I[02-23|17:55:28.490] Finalizing commit of block with 0 txs        module=consensus height=5 hash=73E5259DF216E49449E0CA14B8568FAF170A001D root=E00D83D547DD476366238CC186D0DA3A0A0212BF6DF245F35A687F8C75FE70BD
+I[02-23|17:55:28.491] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         5
+    Time:           2018-02-23 17:55:25.118 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    5ED00729302B5E130091EC791F65F9B98D446662:1:709FC9ABF9C7
+    LastCommit:     660ABB6C7B251F36D39ECFF9BB564C2A74A280CD
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            E00D83D547DD476366238CC186D0DA3A0A0212BF6DF245F35A687F8C75FE70BD
+  }#73E5259DF216E49449E0CA14B8568FAF170A001D
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    5ED00729302B5E130091EC791F65F9B98D446662:1:709FC9ABF9C7
+    Precommits: Vote{0:4DC7C72DB6D7 4/02/2(Precommit) 5ED00729302B {/36CEE56E7E1E.../}}
+    Vote{1:5BB83C055C3B 4/02/2(Precommit) 5ED00729302B {/B76F48BB0CCF.../}}
+    nil-Vote
+    Vote{3:FB84A36F5EEE 4/02/2(Precommit) 5ED00729302B {/BD7862E7C13A.../}}
+  }#660ABB6C7B251F36D39ECFF9BB564C2A74A280CD
+}#73E5259DF216E49449E0CA14B8568FAF170A001D module=consensus 
+I[02-23|17:55:28.758] Executed block                               module=state height=5 validTxs=0 invalidTxs=0
+I[02-23|17:55:28.825] Committed state                              module=state height=5 txs=0 hash=48184908C480E85ED75545569304B43FF5E63322FCDF33A5DDB9EAE83C89DCC7
+I[02-23|17:55:28.826] Recheck txs                                  module=mempool numtxs=0 height=5
+I[02-23|17:55:29.420] Timed out                                    module=consensus dur=374.453859ms height=6 round=0 step=RoundStepNewHeight
+I[02-23|17:55:29.822] enterNewRound(6/0). Current: 6/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:29.822] enterPropose(6/0). Current: 6/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:29.822] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:5, LR:1, LS:3}"
+I[02-23|17:55:30.607] Received complete proposal block             module=consensus height=6 hash=395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9
+I[02-23|17:55:30.607] enterPrevote(6/0). Current: 6/0/RoundStepPropose module=consensus 
+I[02-23|17:55:30.610] enterPrevote: ProposalBlock is valid         module=consensus height=6 round=0
+I[02-23|17:55:30.698] Signed and pushed vote                       module=consensus height=6 round=0 vote="Vote{0:4DC7C72DB6D7 6/00/1(Prevote) 395C0B148DCF {/35C0C7EE5CD9.../}}" err=null
+I[02-23|17:55:30.938] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 6/00/1(Prevote) 395C0B148DCF {/35C0C7EE5CD9.../}}" prevotes="VoteSet{H:6 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:31.254] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 6/00/1(Prevote) 395C0B148DCF {/3E6EE463269C.../}}" prevotes="VoteSet{H:6 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:31.429] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 6/00/1(Prevote) 395C0B148DCF {/5AD5FA7FC34E.../}}" prevotes="VoteSet{H:6 R:0 T:1 +2/3:395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9:1:B0B100A28BBA BA{4:XXX_} map[]}"
+I[02-23|17:55:31.429] enterPrecommit(6/0). Current: 6/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:31.429] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9
+I[02-23|17:55:31.496] Signed and pushed vote                       module=consensus height=6 round=0 vote="Vote{0:4DC7C72DB6D7 6/00/2(Precommit) 395C0B148DCF {/B693AE68B952.../}}" err=null
+I[02-23|17:55:31.655] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 6/00/2(Precommit) 395C0B148DCF {/B693AE68B952.../}}" precommits="VoteSet{H:6 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:31.979] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 6/00/2(Precommit) 395C0B148DCF {/866CD58CAFB2.../}}" precommits="VoteSet{H:6 R:0 T:2 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:32.062] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 6/00/2(Precommit) 395C0B148DCF {/D04EC5355F04.../}}" precommits="VoteSet{H:6 R:0 T:2 +2/3:395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9:1:B0B100A28BBA BA{4:XXX_} map[]}"
+I[02-23|17:55:32.062] enterCommit(6/0). Current: 6/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:32.148] Finalizing commit of block with 0 txs        module=consensus height=6 hash=395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9 root=48184908C480E85ED75545569304B43FF5E63322FCDF33A5DDB9EAE83C89DCC7
+I[02-23|17:55:32.148] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         6
+    Time:           2018-02-23 17:55:29.154 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963
+    LastCommit:     F8BA9430721D83D9DF8CD4993A03C25BAC64C936
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            48184908C480E85ED75545569304B43FF5E63322FCDF33A5DDB9EAE83C89DCC7
+  }#395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    73E5259DF216E49449E0CA14B8568FAF170A001D:1:2AF77D1DA963
+    Precommits: Vote{0:4DC7C72DB6D7 5/01/2(Precommit) 73E5259DF216 {/5E3B7ECD5EFE.../}}
+    Vote{1:5BB83C055C3B 5/01/2(Precommit) 73E5259DF216 {/B9CA6E090C43.../}}
+    Vote{2:BC977FC69072 5/01/2(Precommit) 73E5259DF216 {/C738E97DDAFC.../}}
+    nil-Vote
+  }#F8BA9430721D83D9DF8CD4993A03C25BAC64C936
+}#395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9 module=consensus 
+I[02-23|17:55:32.424] Executed block                               module=state height=6 validTxs=0 invalidTxs=0
+I[02-23|17:55:32.516] Committed state                              module=state height=6 txs=0 hash=86B4C55BB83FD66A7471BECC5EB74D60CE15CAF852084E0F553A867C1D0CAEF4
+I[02-23|17:55:32.516] Recheck txs                                  module=mempool numtxs=0 height=6
+I[02-23|17:55:33.063] Timed out                                    module=consensus dur=291.648025ms height=7 round=0 step=RoundStepNewHeight
+I[02-23|17:55:33.189] enterNewRound(7/0). Current: 7/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:33.189] enterPropose(7/0). Current: 7/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:33.190] enterPropose: Not our turn to propose        module=consensus proposer=BC977FC69072253C39650A497D4334ACA98E138A privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:6, LR:0, LS:3}"
+I[02-23|17:55:34.245] Received complete proposal block             module=consensus height=7 hash=1F74CB3AF56E650FE0A256B123A61C2F40853040
+I[02-23|17:55:34.245] enterPrevote(7/0). Current: 7/0/RoundStepPropose module=consensus 
+I[02-23|17:55:34.248] enterPrevote: ProposalBlock is valid         module=consensus height=7 round=0
+I[02-23|17:55:34.337] Signed and pushed vote                       module=consensus height=7 round=0 vote="Vote{0:4DC7C72DB6D7 7/00/1(Prevote) 1F74CB3AF56E {/18C8583E3F5F.../}}" err=null
+I[02-23|17:55:34.555] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 7/00/1(Prevote) 1F74CB3AF56E {/18C8583E3F5F.../}}" prevotes="VoteSet{H:7 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:34.638] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 7/00/1(Prevote) 1F74CB3AF56E {/FF4B5748A8BA.../}}" prevotes="VoteSet{H:7 R:0 T:1 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:34.831] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 7/00/1(Prevote) 1F74CB3AF56E {/7E8049597922.../}}" prevotes="VoteSet{H:7 R:0 T:1 +2/3:1F74CB3AF56E650FE0A256B123A61C2F40853040:1:A0D28D0FFBAA BA{4:XXX_} map[]}"
+I[02-23|17:55:34.831] enterPrecommit(7/0). Current: 7/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:34.831] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=1F74CB3AF56E650FE0A256B123A61C2F40853040
+I[02-23|17:55:34.913] Signed and pushed vote                       module=consensus height=7 round=0 vote="Vote{0:4DC7C72DB6D7 7/00/2(Precommit) 1F74CB3AF56E {/321A7D756B01.../}}" err=null
+I[02-23|17:55:35.173] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 7/00/2(Precommit) 1F74CB3AF56E {/321A7D756B01.../}}" precommits="VoteSet{H:7 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:35.329] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 7/00/2(Precommit) 1F74CB3AF56E {/6F8889B0CD2B.../}}" precommits="VoteSet{H:7 R:0 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:35.423] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 7/00/2(Precommit) 1F74CB3AF56E {/DDA4959A5B18.../}}" precommits="VoteSet{H:7 R:0 T:2 +2/3:1F74CB3AF56E650FE0A256B123A61C2F40853040:1:A0D28D0FFBAA BA{4:XXX_} map[]}"
+I[02-23|17:55:35.423] enterCommit(7/0). Current: 7/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:35.514] Finalizing commit of block with 0 txs        module=consensus height=7 hash=1F74CB3AF56E650FE0A256B123A61C2F40853040 root=86B4C55BB83FD66A7471BECC5EB74D60CE15CAF852084E0F553A867C1D0CAEF4
+I[02-23|17:55:35.515] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         7
+    Time:           2018-02-23 17:55:33.037 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9:1:B0B100A28BBA
+    LastCommit:     FFAB9448D06F28313CD53C35577B26A6C264DF22
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            86B4C55BB83FD66A7471BECC5EB74D60CE15CAF852084E0F553A867C1D0CAEF4
+  }#1F74CB3AF56E650FE0A256B123A61C2F40853040
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    395C0B148DCFEF1B4C1602C7E324A0CB3D86FED9:1:B0B100A28BBA
+    Precommits: Vote{0:4DC7C72DB6D7 6/00/2(Precommit) 395C0B148DCF {/B693AE68B952.../}}
+    Vote{1:5BB83C055C3B 6/00/2(Precommit) 395C0B148DCF {/D04EC5355F04.../}}
+    Vote{2:BC977FC69072 6/00/2(Precommit) 395C0B148DCF {/866CD58CAFB2.../}}
+    nil-Vote
+  }#FFAB9448D06F28313CD53C35577B26A6C264DF22
+}#1F74CB3AF56E650FE0A256B123A61C2F40853040 module=consensus 
+I[02-23|17:55:35.852] Executed block                               module=state height=7 validTxs=0 invalidTxs=0
+I[02-23|17:55:35.951] Committed state                              module=state height=7 txs=0 hash=BA76B9420EA4A0281D9EDC5C6996485F9F33AB94ECCCC7F5F7A36F220DC319F6
+I[02-23|17:55:35.952] Recheck txs                                  module=mempool numtxs=0 height=7
+I[02-23|17:55:36.190] Timed out                                    module=consensus dur=3s height=7 round=0 step=RoundStepPropose
+I[02-23|17:55:36.423] Timed out                                    module=consensus dur=108.043467ms height=8 round=0 step=RoundStepNewHeight
+I[02-23|17:55:37.024] enterNewRound(8/0). Current: 8/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:37.024] enterPropose(8/0). Current: 8/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:37.024] enterPropose: Not our turn to propose        module=consensus proposer=FB84A36F5EEEEB47319427F20A5E30EBFCA6A230 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:7, LR:0, LS:3}"
+I[02-23|17:55:40.024] Timed out                                    module=consensus dur=3s height=8 round=0 step=RoundStepPropose
+I[02-23|17:55:40.057] enterPrevote(8/0). Current: 8/0/RoundStepPropose module=consensus 
+I[02-23|17:55:40.057] enterPrevote: ProposalBlock is nil           module=consensus height=8 round=0
+I[02-23|17:55:40.100] Signed and pushed vote                       module=consensus height=8 round=0 vote="Vote{0:4DC7C72DB6D7 8/00/1(Prevote) 000000000000 {/B9031C78DBEA.../}}" err=null
+I[02-23|17:55:40.258] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 8/00/1(Prevote) 000000000000 {/B9031C78DBEA.../}}" prevotes="VoteSet{H:8 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:40.333] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 8/00/1(Prevote) 000000000000 {/8FA259EB624D.../}}" prevotes="VoteSet{H:8 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:40.492] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 8/00/1(Prevote) 000000000000 {/FAD4924E6304.../}}" prevotes="VoteSet{H:8 R:0 T:1 +2/3::0:000000000000 BA{4:XXX_} map[]}"
+I[02-23|17:55:40.492] enterPrecommit(8/0). Current: 8/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:40.492] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:40.632] Signed and pushed vote                       module=consensus height=8 round=0 vote="Vote{0:4DC7C72DB6D7 8/00/2(Precommit) 000000000000 {/5351811F1C3B.../}}" err=null
+I[02-23|17:55:41.000] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 8/00/2(Precommit) 000000000000 {/5351811F1C3B.../}}" precommits="VoteSet{H:8 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:41.092] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 8/00/2(Precommit) 000000000000 {/70E5A5AC697C.../}}" precommits="VoteSet{H:8 R:0 T:2 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:41.184] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 8/00/2(Precommit) 000000000000 {/737939BE2578.../}}" precommits="VoteSet{H:8 R:0 T:2 +2/3::0:000000000000 BA{4:XXX_} map[]}"
+I[02-23|17:55:41.184] enterNewRound(8/1). Current: 8/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:41.184] enterPropose(8/1). Current: 8/1/RoundStepNewRound module=consensus 
+I[02-23|17:55:41.184] enterPropose: Our turn to propose            module=consensus proposer=4DC7C72DB6D715A890618313D423F6744FFDE7A8 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:8, LR:0, LS:3}"
+I[02-23|17:55:41.274] EVIL! Do not send proposal.                  module=consensus 
+I[02-23|17:55:41.530] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 8/00/2(Precommit) 000000000000 {/CD65BEE78922.../}}" precommits="VoteSet{H:8 R:0 T:2 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:55:44.685] Timed out                                    module=consensus dur=3.5s height=8 round=1 step=RoundStepPropose
+I[02-23|17:55:44.774] enterPrevote(8/1). Current: 8/1/RoundStepPropose module=consensus 
+I[02-23|17:55:44.774] enterPrevote: ProposalBlock is nil           module=consensus height=8 round=1
+I[02-23|17:55:44.882] Signed and pushed vote                       module=consensus height=8 round=1 vote="Vote{0:4DC7C72DB6D7 8/01/1(Prevote) 000000000000 {/F86CDF0C076B.../}}" err=null
+I[02-23|17:55:45.017] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 8/01/1(Prevote) 000000000000 {/F86CDF0C076B.../}}" prevotes="VoteSet{H:8 R:1 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:45.094] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 8/01/1(Prevote) 000000000000 {/D30874A68F1A.../}}" prevotes="VoteSet{H:8 R:1 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:45.153] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 8/01/1(Prevote) 000000000000 {/1A463E593381.../}}" prevotes="VoteSet{H:8 R:1 T:1 +2/3::0:000000000000 BA{4:XXX_} map[]}"
+I[02-23|17:55:45.153] enterPrecommit(8/1). Current: 8/1/RoundStepPrevote module=consensus 
+I[02-23|17:55:45.153] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:45.224] Signed and pushed vote                       module=consensus height=8 round=1 vote="Vote{0:4DC7C72DB6D7 8/01/2(Precommit) 000000000000 {/97061D653DF2.../}}" err=null
+I[02-23|17:55:45.405] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 8/01/2(Precommit) 000000000000 {/97061D653DF2.../}}" precommits="VoteSet{H:8 R:1 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:45.608] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 8/01/1(Prevote) 000000000000 {/A361E45C5FF0.../}}" prevotes="VoteSet{H:8 R:1 T:1 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:55:45.775] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 8/01/2(Precommit) 000000000000 {/AFAF68AE0809.../}}" precommits="VoteSet{H:8 R:1 T:2 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-23|17:55:45.875] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 8/01/2(Precommit) 000000000000 {/9496B8CDB118.../}}" precommits="VoteSet{H:8 R:1 T:2 +2/3::0:000000000000 BA{4:X_XX} map[]}"
+I[02-23|17:55:45.875] enterNewRound(8/2). Current: 8/1/RoundStepPrecommit module=consensus 
+I[02-23|17:55:45.875] enterPropose(8/2). Current: 8/2/RoundStepNewRound module=consensus 
+I[02-23|17:55:45.875] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:8, LR:1, LS:3}"
+I[02-23|17:55:46.072] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 8/01/2(Precommit) 000000000000 {/1562F3D0D589.../}}" precommits="VoteSet{H:8 R:1 T:2 +2/3::0:000000000000 BA{4:XXXX} map[]}"
+I[02-23|17:55:47.266] Received complete proposal block             module=consensus height=8 hash=AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6
+I[02-23|17:55:47.266] enterPrevote(8/2). Current: 8/2/RoundStepPropose module=consensus 
+I[02-23|17:55:47.268] enterPrevote: ProposalBlock is valid         module=consensus height=8 round=2
+I[02-23|17:55:47.349] Signed and pushed vote                       module=consensus height=8 round=2 vote="Vote{0:4DC7C72DB6D7 8/02/1(Prevote) AD3CF6C17F1E {/CDF0493FE622.../}}" err=null
+I[02-23|17:55:47.516] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 8/02/1(Prevote) AD3CF6C17F1E {/CDF0493FE622.../}}" prevotes="VoteSet{H:8 R:2 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:47.600] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 8/02/1(Prevote) AD3CF6C17F1E {/455239360200.../}}" prevotes="VoteSet{H:8 R:2 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:47.901] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 8/02/1(Prevote) AD3CF6C17F1E {/273EFE866324.../}}" prevotes="VoteSet{H:8 R:2 T:1 +2/3:AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13 BA{4:XXX_} map[]}"
+I[02-23|17:55:47.901] enterPrecommit(8/2). Current: 8/2/RoundStepPrevote module=consensus 
+I[02-23|17:55:47.901] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6
+I[02-23|17:55:47.988] Signed and pushed vote                       module=consensus height=8 round=2 vote="Vote{0:4DC7C72DB6D7 8/02/2(Precommit) AD3CF6C17F1E {/21998A7B4DBC.../}}" err=null
+I[02-23|17:55:48.175] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 8/02/1(Prevote) AD3CF6C17F1E {/91DDFC3F9815.../}}" prevotes="VoteSet{H:8 R:2 T:1 +2/3:AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13 BA{4:XXXX} map[]}"
+I[02-23|17:55:48.258] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 8/02/2(Precommit) AD3CF6C17F1E {/21998A7B4DBC.../}}" precommits="VoteSet{H:8 R:2 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:48.424] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 8/02/2(Precommit) AD3CF6C17F1E {/1203E7925E71.../}}" precommits="VoteSet{H:8 R:2 T:2 +2/3:<nil> BA{4:X_X_} map[]}"
+I[02-23|17:55:48.515] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 8/02/2(Precommit) AD3CF6C17F1E {/D671EE937F07.../}}" precommits="VoteSet{H:8 R:2 T:2 +2/3:AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13 BA{4:XXX_} map[]}"
+I[02-23|17:55:48.515] enterCommit(8/2). Current: 8/2/RoundStepPrecommit module=consensus 
+I[02-23|17:55:48.676] Finalizing commit of block with 0 txs        module=consensus height=8 hash=AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6 root=BA76B9420EA4A0281D9EDC5C6996485F9F33AB94ECCCC7F5F7A36F220DC319F6
+I[02-23|17:55:48.676] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         8
+    Time:           2018-02-23 17:55:46.015 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    1F74CB3AF56E650FE0A256B123A61C2F40853040:1:A0D28D0FFBAA
+    LastCommit:     10945C516AC452F8BE44290D8611D47C38B15D5A
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            BA76B9420EA4A0281D9EDC5C6996485F9F33AB94ECCCC7F5F7A36F220DC319F6
+  }#AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    1F74CB3AF56E650FE0A256B123A61C2F40853040:1:A0D28D0FFBAA
+    Precommits: Vote{0:4DC7C72DB6D7 7/00/2(Precommit) 1F74CB3AF56E {/321A7D756B01.../}}
+    Vote{1:5BB83C055C3B 7/00/2(Precommit) 1F74CB3AF56E {/6F8889B0CD2B.../}}
+    Vote{2:BC977FC69072 7/00/2(Precommit) 1F74CB3AF56E {/DDA4959A5B18.../}}
+    nil-Vote
+  }#10945C516AC452F8BE44290D8611D47C38B15D5A
+}#AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6 module=consensus 
+I[02-23|17:55:48.994] Executed block                               module=state height=8 validTxs=0 invalidTxs=0
+I[02-23|17:55:49.084] Committed state                              module=state height=8 txs=0 hash=9FFAE3EDF98242744350E5EB9608AFD32CFF931E25F463F5F94C59A39935D9E6
+I[02-23|17:55:49.085] Recheck txs                                  module=mempool numtxs=0 height=8
+I[02-23|17:55:49.483] Added to lastPrecommits: VoteSet{H:8 R:2 T:2 +2/3:AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13 BA{4:XXXX} map[]} module=consensus 
+I[02-23|17:55:49.515] Timed out                                    module=consensus dur=185.866927ms height=9 round=0 step=RoundStepNewHeight
+I[02-23|17:55:49.580] enterNewRound(9/0). Current: 9/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:49.580] enterPropose(9/0). Current: 9/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:49.580] enterPropose: Our turn to propose            module=consensus proposer=4DC7C72DB6D715A890618313D423F6744FFDE7A8 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:8, LR:2, LS:3}"
+I[02-23|17:55:49.673] EVIL! Do not send proposal.                  module=consensus 
+I[02-23|17:55:52.581] Timed out                                    module=consensus dur=3s height=9 round=0 step=RoundStepPropose
+I[02-23|17:55:52.614] enterPrevote(9/0). Current: 9/0/RoundStepPropose module=consensus 
+I[02-23|17:55:52.614] enterPrevote: ProposalBlock is nil           module=consensus height=9 round=0
+I[02-23|17:55:52.656] Signed and pushed vote                       module=consensus height=9 round=0 vote="Vote{0:4DC7C72DB6D7 9/00/1(Prevote) 000000000000 {/7C238803C495.../}}" err=null
+I[02-23|17:55:52.724] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 9/00/1(Prevote) 000000000000 {/7C238803C495.../}}" prevotes="VoteSet{H:9 R:0 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:53.191] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 9/00/1(Prevote) 000000000000 {/693216C9AD2A.../}}" prevotes="VoteSet{H:9 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:54.048] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 9/00/1(Prevote) 000000000000 {/30217CB808E2.../}}" prevotes="VoteSet{H:9 R:0 T:1 +2/3::0:000000000000 BA{4:XX_X} map[]}"
+I[02-23|17:55:54.048] enterPrecommit(9/0). Current: 9/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:54.048] enterPrecommit: +2/3 prevoted for nil.       module=consensus 
+I[02-23|17:55:54.189] Signed and pushed vote                       module=consensus height=9 round=0 vote="Vote{0:4DC7C72DB6D7 9/00/2(Precommit) 000000000000 {/4948AE316812.../}}" err=null
+I[02-23|17:55:54.367] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 9/00/2(Precommit) 000000000000 {/4948AE316812.../}}" precommits="VoteSet{H:9 R:0 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:54.417] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 9/00/1(Prevote) 000000000000 {/DC74D2FF899D.../}}" prevotes="VoteSet{H:9 R:0 T:1 +2/3::0:000000000000 BA{4:XXXX} map[F4346728780CCA5A37C6E25644BDC505232E81C68F89C23869E9AA4A8A56F6FD::0:000000000000 F563FCBEEA8195365AE08D39FBB03F9FC8F87EE91DFB25B79F691B14F49B37E6::0:000000000000]}"
+I[02-23|17:55:54.468] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 9/00/2(Precommit) 000000000000 {/4576242908E4.../}}" precommits="VoteSet{H:9 R:0 T:2 +2/3:<nil> BA{4:X__X} map[]}"
+I[02-23|17:55:54.534] Added to precommit                           module=consensus vote="Vote{2:BC977FC69072 9/00/2(Precommit) 000000000000 {/0ED0EB03DD40.../}}" precommits="VoteSet{H:9 R:0 T:2 +2/3::0:000000000000 BA{4:X_XX} map[]}"
+I[02-23|17:55:54.535] enterNewRound(9/1). Current: 9/0/RoundStepPrecommit module=consensus 
+I[02-23|17:55:54.535] enterPropose(9/1). Current: 9/1/RoundStepNewRound module=consensus 
+I[02-23|17:55:54.535] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:9, LR:0, LS:3}"
+I[02-23|17:55:55.257] Received complete proposal block             module=consensus height=9 hash=31E918ECA76F41D63620A387AE0593AE0C687288
+I[02-23|17:55:55.257] enterPrevote(9/1). Current: 9/1/RoundStepPropose module=consensus 
+I[02-23|17:55:55.260] enterPrevote: ProposalBlock is valid         module=consensus height=9 round=1
+I[02-23|17:55:55.349] Signed and pushed vote                       module=consensus height=9 round=1 vote="Vote{0:4DC7C72DB6D7 9/01/1(Prevote) 31E918ECA76F {/8AF221A9ACF3.../}}" err=null
+I[02-23|17:55:55.515] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 9/01/1(Prevote) 31E918ECA76F {/8AF221A9ACF3.../}}" prevotes="VoteSet{H:9 R:1 T:1 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:56.080] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 9/01/1(Prevote) 31E918ECA76F {/86219CC0AACE.../}}" prevotes="VoteSet{H:9 R:1 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:56.308] Added to prevote                             module=consensus vote="Vote{2:BC977FC69072 9/01/1(Prevote) 31E918ECA76F {/EAD15CD8CF24.../}}" prevotes="VoteSet{H:9 R:1 T:1 +2/3:31E918ECA76F41D63620A387AE0593AE0C687288:1:5020517BA965 BA{4:XXX_} map[]}"
+I[02-23|17:55:56.308] enterPrecommit(9/1). Current: 9/1/RoundStepPrevote module=consensus 
+I[02-23|17:55:56.308] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=31E918ECA76F41D63620A387AE0593AE0C687288
+I[02-23|17:55:56.398] Signed and pushed vote                       module=consensus height=9 round=1 vote="Vote{0:4DC7C72DB6D7 9/01/2(Precommit) 31E918ECA76F {/0425A00CC2F6.../}}" err=null
+I[02-23|17:55:56.534] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 9/01/1(Prevote) 31E918ECA76F {/35D18009C524.../}}" prevotes="VoteSet{H:9 R:1 T:1 +2/3:31E918ECA76F41D63620A387AE0593AE0C687288:1:5020517BA965 BA{4:XXXX} map[]}"
+I[02-23|17:55:56.607] Added to precommit                           module=consensus vote="Vote{0:4DC7C72DB6D7 9/01/2(Precommit) 31E918ECA76F {/0425A00CC2F6.../}}" precommits="VoteSet{H:9 R:1 T:2 +2/3:<nil> BA{4:X___} map[]}"
+I[02-23|17:55:56.963] Added to precommit                           module=consensus vote="Vote{1:5BB83C055C3B 9/01/2(Precommit) 31E918ECA76F {/0D9EE6B304D5.../}}" precommits="VoteSet{H:9 R:1 T:2 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:57.205] Added to precommit                           module=consensus vote="Vote{3:FB84A36F5EEE 9/01/2(Precommit) 31E918ECA76F {/ABDADF7DF12E.../}}" precommits="VoteSet{H:9 R:1 T:2 +2/3:31E918ECA76F41D63620A387AE0593AE0C687288:1:5020517BA965 BA{4:XX_X} map[]}"
+I[02-23|17:55:57.205] enterCommit(9/1). Current: 9/1/RoundStepPrecommit module=consensus 
+I[02-23|17:55:57.293] Finalizing commit of block with 0 txs        module=consensus height=9 hash=31E918ECA76F41D63620A387AE0593AE0C687288 root=9FFAE3EDF98242744350E5EB9608AFD32CFF931E25F463F5F94C59A39935D9E6
+I[02-23|17:55:57.294] Block{
+  Header{
+    ChainID:        chain-9sFObL
+    Height:         9
+    Time:           2018-02-23 17:55:54.535 +0000 UTC
+    NumTxs:         0
+    LastBlockID:    AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13
+    LastCommit:     5F9445D902B6A4C6A0606A343D363B731346757F
+    Data:           
+    Validators:     2FD20CFFA72ABA37E256E2ED72900C076E460FC9
+    App:            9FFAE3EDF98242744350E5EB9608AFD32CFF931E25F463F5F94C59A39935D9E6
+  }#31E918ECA76F41D63620A387AE0593AE0C687288
+  Data{
+    
+  }#
+  Commit{
+    BlockID:    AD3CF6C17F1E79EEAED38FDBFA7E0E4DCFFBFDE6:1:36EAF176EB13
+    Precommits: Vote{0:4DC7C72DB6D7 8/02/2(Precommit) AD3CF6C17F1E {/21998A7B4DBC.../}}
+    Vote{1:5BB83C055C3B 8/02/2(Precommit) AD3CF6C17F1E {/D671EE937F07.../}}
+    Vote{2:BC977FC69072 8/02/2(Precommit) AD3CF6C17F1E {/1203E7925E71.../}}
+    Vote{3:FB84A36F5EEE 8/02/2(Precommit) AD3CF6C17F1E {/EF5AC697413A.../}}
+  }#5F9445D902B6A4C6A0606A343D363B731346757F
+}#31E918ECA76F41D63620A387AE0593AE0C687288 module=consensus 
+I[02-23|17:55:57.527] Executed block                               module=state height=9 validTxs=0 invalidTxs=0
+I[02-23|17:55:57.668] Committed state                              module=state height=9 txs=0 hash=EDE1C287B6EA5EEAF74AAC8AB52756A58E478FBD73A5661E563AD43B6430DCEB
+I[02-23|17:55:57.669] Recheck txs                                  module=mempool numtxs=0 height=9
+I[02-23|17:55:58.205] Timed out                                    module=consensus dur=261.907162ms height=10 round=0 step=RoundStepNewHeight
+I[02-23|17:55:58.341] enterNewRound(10/0). Current: 10/0/RoundStepNewHeight module=consensus 
+I[02-23|17:55:58.341] enterPropose(10/0). Current: 10/0/RoundStepNewRound module=consensus 
+I[02-23|17:55:58.341] enterPropose: Not our turn to propose        module=consensus proposer=5BB83C055C3B5D20CF2BCEB801617B1F3F461BA7 privValidator="PrivValidator{4DC7C72DB6D715A890618313D423F6744FFDE7A8 LH:9, LR:1, LS:3}"
+I[02-23|17:55:59.301] Received complete proposal block             module=consensus height=10 hash=E1E539C2A523DA65D8BB0E6AD49AFFD2C7AD9CBD
+I[02-23|17:55:59.301] enterPrevote(10/0). Current: 10/0/RoundStepPropose module=consensus 
+I[02-23|17:55:59.304] enterPrevote: ProposalBlock is valid         module=consensus height=10 round=0
+I[02-23|17:55:59.385] Signed and pushed vote                       module=consensus height=10 round=0 vote="Vote{0:4DC7C72DB6D7 10/00/1(Prevote) E1E539C2A523 {/929A19A2C77F.../}}" err=null
+I[02-23|17:55:59.557] Added to prevote                             module=consensus vote="Vote{1:5BB83C055C3B 10/00/1(Prevote) E1E539C2A523 {/3ABCAFB25CA3.../}}" prevotes="VoteSet{H:10 R:0 T:1 +2/3:<nil> BA{4:_X__} map[]}"
+I[02-23|17:55:59.623] Added to prevote                             module=consensus vote="Vote{0:4DC7C72DB6D7 10/00/1(Prevote) E1E539C2A523 {/929A19A2C77F.../}}" prevotes="VoteSet{H:10 R:0 T:1 +2/3:<nil> BA{4:XX__} map[]}"
+I[02-23|17:55:59.850] Added to prevote                             module=consensus vote="Vote{3:FB84A36F5EEE 10/00/1(Prevote) E1E539C2A523 {/20C6C4C72B37.../}}" prevotes="VoteSet{H:10 R:0 T:1 +2/3:E1E539C2A523DA65D8BB0E6AD49AFFD2C7AD9CBD:1:7EE54EF051F4 BA{4:XX_X} map[]}"
+I[02-23|17:55:59.850] enterPrecommit(10/0). Current: 10/0/RoundStepPrevote module=consensus 
+I[02-23|17:55:59.850] enterPrecommit: +2/3 prevoted proposal block. Locking module=consensus hash=E1E539C2A523DA65D8BB0E6AD49AFFD2C7AD9CBD
+I[02-23|17:55:59.959] Signed and pushed vote                       module=consensus height=10 round=0 vote="Vote{0:4DC7C72DB6D7 10/00/2(Precommit) E1E539C2A523 {/BABF08606F2D.../}}" err=null
