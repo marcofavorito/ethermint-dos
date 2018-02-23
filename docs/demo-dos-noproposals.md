@@ -125,7 +125,7 @@ Follows the log line ranges at height 4 for every node:
 At this point, since the round-robin procedure that choose the next proposer is fair and deterministic, the sequence of the chosen proposer for each height/round is the same.
 Indeed, notice that:
     
-    (Height, Round) Proposer Node
+    (H, R)    Proposer Node  first round?
     -------------------------------------
     ( 1, 0)          2          <
     ( 1, 1)          0
