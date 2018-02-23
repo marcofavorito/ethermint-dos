@@ -3,6 +3,7 @@
 TENDERMINT_VERSION="0.12.1"
 TENDERMINT_EVIL_SILENT_VERSION="0.12.1.1"
 TENDERMINT_EVIL_SHY_VERSION="0.12.1.2"
+TENDERMINT_EVIL_NOPROPOSALS_VERSION="0.12.1.3"
 ETHERMINT_VERSION="0.5.3"
 
 rm bin/*
@@ -20,6 +21,10 @@ unzip -o tendermint.zip -d bin/
 
 echo "Getting Tendermint Evil Shy..."
 curl -OL https://github.com/MarcoFavorito/tendermint/releases/download/v${TENDERMINT_EVIL_SHY_VERSION}/tendermint.zip
+unzip -o tendermint.zip -d bin/
+
+echo "Getting Tendermint Evil NoProposals..."
+curl -OL https://github.com/MarcoFavorito/tendermint/releases/download/v${TENDERMINT_EVIL_NOPROPOSALS_VERSION}/tendermint.zip
 unzip -o tendermint.zip -d bin/
 
 echo "Getting Ethermint..."
