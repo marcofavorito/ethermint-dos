@@ -3,6 +3,8 @@
 // addr_1 = eth.accounts[0];
 // addr_2 = personal.newAccount("1234");
 // personal.unlockAccount(addr_1, "1234", 2000);
+// eth.getBalance(eth.accounts[0]);
+// eth.getBalance(eth.accounts[1]);
 // var transaction = function(sender, receiver, amount){
 //     // console.log( sender + " => " + receiver + ", " + amount + " ether");
 //     return eth.sendTransaction({from:sender, to:receiver, value: web3.toWei(amount, "ether")})

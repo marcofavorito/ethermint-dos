@@ -182,6 +182,15 @@ In Figure \ref{messages} is depicted the message passing schema:
 \caption{\label{messages} Message passing schema for the Tendermint consensus algorithm.}
 \end{figure}
 \\
+
+\subsection{What is Ethermint}
+Ethermint\footnote{\texttt{https://github.com/tendermint/ethermint}} it is an app that:
+\begin{itemize}
+	\item It implements the logic of Ethereum
+	\item It is ABCI-compliant
+\end{itemize}
+All consensus stuff is managed by Tendermint Core.
+
 \section{Tendermint and the CAP Theorem}
 \label{tcap}
 In this section we follow the same approach used in \cite{poa-vs-pbft}.
@@ -215,14 +224,6 @@ The differences with PBFT are \cite[Section 10.2.4]{tthesis}):
 \item The use of blocks allows Tendermint to include the set of pre-commit messages from one block in the next block, removing the need for an explicit commit message.
 \item Accountability guarantees when forks or some bad behaviors happen \cite[Section 3.5]{tthesis}.
 \end{itemize}
-
-\subsubsection{What is Ethermint}
-Ethermint\footnote{\texttt{https://github.com/tendermint/ethermint}} it is an app that:
-\begin{itemize}
-\item It implements the logic of Ethereum
-\item It is ABCI-compliant
-\end{itemize}
-All consensus stuff is managed by Tendermint Core.
 
 \subsection{Analyzing Availability}
 As stated in \cite[Section 3.2: Consensus]{tthesis}:
@@ -303,6 +304,10 @@ The main purposes of this version are:
 \item Delay the commit phase: when at some height the byzantine node becomes the proposer, the algorithm is delayed about the $timeoutProposeR$ since no proposal is made. After the timeout, the round-robin algorithm select another node, and the algorithm moves to a new round (but same height).
 \end{itemize}
 
+\subsection{Tendermint Evil `NoProposals'}
+This attack\footnote{\texttt{https://github.com/MarcoFavorito/tendermint/releases/tag/v0.12.1.1}} is the same of Tendermint Evil `Shy', but sends votes and participate to the other phases of the consensus algorithm
+
+The main purposes of this version is that, differently from the previous one, in case the byzantine nodes are more than the tolerable the algorithm still goes forward, but delayed more often.
 
 \section{Benchmarking}
 \label{bench}

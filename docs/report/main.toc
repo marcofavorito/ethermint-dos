@@ -10,15 +10,16 @@
 \contentsline {paragraph}{Precommit Step (height H, round R)}{5}
 \contentsline {paragraph}{Commit Step (height H)}{6}
 \contentsline {paragraph}{NewHeight Step (height H)}{6}
+\contentsline {subsection}{\numberline {1.4}What is Ethermint}{6}
 \contentsline {section}{\numberline {2}Tendermint and the CAP Theorem}{6}
 \contentsline {subsection}{\numberline {2.1}Analyzing Consistency}{7}
-\contentsline {subsubsection}{\numberline {2.1.1}What is Ethermint}{7}
 \contentsline {subsection}{\numberline {2.2}Analyzing Availability}{8}
 \contentsline {subsection}{\numberline {2.3}Conclusions}{8}
 \contentsline {section}{\numberline {3}DoS: Tendermint Evil}{8}
 \contentsline {subsection}{\numberline {3.1}Tendermint Evil `Silent'}{8}
 \contentsline {subsection}{\numberline {3.2}Tendermint Evil `Shy'}{9}
+\contentsline {subsection}{\numberline {3.3}Tendermint Evil `NoProposals'}{10}
 \contentsline {section}{\numberline {4}Benchmarking}{10}
 \contentsline {subsection}{\numberline {4.1}Setup}{10}
-\contentsline {subsection}{\numberline {4.2}Results}{10}
+\contentsline {subsection}{\numberline {4.2}Results}{11}
 \contentsline {section}{\numberline {5}Conclusions}{11}
