@@ -21,8 +21,8 @@
     </servers>
 
     <load>
-    <arrivalphase phase="1" duration="1" unit="minute">
-      <users arrivalrate="15" unit="second"/>
+    <arrivalphase phase="1" duration="2" unit="minute">
+      <users arrivalrate="5" unit="second"/>
     </arrivalphase>
 <!--PHASE 2 is used to allow the Tendermint network to validate remaining pending transactions -->
     <arrivalphase phase="2" duration="10" unit="second">
@@ -64,7 +64,7 @@
                     <!--<match do="log" when="match">"result":null</match>-->
                     <!--dump response when we get the receipt-->
                     <!--<match do="dump" when="nomatch">"result":null</match>-->
-                    <match do="loop" sleep_loop="1" max_loop="20" when="match">"result":null</match>
+                    <match do="loop" sleep_loop="1" max_loop="30" when="match">"result":null</match>
                     <http url="/" method="POST"
                           contents='{"jsonrpc":"2.0", "method":"eth_getTransactionReceipt", "id":1, "params":["%%_transaction_hash%%"]}'
                     content_type="application/json"/>

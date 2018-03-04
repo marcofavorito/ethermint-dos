@@ -9,19 +9,19 @@ mytestnet/
 *.svg
 *.old
 *.temp
-bench/dummy/evil/*
-bench/dummy/graphs/*
-bench/dummy/normal/*
-bench/dummy_dockerized/evil/*
-bench/dummy_dockerized/graphs/*
-bench/dummy_dockerized/normal/*
-bench/ethermint/evil/*
-bench/ethermint/graphs/*
-bench/ethermint/normal/*
+bench/dummy/evil*
+bench/dummy/graphs*
+bench/dummy/normal*
+bench/dummy_dockerized/evil*
+bench/dummy_dockerized/graphs*
+bench/dummy_dockerized/normal*
+bench/ethermint/evil*
+bench/ethermint/graphs*
+bench/ethermint/normal*
 bench/ethermint
-bench/ethermint_dockerized/evil/*
-bench/ethermint_dockerized/graphs/*
-bench/ethermint_dockerized/normal/*
+bench/ethermint_dockerized/evil*
+bench/ethermint_dockerized/graphs*
+bench/ethermint_dockerized/normal*
 
 ### Python
 

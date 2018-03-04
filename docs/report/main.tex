@@ -309,29 +309,42 @@ This attack\footnote{\texttt{https://github.com/MarcoFavorito/tendermint/release
 
 The main purposes of this version is that, differently from the previous one, in case the byzantine nodes are more than the tolerable the algorithm still goes forward, but delayed more often.
 
-\section{Benchmarking}
+\section{Experiments}
 \label{bench}
-In this section I show the results of the experiments. The load test has been performed by Tsung\footnote{\texttt{http://tsung.erlang-projects.org/}}. The entry point for the Tendermint network setup is \texttt{ethermint-dos.py}\footnote{\texttt{https://github.com/MarcoFavorito/ethermint-dos/blob/master/ethermint-dos.py}}, that you will find at the root of the repository for this project\footnote{\texttt{https://github.com/MarcoFavorito/ethermint-dos}}. \\
-\subsection{Setup}
-The benchmarking consists of the following steps:
+In this section I briefly describe the experiments and show some results about the networks performances. The load test has been performed by Tsung\footnote{\texttt{http://tsung.erlang-projects.org/}}. The entry point for the Tendermint network setup is \texttt{ethermint-dos.py}\footnote{\texttt{https://github.com/MarcoFavorito/ethermint-dos/blob/master/ethermint-dos.py}}, that you will find at the root of the repository for this project\footnote{\texttt{https://github.com/MarcoFavorito/ethermint-dos}}. \\
+
+We made 3 experiments:
 \begin{enumerate}
-	\item Set up the network where every node is correct;
-	\item Start a Tsung load test session of 1 minute and 15 user per second, where sequence of requests (``Transaction" in Tsung jargon) is:
+	\item \textbf{No byzantine nodes}: a Ethermint/Tendermint network where every node is correct. More precisely, 4 correct nodes. We will refer to it later with the name \texttt{Normal}. The command executed is:
+	\begin{verbatim}
+	python3 ethermint-dos.py 4 0
+	\end{verbatim}
+	\item \textbf{Number of byzantine nodes $f < N/3$}: where the number of byzantine nodes is still tolerable. More precisely, 3 correct nodes and 1 byzantine node. We will refer to it later with the name \texttt{Evil\_1}. The command executed is:
+	\begin{verbatim}
+	python3 ethermint-dos.py 4 1
+	\end{verbatim}
+	\item \textbf{Number of byzantine nodes $f \ge N/3$}: where the number of byzantine nodes is greater than the tolerable (indeed the algorithm stop working). More precisely, 2 correct nodes and 2 byzantine nodes. We will refer to it later with the name \texttt{Evil\_2}. The command executed is:
+		\begin{verbatim}
+		python3 ethermint-dos.py 4 2
+		\end{verbatim}
+\end{enumerate}
+
+\subsection{Setup}
+The test for every experiment consists of the following steps:
+\begin{enumerate}
+	\item Set up the network (using \texttt{ethermint-dos});
+	\item Start a Tsung load test session of 1 minute and 10 users per second, where the sequence of requests (``Transaction" in Tsung jargon) is composed as the following:
 	\begin{enumerate}
-		\item send a transaction;
-		\item do polling until the transaction is validated.
-	\end{enumerate} 
+		\item send one transaction;
+		\item do polling until the transaction is validated, but after 20 seconds exit the loop.
+	\end{enumerate}
 	The requests are directed to the Ethermint app, to only one node.
-	\item Repeat steps 1 and 2, but set up a network with one byzantine network (using Tendermint Evil `Shy', see Section \ref{tevil})
+	\item Collect the results.
 \end{enumerate}
 
 \subsection{Results}
 
-In Table \ref{bench-main} is shown the output of one of the session tests,  concerning the statistics of the requested transactions. you can notice that:
-\begin{itemize}
-	\item the \textbf{mean rate} of transaction is slightly higher in the normal case than in the evil case;
-	\item the \textbf{mean} time of a transaction is slightly higher in the evil case than in the normal case;
-\end{itemize}
+In Table \ref{bench-main} is shown the output of one of the session tests,  concerning the statistics of the requested transactions. 
 
 \begin{table}[!htb]
 \centering
@@ -339,25 +352,58 @@ In Table \ref{bench-main} is shown the output of one of the session tests,  conc
 	 \hline
 	Name  & highest 10sec mean  & lowest 10sec mean & Highest Rate & Mean Rate & Mean  & Count \\
 	 \hline
-	 normal\_tx  & 6.42 sec  & 4.69 sec  & 18.9 / sec  & 14.42 / sec  & 5.23 sec  & 853 \\	
+	 normal\_tx  & 6.15 sec & 4.10 sec & 5.9 / sec & 4.46 / sec & 4.81 sec & 552 \\	
 	 \hline
-	 evil\_tx  & 6.87 sec  & 4.65 sec  & 20.5 / sec  & 13.33 / sec  & 5.46 sec  & 867  \\
+	 evil\_1\_tx  & 7.65 sec & 3.97 sec & 7.4 / sec & 4.62 / sec & 5.60 sec & 600  \\
+	 \hline
+	 evil\_2\_tx  & 30.06 sec & 30.06 sec & 5.7 / sec & 4.06 / sec & 30.06 sec & 568  \\
 	 \hline
 
-	\hline
 \end{tabular}
-\caption{\label{bench-main} Transactions statistics.}
+\caption{\label{bench-main} Transactions statistics taken from the output of Tsung load tests.}
 \end{table}
-In the graph shown in Figure \ref{simultaneous_users} we can see the number of simultaneous users connected to the server. The higher the number, the lower the responsiveness of the system to validate transactions. The reader can notice that the line of the evil setup is on average higher than the one of the normal case.
+From Table \ref{bench-main} you can notice that:
+\begin{itemize}
+	\item the \textbf{highest mean} and \textbf{lowest mean}\footnote{i.e. respectively the highest and lowest mean duration of transactions sampled in windows of 10 seconds} range in the \texttt{Normal} case is narrower than the one in the \texttt{Evil\_1} case. This means that in the former case the system is more stable and predictable in terms of performances than the latter one.
+	
+	In the \texttt{Evil\_1} experiment there is no range: all the users wait the validation of the transaction for 20 seconds (which will never arrive since the algorithm does not proceed in validating blocks) and then exit with failure.
+	\item the \textbf{highest rate} of transactions is higher in the \texttt{Evil\_1} case rather than the \texttt{Normal} case; This is due to the fact that the network is slower when the byzantine node is chosen as validator. Hence the pending transactions grow in number and are inserted in a block all together at one time. This eventually allow to reach higher transaction rate than the \texttt{Normal} network, since this one distributes pending transaction on more blocks at regular time intervals.
+	
+	In \texttt{Evil\_2} this parameter has no meaning, since no transaction is validated.
+	
+	\item the \textbf{mean} time of a transaction is slightly higher in the \texttt{Evil\_1} case than in the \texttt{Normal} case; this is an expected result, since the network with one byzantine node should be less responsive than the normal one.
+	The value for the \texttt{Evil\_2} experiment is due to the fact that all the transactions end after a polling loop of 30 seconds.
+\end{itemize}
+
+
+In the graph shown in Figure \ref{simultaneous_users} we can see the number of simultaneous users connected to the server. The higher the number, the lower the responsiveness of the system to validate transactions. The reader can notice that the line of the \texttt{Evil\_1} setup is on average higher than the one of the \texttt{Normal} case.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{simultaneous_users}
 	\caption{\label{simultaneous_users} Simultaneous connected users}
 \end{figure}
 
-\section{Conclusions}
-In this project I tried to perform a simple DoS attack against the Tendermint protocol. In Section \ref{toverview} I briefly describe the main Tendermint features, while in Section \ref{tcap} I analyzed the Tendermint algorithm froma theoretical point of view, using the CAP Theorem. In the experiment, the byzantine node does not send proposals and votes. As explained in Section \ref{shy}, the purpose is to delay the consensus algorithm. In Section \ref{bench} I showed quantitatively how this type of DoS attack affects the Tendermint/Ethermint network, leveraging Tsung capabilities.
+In Figure \ref{tm_normal}, \ref{tm_evil-1} and \ref{tm_evil-2} you can see, respectively, the Transaction duration over time for experiment \texttt{Normal}, \texttt{Evil\_1} and \texttt{Evil\_2}. In the first case, the duration of Transactions (i.e. the time to wait for validate a transaction) is more stable than the second case.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/graphes-Transactions-mean-normal.png}
+	\caption{\label{tm_normal} Transaction duration over time for experiment \texttt{Normal}}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/graphes-Transactions-mean-evil_1.png}
+	\caption{\label{tm_evil-1} Transaction duration over time for experiment \texttt{Evil\_1}}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/graphes-Transactions-mean-evil_2.png}
+	\caption{\label{tm_evil-2} Transaction duration over time for experiment \texttt{Evil\_2}}
+\end{figure}
 
+
+\section{Conclusions}
+In this project I tried to perform a simple DoS attack against the Tendermint protocol. In Section \ref{toverview} I briefly describe the main Tendermint features, while in Section \ref{tcap} I analyzed the Tendermint algorithm froma theoretical point of view, using the CAP Theorem. In the experiment, the byzantine node does not send proposals and votes. As explained in Section \ref{shy}, the purpose is to delay the consensus algorithm. In Section \ref{bench} I showed quantitatively how this type of DoS attack affects the Tendermint/Ethermint network, leveraging Tsung functionalities.
+In short, The performances of the network with one byzantine are slightly worsen, in particular about what concern the stability and predictability of the system.
 \input{bib.bib}
 	
 

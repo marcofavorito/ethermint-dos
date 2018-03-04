@@ -19,7 +19,7 @@
 \contentsline {subsection}{\numberline {3.1}Tendermint Evil `Silent'}{8}
 \contentsline {subsection}{\numberline {3.2}Tendermint Evil `Shy'}{9}
 \contentsline {subsection}{\numberline {3.3}Tendermint Evil `NoProposals'}{10}
-\contentsline {section}{\numberline {4}Benchmarking}{10}
-\contentsline {subsection}{\numberline {4.1}Setup}{10}
+\contentsline {section}{\numberline {4}Experiments}{10}
+\contentsline {subsection}{\numberline {4.1}Setup}{11}
 \contentsline {subsection}{\numberline {4.2}Results}{11}
-\contentsline {section}{\numberline {5}Conclusions}{11}
+\contentsline {section}{\numberline {5}Conclusions}{12}
